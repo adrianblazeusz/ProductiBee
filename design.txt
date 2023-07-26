@@ -1,0 +1,6 @@
+Title: Saver-your-time
+Description: An application with several functions, blocking the application and websites for a certain period of time 
+             (e.g. it will only be released on Fridays from 16 to 20) or forever. This feature will allow you to send an 
+              email to the selected person with information and a randomly created password to unlock the selection.
+              The second function is the work time widget, after clicking on the widget, it will start the stopwatch for 20 minutes, 
+              after this time, this user can simply unblock or continue to work during this time, any selected application and website will be blocked.
