@@ -2,6 +2,7 @@
   
 import time
 from datetime import datetime
+from urllib.parse import urlparse
 
 end_time = datetime(2023, 7, 26, 12)
 
@@ -12,6 +13,7 @@ redirect = "127.0.0.1"
   
 # websites That you want to block
 sites_to_block = ["www.facebook.com","facebook.com"]
+
 
 def block_sites():
     if datetime.now() < end_time:
@@ -36,6 +38,3 @@ if __name__ == '__main__':
     while True:
         block_sites()
         time.sleep(5)
-            
-
-  
