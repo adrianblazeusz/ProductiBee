@@ -1,66 +1,5 @@
-import sys
-import ctypes
-from time import sleep
-from threading import Thread
-import psutil
 import tkinter as tk
-from datetime import datetime, time
-
-class ProcessKiller:
-    def __init__(self):
-        self.active = False
-        self.processes_to_kill = {"ScreenToGif.exe", "Discord.exe"}
-        self.time_range_start = None
-        self.time_range_end = None
-        self.thread = None
-
-    def start(self):
-        if self.thread is not None and self.thread.is_alive():
-            self.log("Blocking already running")
-            return
-
-        self.active = True
-        self.thread = Thread(target=self.kill_processes)
-        self.thread.start()
-        self.log("Blocking has started")
-
-    def stop(self):
-        self.active = False
-        if self.thread is not None:
-            self.thread.join()
-            self.log("Blocking stopped")
-        else:
-            self.log("The blocker doesn't work")
-
-    def set_inactive_time_range(self, start_hour, start_minute, end_hour, end_minute):
-        self.time_range_start = time(start_hour, start_minute)
-        self.time_range_end = time(end_hour, end_minute)
-
-    def kill_processes(self):
-        while self.active:
-            now = datetime.now().time()
-            if not self.time_range_start <= now <= self.time_range_end:
-                for proc in psutil.process_iter():
-                    try:
-                        if proc.name() in self.processes_to_kill:
-                            proc.kill()
-                            self.log(f"Successfully blocked {proc.name()}")
-                    except psutil.NoSuchProcess:
-                        pass
-            sleep(1)
-
-    def log(self, message):
-        now = datetime.now()
-        timestamp = now.strftime("%Y-%m-%d %H:%M:%S")
-        message = f"[{timestamp}] {message}"
-        print(message)
-        if self.log_var is not None:
-            log_text = self.log_var.get().split('\n')
-            log_text = log_text[-5:]
-            log_text.append(message)
-            self.log_var.set('\n'.join(log_text))
-            with open("process_killer_log.txt", "a") as f:
-                f.write(message + "\n")
+from blocker import ProcessKiller
 
 class App:
     def __init__(self, master):
@@ -136,14 +75,3 @@ class App:
         self.process_killer.stop()
         self.start_button.config(state="normal")
         self.stop_button.config(state="disabled")
-
-# Check if script is running with admin rights
-if not ctypes.windll.shell32.IsUserAnAdmin():
-    print("Script not running with admin rights, relaunching...")
-    ctypes.windll.shell32.ShellExecuteW(None, "runas", sys.executable, " ".join(sys.argv), None, 1)
-    sys.exit()
-
-# Create a Tkinter window and start the UI
-root = tk.Tk()
-app = App(root)
-root.mainloop()
