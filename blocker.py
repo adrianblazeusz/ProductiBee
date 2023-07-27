@@ -9,10 +9,13 @@ from datetime import datetime
 class ProcessKiller:
     def __init__(self):
         self.active = False
-        self.processes_to_kill = {"ScreenToGif.exe", "Discord.exe"}
+        self.processes_to_kill = {"ScreenToGif.exe", "Spotify.exe"}
         self.time_range_start = None
         self.time_range_end = None
         self.thread = None
+        self.hosts_path = r"C:\Windows\System32\drivers\etc\hosts"
+        self.redirect = "127.0.0.1"
+        self.sites_to_block = {"www.facebook.com","facebook.com"}
 
     def start(self):
         if self.thread is not None and self.thread.is_alive():
@@ -39,6 +42,24 @@ class ProcessKiller:
         self.time_range_start = time(start_hour, start_minute)
         self.time_range_end = time(end_hour, end_minute)
 
+    def block_sites(self):
+        now = datetime.now().time()
+        if not self.time_range_start <= now <= self.time_range_end:
+            with open(self.hosts_path, 'r+') as hostfile:
+                host_content = hostfile.read()
+                for site in self.sites_to_block:
+                    if site not in host_content:
+                        hostfile.write(self.redirect + " " + site + "\n")
+
+        else:
+            with open(self.hosts_path, 'r+') as hostfile:
+                lines = hostfile.readlines()
+                hostfile.seek(0)
+                for line in lines:
+                    if not any(site in line for site in self.sites_to_block):
+                        hostfile.write(line)
+                hostfile.truncate()
+
     def kill_processes(self):
         while self.active:
             now = datetime.now().time()
@@ -50,6 +71,9 @@ class ProcessKiller:
                             self.log(f"Successfully blocked {proc.name()}")
                     except psutil.NoSuchProcess:
                         pass
+
+            self.block_sites()
+                
             sleep(1)
 
     def log(self, message):
@@ -64,34 +88,3 @@ class ProcessKiller:
             self.log_var.set('\n'.join(log_text))
             with open("process_killer_log.txt", "a") as f:
                 f.write(message + "\n")
-
-
-class Site_blocker:
-
-    def __init__(self):
-        self.time_range_start = None
-        self.time_range_end = None
-        self.hosts_path = r"C:\Windows\System32\drivers\etc\hosts"
-        self.redirect = "127.0.0.1"
-        self.sites_to_block = {"www.facebook.com","facebook.com"}
-
-    def block_sites(self):
-        now = datetime.now().time()
-        if not self.time_range_start <= now <= self.time_range_end:
-            print("block sites")
-            with open(self.hosts_path, 'r+') as hostfile:
-                host_content = hostfile.read()
-                for site in self.sites_to_block:
-                    if site not in host_content:
-                        hostfile.write(self.redirect + " " + site + "\n")
-
-        else:
-            print("unblock sites")
-            with open(self.hosts_path, 'r+') as hostfile:
-                lines = hostfile.readlines()
-                hostfile.seek(0)
-                for line in lines:
-                    if not any(site in line for site in self.sites_to_block):
-                        hostfile.write(line)
-                hostfile.truncate()
-
