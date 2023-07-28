@@ -16,6 +16,7 @@ class App(customtkinter.CTk):
         self.grid_rowconfigure(0, weight=1)
         self.grid_columnconfigure(1, weight=1)
 
+
        
         # create navigation frame
         self.navigation_frame = customtkinter.CTkFrame(self, corner_radius=0)
@@ -62,7 +63,7 @@ class App(customtkinter.CTk):
        
         
 
-        # create second frame
+        # create work frame
         self.work_frame = customtkinter.CTkFrame(self, corner_radius=0, fg_color="transparent")
         self.work_frame.grid_columnconfigure(0, weight=1)
 
@@ -71,12 +72,23 @@ class App(customtkinter.CTk):
 
 
 
-        # create third frame
+       # create blocker frame
         self.blocker_frame = customtkinter.CTkFrame(self, corner_radius=0, fg_color="transparent")
         self.blocker_frame.grid_columnconfigure(0, weight=1)
 
-        self.home_frame_button_3 = customtkinter.CTkButton(self.blocker_frame, text="Blocker", compound="top")
-        self.home_frame_button_3.grid(row=3, column=0, padx=20, pady=10)
+        self.optionmenu_h = customtkinter.CTkOptionMenu(self.blocker_frame, dynamic_resizing=False,
+                                                    width=60, height=28,
+                                                    values=["1", "2", "3", "4", "5", "6", "7", "8", "9",
+                                                            "10", "11", "12", "13", "14", "15", "16",
+                                                            "17", "18", "19", "20", "21", "22", "23", "24"])
+        self.optionmenu_h.grid(row=1, column=0, padx=10, pady=(10, 10))  # Changed row to 1
+
+        self.optionmenu_min = customtkinter.CTkOptionMenu(self.blocker_frame, dynamic_resizing=False,
+                                                        width=60, height=28,
+                                                        values=["5", "10", "15", "20", "25", "30", "35", "40",
+                                                                "45", "50", "55"])
+        self.optionmenu_min.grid(row=1, column=1, padx=10, pady=(10, 10))  # Changed row to 1
+
 
 
 
