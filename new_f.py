@@ -29,22 +29,22 @@ class App(customtkinter.CTk):
         self.navigation_frame_label.grid(row=0, column=0, padx=20, pady=20)
 
         # create home button 
-        self.home_button = customtkinter.CTkButton(self.navigation_frame, corner_radius=0, height=40, border_spacing=10, text="Home",
+        self.home_button_frame = customtkinter.CTkButton(self.navigation_frame, corner_radius=0, height=40, border_spacing=10, text="Home",
                                                    fg_color="transparent", text_color=("gray10", "gray90"), hover_color=("gray70", "gray30"),
                                                    anchor="w", command=self.frame_home_button_event)
-        self.home_button.grid(row=1, column=0, sticky="ew")
+        self.home_button_frame.grid(row=1, column=0, sticky="ew")
 
         # create work mode button
-        self.work_button = customtkinter.CTkButton(self.navigation_frame, corner_radius=0, height=40, border_spacing=10, text="Work Mode",
+        self.work_button_frame = customtkinter.CTkButton(self.navigation_frame, corner_radius=0, height=40, border_spacing=10, text="Work Mode",
                                                       fg_color="transparent", text_color=("gray10", "gray90"), hover_color=("gray70", "gray30"),
                                                       anchor="w", command=self.frame_work_button_event)
-        self.work_button.grid(row=2, column=0, sticky="ew")
+        self.work_button_frame.grid(row=2, column=0, sticky="ew")
 
         # create blocker button
-        self.blocker_button = customtkinter.CTkButton(self.navigation_frame, corner_radius=0, height=40, border_spacing=10, text="Blocker",
+        self.blocker_button_frame = customtkinter.CTkButton(self.navigation_frame, corner_radius=0, height=40, border_spacing=10, text="Blocker",
                                                       fg_color="transparent", text_color=("gray10", "gray90"), hover_color=("gray70", "gray30"),
                                                       anchor="w", command=self.frame_blocker_button_event)
-        self.blocker_button.grid(row=3, column=0, sticky="ew")
+        self.blocker_button_frame.grid(row=3, column=0, sticky="ew")
 
         # create appearance mode menu
         self.appearance_mode_menu = customtkinter.CTkOptionMenu(self.navigation_frame, values=["Dark", "Light",  "System"],
@@ -76,18 +76,62 @@ class App(customtkinter.CTk):
         self.blocker_frame = customtkinter.CTkFrame(self, corner_radius=0, fg_color="transparent")
         self.blocker_frame.grid_columnconfigure(0, weight=1)
 
-        self.optionmenu_h = customtkinter.CTkOptionMenu(self.blocker_frame, dynamic_resizing=False,
+        # create tabview
+        self.tabview = customtkinter.CTkTabview(self.blocker_frame, width=250, height=150)
+        self.tabview.grid(row=0, column=0, columnspan=3, sticky="ew")
+        self.tabview.add("Blocker")
+        self.tabview.tab("Blocker").grid_columnconfigure(1, weight=1)
+        self.tabview.add("From to Time")
+        self.tabview.tab("From to Time").grid_columnconfigure(2, weight=1) 
+
+        ## Blocker
+        # Entry App
+        self.entry = customtkinter.CTkEntry(self.tabview.tab("Blocker"), placeholder_text="Discord.exe,Steam.exe ...")
+        self.entry.grid(row=1, column=0, columnspan=2, padx=(10, 10), pady=(20, 10), sticky="new")
+
+        #Blocker button 
+        self.unblocker_button= customtkinter.CTkButton(self.tabview.tab("Blocker"),text="Unblock",
+                                                            command=self.enter_time_button_1_event)
+        self.unblocker_button.grid(row=2, column=0, columnspan=4, padx=(110, 20), pady=(20, 20), sticky="se") 
+
+        self.block_button= customtkinter.CTkButton(self.tabview.tab("Blocker"),text="Block",
+                                                            command=self.block_button_func)
+        self.block_button.grid(row=2, column=1, columnspan=4, padx=(10, 20), pady=(20, 20), sticky="sw") 
+
+
+        ## From to Time
+        # Start unlock time
+        self.optionmenu_h_1 = customtkinter.CTkOptionMenu(self.tabview.tab("From to Time"), dynamic_resizing=False,
                                                     width=60, height=28,
                                                     values=["1", "2", "3", "4", "5", "6", "7", "8", "9",
                                                             "10", "11", "12", "13", "14", "15", "16",
                                                             "17", "18", "19", "20", "21", "22", "23", "24"])
-        self.optionmenu_h.grid(row=1, column=0, padx=10, pady=(10, 10))  # Changed row to 1
+        self.optionmenu_h_1.grid(row=0, column=0,padx=(10,0) ,pady=10) 
 
-        self.optionmenu_min = customtkinter.CTkOptionMenu(self.blocker_frame, dynamic_resizing=False,
+        self.optionmenu_min_1 = customtkinter.CTkOptionMenu(self.tabview.tab("From to Time"), dynamic_resizing=False,
                                                         width=60, height=28,
-                                                        values=["5", "10", "15", "20", "25", "30", "35", "40",
+                                                        values=["00","05", "10", "15", "20", "25", "30", "35", "40",
                                                                 "45", "50", "55"])
-        self.optionmenu_min.grid(row=1, column=1, padx=10, pady=(10, 10))  # Changed row to 1
+        self.optionmenu_min_1.grid(row=0, column=1,padx=10, pady=10)  
+
+        # End unlock time
+        self.optionmenu_h_2 = customtkinter.CTkOptionMenu(self.tabview.tab("From to Time"), dynamic_resizing=False,
+                                                    width=60, height=28,
+                                                    values=["1", "2", "3", "4", "5", "6", "7", "8", "9",
+                                                            "10", "11", "12", "13", "14", "15", "16","17",
+                                                            "18", "19", "20", "21", "22", "23", "24"])
+        self.optionmenu_h_2.grid(row=0, column=3, pady=10)  
+
+        self.optionmenu_min_2 = customtkinter.CTkOptionMenu(self.tabview.tab("From to Time"), dynamic_resizing=False,
+                                                        width=60, height=28,
+                                                        values=["00","05", "10", "15", "20", "25", "30",
+                                                                 "35", "40", "45", "50", "55"])
+        self.optionmenu_min_2.grid(row=0, column=4,padx=10 ,pady=10)  
+
+     
+        self.enter_time_button_1 = customtkinter.CTkButton(self.tabview.tab("From to Time"),text="Approve the timeframe",
+                                                            command=self.enter_time_button_1_event)
+        self.enter_time_button_1.grid(row=1, column=0, columnspan=4, padx=(110, 20), pady=(10, 20), sticky="s")  
 
 
 
@@ -121,6 +165,13 @@ class App(customtkinter.CTk):
     def change_appearance_mode_event(self, new_appearance_mode):
         customtkinter.set_appearance_mode(new_appearance_mode)
 
+
+    def block_button_func(self):
+        tkinter.messagebox.showinfo("Blocker", "Blocker Activated")
+
+
+    def enter_time_button_1_event(self):
+        tkinter.messagebox.showinfo("Enter Time", "Time Entered")
 
 if __name__ == "__main__":
     app = App()
