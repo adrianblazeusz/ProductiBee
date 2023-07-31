@@ -81,58 +81,30 @@ class App(customtkinter.CTk):
         self.tabview.grid(row=0, column=0, columnspan=3, sticky="ew")
         self.tabview.add("Blocker")
         self.tabview.tab("Blocker").grid_columnconfigure(1, weight=1)
-        self.tabview.add("From to Time")
-        self.tabview.tab("From to Time").grid_columnconfigure(2, weight=1) 
 
         ## Blocker
         # Entry App
-        self.entry = customtkinter.CTkEntry(self.tabview.tab("Blocker"), placeholder_text="Discord.exe,Steam.exe ...")
-        self.entry.grid(row=1, column=0, columnspan=2, padx=(10, 10), pady=(20, 10), sticky="new")
+        self.entry_exe = customtkinter.CTkEntry(self.tabview.tab("Blocker"), placeholder_text="Discord.exe,Steam.exe ...", width=325)
+        self.entry_exe.grid(row=1, column=0, columnspan=2, padx=(10, 10), pady=(20, 10), sticky="nw")
+
+        self.entry_exe_button = customtkinter.CTkButton(master=self.tabview.tab("Blocker"), text="Enter", fg_color="transparent", border_width=2, text_color=("gray10", "#DCE4EE"))
+        self.entry_exe_button.grid(row=1, column=1,columnspan=2, padx=(10, 20), pady=(20, 10), sticky="e")
+
+        # Entry Web
+        self.entry_web = customtkinter.CTkEntry(self.tabview.tab("Blocker"), placeholder_text="www.youtube.com, www.facebook.com ...", width=325)
+        self.entry_web.grid(row=2, column=0, columnspan=2, padx=(10, 10), pady=(20, 10), sticky="nw")
+
+        self.web_entry_button = customtkinter.CTkButton(master=self.tabview.tab("Blocker"), text="Enter", fg_color="transparent", border_width=2, text_color=("gray10", "#DCE4EE"))
+        self.web_entry_button.grid(row=2, column=1,columnspan=2, padx=(10, 20), pady=(20, 10), sticky="e")
 
         #Blocker button 
         self.unblocker_button= customtkinter.CTkButton(self.tabview.tab("Blocker"),text="Unblock",
                                                             command=self.enter_time_button_1_event)
-        self.unblocker_button.grid(row=2, column=0, columnspan=4, padx=(110, 20), pady=(20, 20), sticky="se") 
+        self.unblocker_button.grid(row=3, column=0, columnspan=4, padx=(110, 20), pady=(20, 20), sticky="se") 
 
         self.block_button= customtkinter.CTkButton(self.tabview.tab("Blocker"),text="Block",
                                                             command=self.block_button_func)
-        self.block_button.grid(row=2, column=1, columnspan=4, padx=(10, 20), pady=(20, 20), sticky="sw") 
-
-
-        ## From to Time
-        # Start unlock time
-        self.optionmenu_h_1 = customtkinter.CTkOptionMenu(self.tabview.tab("From to Time"), dynamic_resizing=False,
-                                                    width=60, height=28,
-                                                    values=["1", "2", "3", "4", "5", "6", "7", "8", "9",
-                                                            "10", "11", "12", "13", "14", "15", "16",
-                                                            "17", "18", "19", "20", "21", "22", "23", "24"])
-        self.optionmenu_h_1.grid(row=0, column=0,padx=(10,0) ,pady=10) 
-
-        self.optionmenu_min_1 = customtkinter.CTkOptionMenu(self.tabview.tab("From to Time"), dynamic_resizing=False,
-                                                        width=60, height=28,
-                                                        values=["00","05", "10", "15", "20", "25", "30", "35", "40",
-                                                                "45", "50", "55"])
-        self.optionmenu_min_1.grid(row=0, column=1,padx=10, pady=10)  
-
-        # End unlock time
-        self.optionmenu_h_2 = customtkinter.CTkOptionMenu(self.tabview.tab("From to Time"), dynamic_resizing=False,
-                                                    width=60, height=28,
-                                                    values=["1", "2", "3", "4", "5", "6", "7", "8", "9",
-                                                            "10", "11", "12", "13", "14", "15", "16","17",
-                                                            "18", "19", "20", "21", "22", "23", "24"])
-        self.optionmenu_h_2.grid(row=0, column=3, pady=10)  
-
-        self.optionmenu_min_2 = customtkinter.CTkOptionMenu(self.tabview.tab("From to Time"), dynamic_resizing=False,
-                                                        width=60, height=28,
-                                                        values=["00","05", "10", "15", "20", "25", "30",
-                                                                 "35", "40", "45", "50", "55"])
-        self.optionmenu_min_2.grid(row=0, column=4,padx=10 ,pady=10)  
-
-     
-        self.enter_time_button_1 = customtkinter.CTkButton(self.tabview.tab("From to Time"),text="Approve the timeframe",
-                                                            command=self.enter_time_button_1_event)
-        self.enter_time_button_1.grid(row=1, column=0, columnspan=4, padx=(110, 20), pady=(10, 20), sticky="s")  
-
+        self.block_button.grid(row=3, column=1, columnspan=4, padx=(10, 20), pady=(20, 20), sticky="sw") 
 
 
 
