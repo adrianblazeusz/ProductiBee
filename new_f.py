@@ -1,6 +1,7 @@
 import tkinter
 import tkinter.messagebox
 import customtkinter
+from blocker import ProcessKiller
 
 customtkinter.set_appearance_mode("System")  # Modes: "System" (standard), "Dark", "Light"
 customtkinter.set_default_color_theme("dark-blue")  # Themes: "blue" (standard), "green", "dark-blue"
@@ -98,18 +99,31 @@ class App(customtkinter.CTk):
         self.web_entry_button.grid(row=2, column=1,columnspan=2, padx=(10, 20), pady=(20, 10), sticky="e")
 
         #Blocker button 
-        self.unblocker_button= customtkinter.CTkButton(self.tabview.tab("Blocker"),text="Unblock",
-                                                            command=self.enter_time_button_1_event)
-        self.unblocker_button.grid(row=3, column=0, columnspan=4, padx=(110, 20), pady=(20, 20), sticky="se") 
-
         self.block_button= customtkinter.CTkButton(self.tabview.tab("Blocker"),text="Block",
-                                                            command=self.block_button_func)
+                                                            command=self.start_process_killer)
         self.block_button.grid(row=3, column=1, columnspan=4, padx=(10, 20), pady=(20, 20), sticky="sw") 
 
+        #Unblocker button
+        self.unblocker_button= customtkinter.CTkButton(self.tabview.tab("Blocker"),text="Unblock",
+                                                            command=self.stop_process_killer)
+        self.unblocker_button.grid(row=3, column=0, columnspan=4, padx=(110, 20), pady=(20, 20), sticky="se") 
 
 
-        # select default frame
-        self.select_frame_by_name("home")
+    def start_process_killer(self):
+
+        processes = self.entry_exe.get()  
+        processes_list = [process.strip() for process in processes.split(",")]
+        self.process_killer = ProcessKiller()
+        self.process_killer.set_blocked_processes(processes_list)
+        self.process_killer.start()
+        self.block_button.configure(state="disabled")
+        self.unblocker_button.configure(state="normal")
+
+    def stop_process_killer(self):
+        self.process_killer.stop()
+        self.block_button.configure(state="normal")
+        self.unblocker_button.configure(state="disabled")
+
 
     def select_frame_by_name(self, name):
         # Hide all frames first using grid_remove() instead of grid_forget()
@@ -137,14 +151,5 @@ class App(customtkinter.CTk):
     def change_appearance_mode_event(self, new_appearance_mode):
         customtkinter.set_appearance_mode(new_appearance_mode)
 
-
-    def block_button_func(self):
-        tkinter.messagebox.showinfo("Blocker", "Blocker Activated")
-
-
-    def enter_time_button_1_event(self):
-        tkinter.messagebox.showinfo("Enter Time", "Time Entered")
-
-if __name__ == "__main__":
-    app = App()
-    app.mainloop()
+        # select default frame
+        self.select_frame_by_name("home")

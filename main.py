@@ -1,11 +1,8 @@
 import sys
 import ctypes
 import tkinter.messagebox as messagebox
-from frontend import App
+from new_f import App 
 from blocker import ProcessKiller
-import tkinter as tk
-
-
 
 # Check if script is running with admin rights
 if not ctypes.windll.shell32.IsUserAnAdmin():
@@ -15,6 +12,5 @@ if not ctypes.windll.shell32.IsUserAnAdmin():
 
 # Create a Tkinter window and start the UI
 if __name__ == "__main__":
-    root = tk.Tk()
-    app = App(root)
-    root.mainloop()
+    app = App()  
+    app.mainloop()
