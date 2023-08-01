@@ -17,8 +17,15 @@ class App(customtkinter.CTk):
         self.grid_rowconfigure(0, weight=1)
         self.grid_columnconfigure(1, weight=1)
 
+        self.create_navigation_frame()
+        self.create_home_frame()
+        self.create_work_frame()
+        self.create_blocker_frame()
 
-       
+        # Select default frame
+        self.select_frame_by_name("home")
+
+    def create_navigation_frame(self):
         # create navigation frame
         self.navigation_frame = customtkinter.CTkFrame(self, corner_radius=0)
         self.navigation_frame.grid(row=0, column=0, sticky="nsew")
@@ -29,7 +36,7 @@ class App(customtkinter.CTk):
                                                              compound="left", font=customtkinter.CTkFont(size=15, weight="bold"))
         self.navigation_frame_label.grid(row=0, column=0, padx=20, pady=20)
 
-        # create home button 
+        # create home button
         self.home_button_frame = customtkinter.CTkButton(self.navigation_frame, corner_radius=0, height=40, border_spacing=10, text="Home",
                                                    fg_color="transparent", text_color=("gray10", "gray90"), hover_color=("gray70", "gray30"),
                                                    anchor="w", command=self.frame_home_button_event)
@@ -52,7 +59,7 @@ class App(customtkinter.CTk):
                                                                 command=self.change_appearance_mode_event)
         self.appearance_mode_menu.grid(row=6, column=0, padx=20, pady=20, sticky="s")
 
-        # create home frame
+    def create_home_frame(self):
         self.home_frame = customtkinter.CTkFrame(self, corner_radius=0, fg_color="transparent")
         self.home_frame.grid_columnconfigure(0, weight=1)
 
@@ -61,47 +68,37 @@ class App(customtkinter.CTk):
 
         self.home_frame_button_1 = customtkinter.CTkButton(self.home_frame, text="HI")
         self.home_frame_button_1.grid(row=1, column=0, padx=20, pady=10)
-       
-        
 
-        # create work frame
+    def create_work_frame(self):
         self.work_frame = customtkinter.CTkFrame(self, corner_radius=0, fg_color="transparent")
         self.work_frame.grid_columnconfigure(0, weight=1)
 
         self.home_frame_button_2 = customtkinter.CTkButton(self.work_frame, text="Work", compound="right")
         self.home_frame_button_2.grid(row=2, column=0, padx=20, pady=10)
 
-
-
-       # create blocker frame
+    def create_blocker_frame(self):
         self.blocker_frame = customtkinter.CTkFrame(self, corner_radius=0, fg_color="transparent")
         self.blocker_frame.grid_columnconfigure(0, weight=1)
 
-        # create tabview
         self.tabview = customtkinter.CTkTabview(self.blocker_frame, width=250, height=150)
         self.tabview.grid(row=0, column=0, columnspan=3, sticky="ew")
         self.tabview.add("Blocker")
         self.tabview.tab("Blocker").grid_columnconfigure(1, weight=1)
 
-        ## Blocker
         # Entry App
         self.entry_exe = customtkinter.CTkEntry(self.tabview.tab("Blocker"), placeholder_text="Discord,Steam ...", width=325)
         self.entry_exe.grid(row=1, column=0, columnspan=2, padx=(10, 10), pady=(20, 10), sticky="nw")
 
-        # Entry Web
-        self.entry_web = customtkinter.CTkEntry(self.tabview.tab("Blocker"), placeholder_text="www.youtube.com, www.facebook.com ...", width=325)
-        self.entry_web.grid(row=2, column=0, columnspan=2, padx=(10, 10), pady=(20, 10), sticky="nw")
-
-
-        #Blocker button 
-        self.block_button= customtkinter.CTkButton(self.tabview.tab("Blocker"),text="Block",
+        # Blocker button
+        self.block_button = customtkinter.CTkButton(self.tabview.tab("Blocker"), text="Block",
                                                             command=self.start_process_killer)
-        self.block_button.grid(row=3, column=1, columnspan=4, padx=(10, 20), pady=(20, 20), sticky="sw") 
+        self.block_button.grid(row=3, column=1, columnspan=4, padx=(10, 20), pady=(20, 20), sticky="sw")
 
-        #Unblocker button
-        self.unblocker_button= customtkinter.CTkButton(self.tabview.tab("Blocker"),text="Unblock",
+        # Unblocker button
+        self.unblocker_button = customtkinter.CTkButton(self.tabview.tab("Blocker"), text="Unblock",
                                                             command=self.stop_process_killer)
-        self.unblocker_button.grid(row=3, column=0, columnspan=4, padx=(110, 20), pady=(20, 20), sticky="se") 
+        self.unblocker_button.grid(row=3, column=0, columnspan=4, padx=(110, 20), pady=(20, 20), sticky="se")
+
 
     def prepare_processes_list(self, processes_input):
         processes_list = [process.strip() for process in processes_input.split(",")]
@@ -128,7 +125,6 @@ class App(customtkinter.CTk):
 
 
     def select_frame_by_name(self, name):
-        # Hide all frames first using grid_remove() instead of grid_forget()
         self.home_frame.grid_remove()
         self.work_frame.grid_remove()
         self.blocker_frame.grid_remove()
