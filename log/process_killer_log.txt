@@ -58,3 +58,5 @@
 [2023-08-01 16:07:06] Blocking stopped
 [2023-08-01 16:07:07] Successfully blocked Discord.exe
 [2023-08-01 16:07:10] Successfully blocked Discord.exe
+[2023-08-01 16:08:46] Successfully blocked Discord.exe
+[2023-08-01 16:14:15] Successfully blocked Discord.exe

@@ -99,6 +99,11 @@ class App(customtkinter.CTk):
         self.entry_exe = customtkinter.CTkEntry(self.tabview.tab("Blocker"), placeholder_text="Discord,Steam ...", width=325)
         self.entry_exe.grid(row=1, column=0, columnspan=2, padx=(10, 10), pady=(20, 10), sticky="nw")
 
+        self.confirm_button = customtkinter.CTkButton(self.tabview.tab("Blocker"), text="Confirm",
+                                              command=self.confirm_processes)
+        self.confirm_button.grid(row=1, column=1, columnspan=2, padx=(10, 20), pady=(20, 20), sticky="se")
+        
+        
         # Blocker button
         self.block_button = customtkinter.CTkButton(self.tabview.tab("Blocker"), text="Block",
                                                             command=self.start_process_killer)
@@ -109,6 +114,11 @@ class App(customtkinter.CTk):
                                                             command=self.stop_process_killer)
         self.unblocker_button.grid(row=3, column=0, columnspan=4, padx=(110, 20), pady=(20, 20), sticky="se")
 
+    def confirm_processes(self):
+        processes_input = self.entry_exe.get()
+        processes_list = self.prepare_processes_list(processes_input)
+        self.process_killer.set_blocked_processes(processes_list)
+        self.process_killer.save_state()
 
     def prepare_processes_list(self, processes_input):
         processes_list = [process.strip() for process in processes_input.split(",")]
