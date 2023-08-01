@@ -121,13 +121,10 @@ class App(customtkinter.CTk):
         self.process_killer.save_state()
 
     def prepare_processes_list(self, processes_input):
-        processes_list = [process.strip() for process in processes_input.split(",")]
+        processes_list = [process.strip() for process in processes_input.split(",") if process.strip()]
 
-        # If the user didn't add the .exe extension, add it
-        processes_list = [process + ".exe" if not process.lower().endswith(".exe") else process for process in processes_list]
-
-        # Remove empty elements from the list
-        processes_list = [process for process in processes_list if process]
+        # Remove any existing .exe extension from the application names
+        processes_list = [process[:-4] if process.lower().endswith(".exe") else process for process in processes_list]
 
         return processes_list
 

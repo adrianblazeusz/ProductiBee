@@ -1,3 +1,70 @@
 [2023-08-01 16:40:47] Blocking has started
 [2023-08-01 16:40:47] Successfully blocked ScreenToGif.exe
 [2023-08-01 16:40:51] Blocking stopped
+[2023-08-01 20:58:25] Successfully blocked ScreenToGif.exe
+[2023-08-01 20:58:27] Blocking stopped
+[2023-08-01 20:58:44] Blocking has started
+[2023-08-01 20:58:44] Successfully blocked Discord.exe
+[2023-08-01 20:58:44] Successfully blocked Discord.exe
+[2023-08-01 20:58:44] Successfully blocked Discord.exe
+[2023-08-01 20:58:44] Successfully blocked Discord.exe
+[2023-08-01 20:58:44] Successfully blocked Discord.exe
+[2023-08-01 20:58:44] Successfully blocked Discord.exe
+[2023-08-01 20:58:47] Successfully blocked Discord.exe
+[2023-08-01 20:58:47] Successfully blocked Discord.exe
+[2023-08-01 20:58:48] Successfully blocked ScreenToGif.exe
+[2023-08-01 20:58:53] Blocking stopped
+[2023-08-01 21:02:00] Blocking has started
+[2023-08-01 21:02:24] Blocking stopped
+[2023-08-01 21:02:26] Blocking has started
+[2023-08-01 21:04:06] The blocker isn't running
+[2023-08-01 21:04:16] Successfully blocked Discord.exe
+[2023-08-01 21:04:16] Successfully blocked Discord.exe
+[2023-08-01 21:04:16] Successfully blocked Discord.exe
+[2023-08-01 21:04:16] Successfully blocked Discord.exe
+[2023-08-01 21:04:16] Successfully blocked Discord.exe
+[2023-08-01 21:04:16] Successfully blocked Discord.exe
+[2023-08-01 21:04:20] Successfully blocked ScreenToGif.exe
+[2023-08-01 21:04:21] Blocking stopped
+[2023-08-01 21:05:56] Blocking has started
+[2023-08-01 21:05:56] Successfully blocked Discord.exe
+[2023-08-01 21:05:56] Successfully blocked Discord.exe
+[2023-08-01 21:05:56] Successfully blocked Discord.exe
+[2023-08-01 21:05:56] Successfully blocked ScreenToGif.exe
+[2023-08-01 21:05:56] Successfully blocked Discord.exe
+[2023-08-01 21:05:56] Successfully blocked Discord.exe
+[2023-08-01 21:05:56] Successfully blocked Discord.exe
+[2023-08-01 21:05:56] Successfully blocked Discord.exe
+[2023-08-01 21:05:59] Successfully blocked Discord.exe
+[2023-08-01 21:05:59] Successfully blocked Discord.exe
+[2023-08-01 21:05:59] Successfully blocked Discord.exe
+[2023-08-01 21:05:59] Successfully blocked Discord.exe
+[2023-08-01 21:05:59] Successfully blocked Discord.exe
+[2023-08-01 21:06:00] Successfully blocked ScreenToGif.exe
+[2023-08-01 21:06:05] Successfully blocked Discord.exe
+[2023-08-01 21:06:06] Successfully blocked ScreenToGif.exe
+[2023-08-01 21:06:20] Successfully blocked Discord.exe
+[2023-08-01 21:06:20] Successfully blocked Discord.exe
+[2023-08-01 21:06:20] Successfully blocked Discord.exe
+[2023-08-01 21:06:20] Successfully blocked Discord.exe
+[2023-08-01 21:06:20] Successfully blocked Discord.exe
+[2023-08-01 21:06:23] The blocker isn't running
+[2023-08-01 21:06:28] Successfully blocked Discord.exe
+[2023-08-01 21:06:28] Successfully blocked Discord.exe
+[2023-08-01 21:06:28] Successfully blocked Discord.exe
+[2023-08-01 21:06:28] Successfully blocked Discord.exe
+[2023-08-01 21:06:28] Successfully blocked Discord.exe
+[2023-08-01 21:06:30] Successfully blocked ScreenToGif.exe
+[2023-08-01 21:06:32] Successfully blocked Discord.exe
+[2023-08-01 21:06:32] Successfully blocked Discord.exe
+[2023-08-01 21:06:37] Successfully blocked ScreenToGif.exe
+[2023-08-01 21:06:39] Successfully blocked Discord.exe
+[2023-08-01 21:06:53] Successfully blocked ScreenToGif.exe
+[2023-08-01 21:09:10] Blocking has started
+iscord.exe
+[2023-08-01 21:09:10] Successfully blocked Discord.exe
+[2023-08-01 21:09:10] Successfully blocked Discord.exe
+[2023-08-01 21:09:10] Successfully blocked Discord.exe
+[2023-08-01 21:09:10] Successfully blocked Discord.exe
+[2023-08-01 21:09:10] Successfully blocked Discord.exe
+[2023-08-01 21:09:37] Blocking stopped
