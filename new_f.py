@@ -85,18 +85,13 @@ class App(customtkinter.CTk):
 
         ## Blocker
         # Entry App
-        self.entry_exe = customtkinter.CTkEntry(self.tabview.tab("Blocker"), placeholder_text="Discord.exe,Steam.exe ...", width=325)
+        self.entry_exe = customtkinter.CTkEntry(self.tabview.tab("Blocker"), placeholder_text="Discord,Steam ...", width=325)
         self.entry_exe.grid(row=1, column=0, columnspan=2, padx=(10, 10), pady=(20, 10), sticky="nw")
-
-        self.entry_exe_button = customtkinter.CTkButton(master=self.tabview.tab("Blocker"), text="Enter", fg_color="transparent", border_width=2, text_color=("gray10", "#DCE4EE"))
-        self.entry_exe_button.grid(row=1, column=1,columnspan=2, padx=(10, 20), pady=(20, 10), sticky="e")
 
         # Entry Web
         self.entry_web = customtkinter.CTkEntry(self.tabview.tab("Blocker"), placeholder_text="www.youtube.com, www.facebook.com ...", width=325)
         self.entry_web.grid(row=2, column=0, columnspan=2, padx=(10, 10), pady=(20, 10), sticky="nw")
 
-        self.web_entry_button = customtkinter.CTkButton(master=self.tabview.tab("Blocker"), text="Enter", fg_color="transparent", border_width=2, text_color=("gray10", "#DCE4EE"))
-        self.web_entry_button.grid(row=2, column=1,columnspan=2, padx=(10, 20), pady=(20, 10), sticky="e")
 
         #Blocker button 
         self.block_button= customtkinter.CTkButton(self.tabview.tab("Blocker"),text="Block",
@@ -108,11 +103,18 @@ class App(customtkinter.CTk):
                                                             command=self.stop_process_killer)
         self.unblocker_button.grid(row=3, column=0, columnspan=4, padx=(110, 20), pady=(20, 20), sticky="se") 
 
+    def prepare_processes_list(self, processes_input):
+        processes_list = [process.strip() for process in processes_input.split(",")]
+
+        # If the user didn't add the .exe extension, add it
+        processes_list = [process + ".exe" if not process.lower().endswith(".exe") else process for process in processes_list]
+
+        return processes_list
 
     def start_process_killer(self):
+        processes_input = self.entry_exe.get()
+        processes_list = self.prepare_processes_list(processes_input)
 
-        processes = self.entry_exe.get()  
-        processes_list = [process.strip() for process in processes.split(",")]
         self.process_killer = ProcessKiller()
         self.process_killer.set_blocked_processes(processes_list)
         self.process_killer.start()
