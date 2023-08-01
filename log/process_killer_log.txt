@@ -1,0 +1,3 @@
+[2023-08-01 15:21:12] Successfully blocked Discord.exe
+[2023-08-01 15:21:50] Successfully blocked Discord.exe
+[2023-08-01 15:21:50] Successfully blocked Discord.exe

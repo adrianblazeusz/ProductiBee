@@ -25,6 +25,16 @@ class App(customtkinter.CTk):
         # Select default frame
         self.select_frame_by_name("home")
 
+        # Load ProcessKiller state (if it exists)
+        self.process_killer = ProcessKiller()
+        self.process_killer.load_state()
+
+        # If ProcessKiller is active, disable the "Block" button and enable the "Unblock" button
+        if self.process_killer.active:
+            self.block_button.configure(state="disabled")
+            self.unblocker_button.configure(state="normal")
+
+
     def create_navigation_frame(self):
         # create navigation frame
         self.navigation_frame = customtkinter.CTkFrame(self, corner_radius=0)
@@ -112,14 +122,17 @@ class App(customtkinter.CTk):
         processes_input = self.entry_exe.get()
         processes_list = self.prepare_processes_list(processes_input)
 
-        self.process_killer = ProcessKiller()
         self.process_killer.set_blocked_processes(processes_list)
         self.process_killer.start()
+        self.process_killer.save_state()  # Zapisujemy stan tylko jeśli blokada została uruchomiona
+
         self.block_button.configure(state="disabled")
         self.unblocker_button.configure(state="normal")
 
     def stop_process_killer(self):
         self.process_killer.stop()
+        self.process_killer.save_state()
+
         self.block_button.configure(state="normal")
         self.unblocker_button.configure(state="disabled")
 
