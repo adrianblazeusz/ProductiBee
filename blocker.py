@@ -31,8 +31,11 @@ class ProcessKiller:
         else:
             self.log("The blocker isn't running")
 
-    def set_blocked_processes(self, processes):
-        self.processes_to_kill = set(processes)
+    def set_blocked_processes(self, processes, add_new=True):
+        if add_new:
+            self.processes_to_kill.update(processes)  
+        else:
+            self.processes_to_kill = set(processes)
 
     def kill_processes(self):
         while self.active:

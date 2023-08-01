@@ -117,7 +117,7 @@ class App(customtkinter.CTk):
     def confirm_processes(self):
         processes_input = self.entry_exe.get()
         processes_list = self.prepare_processes_list(processes_input)
-        self.process_killer.set_blocked_processes(processes_list)
+        self.process_killer.set_blocked_processes(processes_list, add_new=True)
         self.process_killer.save_state()
 
     def prepare_processes_list(self, processes_input):
