@@ -116,6 +116,9 @@ class App(customtkinter.CTk):
         # If the user didn't add the .exe extension, add it
         processes_list = [process + ".exe" if not process.lower().endswith(".exe") else process for process in processes_list]
 
+        # Remove empty elements from the list
+        processes_list = [process for process in processes_list if process]
+
         return processes_list
 
     def start_process_killer(self):
@@ -131,6 +134,7 @@ class App(customtkinter.CTk):
 
     def stop_process_killer(self):
         self.process_killer.stop()
+        self.process_killer.active = False  # Ustawiamy pole "active" na False, aby zatrzymać aktywność ProcessKiller
         self.process_killer.save_state()
 
         self.block_button.configure(state="normal")
