@@ -99,11 +99,12 @@ class App(customtkinter.CTk):
         self.tabview.tab("BLOCK").grid_columnconfigure(1, weight=1)
         self.tabview.tab("UNBLOCK").grid_columnconfigure(2, weight=1)
 
+        #Block tab
         self.entry_exe = customtkinter.CTkEntry(self.tabview.tab("BLOCK"), placeholder_text="Discord,Steam ...", width=325)
         self.entry_exe.grid(row=1, column=0, columnspan=2, padx=(10, 10), pady=(20, 10), sticky="nw")
 
         self.confirm_button = customtkinter.CTkButton(self.tabview.tab("BLOCK"), text="Confirm",
-                                                     command=self.on_confirm_button_click)
+                                                      command=self.on_confirm_button_click)
         self.confirm_button.grid(row=1, column=1, columnspan=2, padx=(10, 20), pady=(20, 20), sticky="se")
 
         self.blocked_listbox = customtkinter.CTkTextbox(self.tabview.tab("BLOCK"))
@@ -118,45 +119,75 @@ class App(customtkinter.CTk):
                                                     command=self.start_process_killer)
         self.block_button.grid(row=3, column=1, columnspan=4, padx=(10, 20), pady=(20, 20), sticky="sew")
 
+        #Unblock tab
+        self.delete_exe = customtkinter.CTkEntry(self.tabview.tab("UNBLOCK"), placeholder_text="Discord,Steam ...", width=325)
+        self.delete_exe.grid(row=1, column=0, columnspan=2, padx=(10, 10), pady=(20, 10), sticky="nw")
+        
+        self.delete_button = customtkinter.CTkButton(self.tabview.tab("UNBLOCK"), text="Delete",
+                                            command=self.on_delete_button_click) 
+        self.delete_button.grid(row=1, column=1, columnspan=2, padx=(10, 20), pady=(20, 20), sticky="se")
+
+        self.unblocked_listbox = customtkinter.CTkTextbox(self.tabview.tab("UNBLOCK"))
+        self.unblocked_listbox.grid(row=2, column=0, columnspan=3, padx=(10, 10), pady=(0, 10), sticky="nsew")
+        self.unblocked_listbox.configure(state="normal")
+
+        # Disable the listbox so that the user can't select the text
+        self.unblocked_listbox.bind("<1>", lambda event: "break")
+        self.unblocked_listbox.bind("<Key>", lambda event: "break")
+
         self.unblocker_button = customtkinter.CTkButton(self.tabview.tab("UNBLOCK"), text="Unblock",
                                                         command=self.stop_process_killer)
-        self.unblocker_button.grid(row=3, column=0, columnspan=4, padx=(110, 20), pady=(20, 20), sticky="se")
+        self.unblocker_button.grid(row=3, column=0, columnspan=4, padx=(10, 20), pady=(20, 20), sticky="sew")
         
         self.update_blocked_listbox()
 
     def on_confirm_button_click(self):
-        # Pobierz zawartość Entry
         processes_input = self.entry_exe.get().strip()
 
         if processes_input:
-            # Przygotuj listę procesów z wprowadzonego pola Entry
             processes_list = self.prepare_processes_list(processes_input)
 
-            # Dodaj listę procesów do danych zapisanych w pliku JSON
+
             with open(r"C:\Users\asus\Desktop\Saving-time\log\process_killer_state.json", "r") as file:
                 data = json.load(file)
             data["processes_to_kill"].extend(processes_list)
             with open(r"C:\Users\asus\Desktop\Saving-time\log\process_killer_state.json", "w") as file:
                 json.dump(data, file)
 
-            # Odśwież zawartość CTkTextbox
+            self.update_blocked_listbox()
+
+    def on_delete_button_click(self):
+        processes_input = self.delete_exe.get().strip()
+
+        if processes_input:
+            processes_list = self.prepare_processes_list(processes_input)
+
+            with open(r"C:\Users\asus\Desktop\Saving-time\log\process_killer_state.json", "r") as file:
+                data = json.load(file)
+            for process in processes_list:
+                if process in data["processes_to_kill"]:
+                    data["processes_to_kill"].remove(process)
+            with open(r"C:\Users\asus\Desktop\Saving-time\log\process_killer_state.json", "w") as file:
+                json.dump(data, file)
+
             self.update_blocked_listbox()
 
 
     def update_blocked_listbox(self):
         with open(r"C:\Users\asus\Desktop\Saving-time\log\process_killer_state.json", "r") as file:
             data = json.load(file)
-        app_list = data["processes_to_kill"]
+        blocked_list = data["processes_to_kill"]
 
-        # Usuń poprzednią zawartość
         self.blocked_listbox.delete(1.0, "end")
+        self.unblocked_listbox.delete(1.0, "end")
 
-        # Dodaj nową zawartość w odpowiednim formacie
         self.blocked_listbox.insert("end", "App:\n\n")
-        for app in app_list:
-            self.blocked_listbox.insert("end", f"{app}\n")
+        self.unblocked_listbox.insert("end", "App:\n\n")
 
-        # Usuń ostatni nowy wiersz, który będzie pusty
+        for app in blocked_list:
+            self.blocked_listbox.insert("end", f"{app}\n")
+            self.unblocked_listbox.insert("end", f"{app}\n")
+
         self.blocked_listbox.delete("end-1c", "end")
 
     def confirm_processes(self):
@@ -168,7 +199,6 @@ class App(customtkinter.CTk):
     def prepare_processes_list(self, processes_input):
         processes_list = [process.strip() for process in processes_input.split(",") if process.strip()]
 
-        # Dodaj rozszerzenie .exe tylko jeśli nie zostało podane
         processes_list = [process + ".exe" if not process.lower().endswith(".exe") else process for process in processes_list]
 
         return processes_list
