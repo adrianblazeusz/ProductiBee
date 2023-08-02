@@ -1,10 +1,12 @@
+import json
 import tkinter
 import tkinter.messagebox
 import customtkinter
 from blocker import ProcessKiller
 
 customtkinter.set_appearance_mode("System")  # Modes: "System" (standard), "Dark", "Light"
-customtkinter.set_default_color_theme("dark-blue")  # Themes: "blue" (standard), "green", "dark-blue"
+customtkinter.set_default_color_theme("blue") 
+
 
 class App(customtkinter.CTk):
     def __init__(self):
@@ -90,29 +92,72 @@ class App(customtkinter.CTk):
         self.blocker_frame = customtkinter.CTkFrame(self, corner_radius=0, fg_color="transparent")
         self.blocker_frame.grid_columnconfigure(0, weight=1)
 
-        self.tabview = customtkinter.CTkTabview(self.blocker_frame, width=250, height=150)
+        self.tabview = customtkinter.CTkTabview(self.blocker_frame, width=250, height=425)
         self.tabview.grid(row=0, column=0, columnspan=3, sticky="ew")
-        self.tabview.add("Blocker")
-        self.tabview.tab("Blocker").grid_columnconfigure(1, weight=1)
+        self.tabview.add("BLOCK")
+        self.tabview.add("UNBLOCK")
+        self.tabview.tab("BLOCK").grid_columnconfigure(1, weight=1)
+        self.tabview.tab("UNBLOCK").grid_columnconfigure(2, weight=1)
 
-        # Entry App
-        self.entry_exe = customtkinter.CTkEntry(self.tabview.tab("Blocker"), placeholder_text="Discord,Steam ...", width=325)
+        self.entry_exe = customtkinter.CTkEntry(self.tabview.tab("BLOCK"), placeholder_text="Discord,Steam ...", width=325)
         self.entry_exe.grid(row=1, column=0, columnspan=2, padx=(10, 10), pady=(20, 10), sticky="nw")
 
-        self.confirm_button = customtkinter.CTkButton(self.tabview.tab("Blocker"), text="Confirm",
-                                              command=self.confirm_processes)
+        self.confirm_button = customtkinter.CTkButton(self.tabview.tab("BLOCK"), text="Confirm",
+                                                     command=self.on_confirm_button_click)
         self.confirm_button.grid(row=1, column=1, columnspan=2, padx=(10, 20), pady=(20, 20), sticky="se")
-        
-        
-        # Blocker button
-        self.block_button = customtkinter.CTkButton(self.tabview.tab("Blocker"), text="Block",
-                                                            command=self.start_process_killer)
-        self.block_button.grid(row=3, column=1, columnspan=4, padx=(10, 20), pady=(20, 20), sticky="sw")
 
-        # Unblocker button
-        self.unblocker_button = customtkinter.CTkButton(self.tabview.tab("Blocker"), text="Unblock",
-                                                            command=self.stop_process_killer)
+        self.blocked_listbox = customtkinter.CTkTextbox(self.tabview.tab("BLOCK"))
+        self.blocked_listbox.grid(row=2, column=0, columnspan=2, padx=(10, 10), pady=(0, 10), sticky="nsew")
+        self.blocked_listbox.configure(state="normal")
+
+        # Disable the listbox so that the user can't select the text
+        self.blocked_listbox.bind("<1>", lambda event: "break")
+        self.blocked_listbox.bind("<Key>", lambda event: "break")
+
+        self.block_button = customtkinter.CTkButton(self.tabview.tab("BLOCK"), text="Block", 
+                                                    command=self.start_process_killer)
+        self.block_button.grid(row=3, column=1, columnspan=4, padx=(10, 20), pady=(20, 20), sticky="sew")
+
+        self.unblocker_button = customtkinter.CTkButton(self.tabview.tab("UNBLOCK"), text="Unblock",
+                                                        command=self.stop_process_killer)
         self.unblocker_button.grid(row=3, column=0, columnspan=4, padx=(110, 20), pady=(20, 20), sticky="se")
+        
+        self.update_blocked_listbox()
+
+    def on_confirm_button_click(self):
+        # Pobierz zawartość Entry
+        processes_input = self.entry_exe.get().strip()
+
+        if processes_input:
+            # Przygotuj listę procesów z wprowadzonego pola Entry
+            processes_list = self.prepare_processes_list(processes_input)
+
+            # Dodaj listę procesów do danych zapisanych w pliku JSON
+            with open(r"C:\Users\asus\Desktop\Saving-time\log\process_killer_state.json", "r") as file:
+                data = json.load(file)
+            data["processes_to_kill"].extend(processes_list)
+            with open(r"C:\Users\asus\Desktop\Saving-time\log\process_killer_state.json", "w") as file:
+                json.dump(data, file)
+
+            # Odśwież zawartość CTkTextbox
+            self.update_blocked_listbox()
+
+
+    def update_blocked_listbox(self):
+        with open(r"C:\Users\asus\Desktop\Saving-time\log\process_killer_state.json", "r") as file:
+            data = json.load(file)
+        app_list = data["processes_to_kill"]
+
+        # Usuń poprzednią zawartość
+        self.blocked_listbox.delete(1.0, "end")
+
+        # Dodaj nową zawartość w odpowiednim formacie
+        self.blocked_listbox.insert("end", "App:\n\n")
+        for app in app_list:
+            self.blocked_listbox.insert("end", f"{app}\n")
+
+        # Usuń ostatni nowy wiersz, który będzie pusty
+        self.blocked_listbox.delete("end-1c", "end")
 
     def confirm_processes(self):
         processes_input = self.entry_exe.get()
@@ -123,8 +168,8 @@ class App(customtkinter.CTk):
     def prepare_processes_list(self, processes_input):
         processes_list = [process.strip() for process in processes_input.split(",") if process.strip()]
 
-        # Remove any existing .exe extension from the application names
-        processes_list = [process[:-4] if process.lower().endswith(".exe") else process for process in processes_list]
+        # Dodaj rozszerzenie .exe tylko jeśli nie zostało podane
+        processes_list = [process + ".exe" if not process.lower().endswith(".exe") else process for process in processes_list]
 
         return processes_list
 
