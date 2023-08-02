@@ -44,7 +44,7 @@ class App(customtkinter.CTk):
         self.navigation_frame.grid_rowconfigure(4, weight=1)
 
         # create navigation frame label
-        self.navigation_frame_label = customtkinter.CTkLabel(self.navigation_frame, text="  ProductiBee",
+        self.navigation_frame_label = customtkinter.CTkLabel(self.navigation_frame, text="ProductiBee",
                                                              compound="left", font=customtkinter.CTkFont(size=15, weight="bold"))
         self.navigation_frame_label.grid(row=0, column=0, padx=20, pady=20)
 
@@ -90,7 +90,7 @@ class App(customtkinter.CTk):
 
     def create_blocker_frame(self):
         self.blocker_frame = customtkinter.CTkFrame(self, corner_radius=0, fg_color="transparent")
-        self.blocker_frame.grid_columnconfigure(0, weight=1)
+        self.blocker_frame.grid_columnconfigure(1, weight=1)
 
         self.tabview = customtkinter.CTkTabview(self.blocker_frame, width=250, height=425)
         self.tabview.grid(row=0, column=0, columnspan=3, sticky="ew")
@@ -99,46 +99,83 @@ class App(customtkinter.CTk):
         self.tabview.tab("BLOCK").grid_columnconfigure(1, weight=1)
         self.tabview.tab("UNBLOCK").grid_columnconfigure(2, weight=1)
 
-        #Block tab
-        self.entry_exe = customtkinter.CTkEntry(self.tabview.tab("BLOCK"), placeholder_text="Discord,Steam ...", width=325)
+
+        ### Block tab
+        self.entry_exe = customtkinter.CTkEntry(self.tabview.tab("BLOCK"), placeholder_text="Discord, Steam ...", width=325)
         self.entry_exe.grid(row=1, column=0, columnspan=2, padx=(10, 10), pady=(20, 10), sticky="nw")
 
-        self.confirm_button = customtkinter.CTkButton(self.tabview.tab("BLOCK"), text="Confirm",
+        self.add_exe_button = customtkinter.CTkButton(self.tabview.tab("BLOCK"), text="Add App",
                                                       command=self.on_confirm_button_click)
-        self.confirm_button.grid(row=1, column=1, columnspan=2, padx=(10, 20), pady=(20, 20), sticky="se")
+        self.add_exe_button.grid(row=1, column=1, columnspan=2, padx=(10, 20), pady=(20, 10), sticky="se")
 
-        self.blocked_listbox = customtkinter.CTkTextbox(self.tabview.tab("BLOCK"))
-        self.blocked_listbox.grid(row=2, column=0, columnspan=2, padx=(10, 10), pady=(0, 10), sticky="nsew")
-        self.blocked_listbox.configure(state="normal")
+        self.entry_web = customtkinter.CTkEntry(self.tabview.tab("BLOCK"), placeholder_text="facebook.com, youtube.com ...", width=325)
+        self.entry_web.grid(row=2, column=0, columnspan=2, padx=(10, 10), pady=(10, 10), sticky="nw")
+
+        self.add_web_button = customtkinter.CTkButton(self.tabview.tab("BLOCK"), text="Add Site",
+                                                      command=self.on_confirm_button_click)
+        self.add_web_button.grid(row=2, column=1, columnspan=2, padx=(10, 20), pady=(10, 20), sticky="se")
+
+        # App listbox in BLOCK
+        self.blocked_app_listbox = customtkinter.CTkTextbox(self.tabview.tab("BLOCK"),width=225)
+        self.blocked_app_listbox.grid(row=3, column=0, padx=(10, 5), pady=(0, 20), sticky="nsw")
+        self.blocked_app_listbox.configure(state="normal")
 
         # Disable the listbox so that the user can't select the text
-        self.blocked_listbox.bind("<1>", lambda event: "break")
-        self.blocked_listbox.bind("<Key>", lambda event: "break")
+        self.blocked_app_listbox.bind("<1>", lambda event: "break")
+        self.blocked_app_listbox.bind("<Key>", lambda event: "break")
+
+        #Web listbox in BLOCK
+        self.blocked_web_listbox = customtkinter.CTkTextbox(self.tabview.tab("BLOCK"),width=225)
+        self.blocked_web_listbox.grid(row=3, column=1, padx=(5, 10), pady=(0, 20), sticky="nse")
+        self.blocked_web_listbox.configure(state="normal")
+
+        # Disable the listbox so that the user can't select the text
+        self.blocked_web_listbox.bind("<1>", lambda event: "break")
+        self.blocked_web_listbox.bind("<Key>", lambda event: "break")
 
         self.block_button = customtkinter.CTkButton(self.tabview.tab("BLOCK"), text="Block", 
                                                     command=self.start_process_killer)
-        self.block_button.grid(row=3, column=1, columnspan=4, padx=(10, 20), pady=(20, 20), sticky="sew")
+        self.block_button.grid(row=4, column=0, columnspan=4, padx=(10, 10), pady=(10, 20), sticky="sew")
 
-        #Unblock tab
-        self.delete_exe = customtkinter.CTkEntry(self.tabview.tab("UNBLOCK"), placeholder_text="Discord,Steam ...", width=325)
+
+        ### Unblock tab
+        self.delete_exe = customtkinter.CTkEntry(self.tabview.tab("UNBLOCK"), placeholder_text="Discord, Steam ...", width=325)
         self.delete_exe.grid(row=1, column=0, columnspan=2, padx=(10, 10), pady=(20, 10), sticky="nw")
-        
-        self.delete_button = customtkinter.CTkButton(self.tabview.tab("UNBLOCK"), text="Delete",
-                                            command=self.on_delete_button_click) 
-        self.delete_button.grid(row=1, column=1, columnspan=2, padx=(10, 20), pady=(20, 20), sticky="se")
 
-        self.unblocked_listbox = customtkinter.CTkTextbox(self.tabview.tab("UNBLOCK"))
-        self.unblocked_listbox.grid(row=2, column=0, columnspan=3, padx=(10, 10), pady=(0, 10), sticky="nsew")
-        self.unblocked_listbox.configure(state="normal")
+        self.delete_button = customtkinter.CTkButton(self.tabview.tab("UNBLOCK"), text="Delete App",
+                                            command=self.on_delete_button_click) 
+        self.delete_button.grid(row=1, column=1, columnspan=2, padx=(10, 20), pady=(20, 10), sticky="se")
+
+        self.delete_web = customtkinter.CTkEntry(self.tabview.tab("UNBLOCK"), placeholder_text="facebook.com, youtube.com ...", width=325)
+        self.delete_web.grid(row=2, column=0, columnspan=2, padx=(10, 10), pady=(10, 10), sticky="nw")
+
+        self.delete_web_button = customtkinter.CTkButton(self.tabview.tab("UNBLOCK"), text="Delete Site",
+                                                        command=self.on_delete_button_click)
+        self.delete_web_button.grid(row=2, column=1, columnspan=2, padx=(10, 20), pady=(10, 20), sticky="se")
+
+        # App listbox in UNBLOCK 
+        self.unblocked_app_listbox = customtkinter.CTkTextbox(self.tabview.tab("UNBLOCK"), width=225)
+        self.unblocked_app_listbox.grid(row=3, column=0, padx=(10, 5), pady=(0, 20), sticky="nsw")
+        self.unblocked_app_listbox.configure(state="normal")
 
         # Disable the listbox so that the user can't select the text
-        self.unblocked_listbox.bind("<1>", lambda event: "break")
-        self.unblocked_listbox.bind("<Key>", lambda event: "break")
+        self.unblocked_app_listbox.bind("<1>", lambda event: "break")
+        self.unblocked_app_listbox.bind("<Key>", lambda event: "break")
 
-        self.unblocker_button = customtkinter.CTkButton(self.tabview.tab("UNBLOCK"), text="Unblock",
-                                                        command=self.stop_process_killer)
-        self.unblocker_button.grid(row=3, column=0, columnspan=4, padx=(10, 20), pady=(20, 20), sticky="sew")
-        
+
+        #Web listbox in UNBLOCK
+        self.unblocked_web_listbox = customtkinter.CTkTextbox(self.tabview.tab("UNBLOCK"), width=225)
+        self.unblocked_web_listbox.grid(row=3, column=1, padx=(30, 10), pady=(0, 20), sticky="nse")
+
+        # Disable the listbox so that the user can't select the text
+        self.unblocked_web_listbox.bind("<1>", lambda event: "break")
+        self.unblocked_web_listbox.bind("<Key>", lambda event: "break")
+
+        self.unblock_button = customtkinter.CTkButton(self.tabview.tab("UNBLOCK"), text="Unblock",
+                                                    command=self.stop_process_killer)
+        self.unblock_button.grid(row=4, column=0, columnspan=4, padx=(10, 10), pady=(10, 20), sticky="sew")
+
+                
         self.update_blocked_listbox()
 
     def on_confirm_button_click(self):
@@ -146,7 +183,6 @@ class App(customtkinter.CTk):
 
         if processes_input:
             processes_list = self.prepare_processes_list(processes_input)
-
 
             with open(r"C:\Users\asus\Desktop\Saving-time\log\process_killer_state.json", "r") as file:
                 data = json.load(file)
@@ -178,17 +214,19 @@ class App(customtkinter.CTk):
             data = json.load(file)
         blocked_list = data["processes_to_kill"]
 
-        self.blocked_listbox.delete(1.0, "end")
-        self.unblocked_listbox.delete(1.0, "end")
+        self.blocked_app_listbox.delete(1.0, "end")
+        self.unblocked_app_listbox.delete(1.0, "end")
+        separator = "\n-----------------------------------------------\n"
 
-        self.blocked_listbox.insert("end", "App:\n\n")
-        self.unblocked_listbox.insert("end", "App:\n\n")
+
+        self.blocked_app_listbox.insert("end", f"APP:{separator}")
+        self.unblocked_app_listbox.insert("end", f"APP:{separator}")
 
         for app in blocked_list:
-            self.blocked_listbox.insert("end", f"{app}\n")
-            self.unblocked_listbox.insert("end", f"{app}\n")
+            self.blocked_app_listbox.insert("end", f"{app}{separator}")
+            self.unblocked_app_listbox.insert("end", f"{app}{separator}")
 
-        self.blocked_listbox.delete("end-1c", "end")
+        self.blocked_app_listbox.delete("end-1c", "end")
 
     def confirm_processes(self):
         processes_input = self.entry_exe.get()
@@ -209,14 +247,14 @@ class App(customtkinter.CTk):
 
         self.process_killer.set_blocked_processes(processes_list)
         self.process_killer.start()
-        self.process_killer.save_state()  # Zapisujemy stan tylko jeśli blokada została uruchomiona
+        self.process_killer.save_state() 
 
         self.block_button.configure(state="disabled")
         self.unblocker_button.configure(state="normal")
 
     def stop_process_killer(self):
         self.process_killer.stop()
-        self.process_killer.active = False  # Ustawiamy pole "active" na False, aby zatrzymać aktywność ProcessKiller
+        self.process_killer.active = False 
         self.process_killer.save_state()
 
         self.block_button.configure(state="normal")
@@ -248,5 +286,4 @@ class App(customtkinter.CTk):
     def change_appearance_mode_event(self, new_appearance_mode):
         customtkinter.set_appearance_mode(new_appearance_mode)
 
-        # select default frame
-        self.select_frame_by_name("home")
+
