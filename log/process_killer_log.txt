@@ -123,3 +123,6 @@ iscord.exe
 [2023-08-02 21:33:43] Blocking has started
 [2023-08-02 21:33:46] Successfully blocked ScreenToGif.exe
 [2023-08-02 21:33:49] Blocking stopped
+[2023-08-03 14:37:16] Blocking has started
+[2023-08-03 14:37:18] Successfully blocked ScreenToGif.exe
+[2023-08-03 14:37:21] Blocking stopped

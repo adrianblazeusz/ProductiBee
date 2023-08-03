@@ -1,0 +1,225 @@
+{
+    "activities": [
+        {
+            "name": "autotimer.py - AutoTimer - Visual Studio Code",
+            "time_entries": [
+                {
+                    "days": 0,
+                    "end_time": "2023-08-03 13:07:10",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 9,
+                    "start_time": "2023-08-03 13:07:01"
+                },
+                {
+                    "days": 0,
+                    "end_time": "2023-08-03 13:07:12",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 1,
+                    "start_time": "2023-08-03 13:07:11"
+                }
+            ]
+        },
+        {
+            "name": "activity.pyc - AutoTimer - Visual Studio Code",
+            "time_entries": [
+                {
+                    "days": 0,
+                    "end_time": "2023-08-03 13:07:11",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 1,
+                    "start_time": "2023-08-03 13:07:10"
+                }
+            ]
+        },
+        {
+            "name": "activity.py - AutoTimer - Visual Studio Code",
+            "time_entries": [
+                {
+                    "days": 0,
+                    "end_time": "2023-08-03 13:07:14",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 2,
+                    "start_time": "2023-08-03 13:07:12"
+                },
+                {
+                    "days": 0,
+                    "end_time": "2023-08-03 13:09:26",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 5,
+                    "start_time": "2023-08-03 13:09:21"
+                },
+                {
+                    "days": 0,
+                    "end_time": "2023-08-03 13:09:36",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 6,
+                    "start_time": "2023-08-03 13:09:30"
+                }
+            ]
+        },
+        {
+            "name": "activities.json - AutoTimer - Visual Studio Code",
+            "time_entries": [
+                {
+                    "days": 0,
+                    "end_time": "2023-08-03 13:07:28",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 13,
+                    "start_time": "2023-08-03 13:07:14"
+                },
+                {
+                    "days": 0,
+                    "end_time": "2023-08-03 13:08:14",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 12,
+                    "start_time": "2023-08-03 13:08:02"
+                },
+                {
+                    "days": 0,
+                    "end_time": "2023-08-03 13:08:32",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 5,
+                    "start_time": "2023-08-03 13:08:27"
+                },
+                {
+                    "days": 0,
+                    "end_time": "2023-08-03 13:08:44",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 5,
+                    "start_time": "2023-08-03 13:08:39"
+                },
+                {
+                    "days": 0,
+                    "end_time": "2023-08-03 13:09:21",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 33,
+                    "start_time": "2023-08-03 13:08:47"
+                },
+                {
+                    "days": 0,
+                    "end_time": "2023-08-03 13:09:43",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 7,
+                    "start_time": "2023-08-03 13:09:36"
+                }
+            ]
+        },
+        {
+            "name": "Start Env in VS Code \u2013 Opera",
+            "time_entries": [
+                {
+                    "days": 0,
+                    "end_time": "2023-08-03 13:08:02",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 34,
+                    "start_time": "2023-08-03 13:07:28"
+                },
+                {
+                    "days": 0,
+                    "end_time": "2023-08-03 13:08:18",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 4,
+                    "start_time": "2023-08-03 13:08:14"
+                }
+            ]
+        },
+        {
+            "name": "YouTube \u2013 Opera",
+            "time_entries": [
+                {
+                    "days": 0,
+                    "end_time": "2023-08-03 13:08:27",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 9,
+                    "start_time": "2023-08-03 13:08:18"
+                },
+                {
+                    "days": 0,
+                    "end_time": "2023-08-03 13:08:34",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 2,
+                    "start_time": "2023-08-03 13:08:32"
+                },
+                {
+                    "days": 0,
+                    "end_time": "2023-08-03 13:08:47",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 2,
+                    "start_time": "2023-08-03 13:08:45"
+                }
+            ]
+        },
+        {
+            "name": "Why we bought land and are building a house in Sardinia - YouTube \u2013 Opera",
+            "time_entries": [
+                {
+                    "days": 0,
+                    "end_time": "2023-08-03 13:08:39",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 5,
+                    "start_time": "2023-08-03 13:08:34"
+                },
+                {
+                    "days": 0,
+                    "end_time": "2023-08-03 13:08:45",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 1,
+                    "start_time": "2023-08-03 13:08:44"
+                }
+            ]
+        },
+        {
+            "name": "Epic Mountain - Optimistic Nihilism",
+            "time_entries": [
+                {
+                    "days": 0,
+                    "end_time": "2023-08-03 13:09:30",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 4,
+                    "start_time": "2023-08-03 13:09:26"
+                },
+                {
+                    "days": 0,
+                    "end_time": "2023-08-03 13:09:53",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 9,
+                    "start_time": "2023-08-03 13:09:44"
+                }
+            ]
+        },
+        {
+            "name": "",
+            "time_entries": [
+                {
+                    "days": 0,
+                    "end_time": "2023-08-03 13:09:44",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 1,
+                    "start_time": "2023-08-03 13:09:43"
+                }
+            ]
+        }
+    ]
+}

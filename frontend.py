@@ -2,7 +2,7 @@ import json
 import tkinter
 import tkinter.messagebox
 import customtkinter
-from blocker import ProcessKiller
+from blocker_app import ProcessKiller
 
 customtkinter.set_appearance_mode("System")  # Modes: "System" (standard), "Dark", "Light"
 customtkinter.set_default_color_theme("blue") 
@@ -34,7 +34,7 @@ class App(customtkinter.CTk):
         # If ProcessKiller is active, disable the "Block" button and enable the "Unblock" button
         if self.process_killer.active:
             self.block_button.configure(state="disabled")
-            self.unblocker_button.configure(state="normal")
+            self.unblock_button.configure(state="normal")
 
 
     def create_navigation_frame(self):
@@ -250,7 +250,7 @@ class App(customtkinter.CTk):
         self.process_killer.save_state() 
 
         self.block_button.configure(state="disabled")
-        self.unblocker_button.configure(state="normal")
+        self.unblock_button.configure(state="normal")
 
     def stop_process_killer(self):
         self.process_killer.stop()
@@ -258,7 +258,7 @@ class App(customtkinter.CTk):
         self.process_killer.save_state()
 
         self.block_button.configure(state="normal")
-        self.unblocker_button.configure(state="disabled")
+        self.unblock_button.configure(state="disabled")
 
 
     def select_frame_by_name(self, name):
@@ -282,6 +282,7 @@ class App(customtkinter.CTk):
 
     def frame_blocker_button_event(self):
         self.select_frame_by_name("blocker")
+
 
     def change_appearance_mode_event(self, new_appearance_mode):
         customtkinter.set_appearance_mode(new_appearance_mode)
