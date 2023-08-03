@@ -9,7 +9,7 @@ class ProcessKiller:
     def __init__(self):
         self.active = False
         self.processes_to_kill = set()
-        self.site_to_kill = set()
+        self.site_to_kill = set() 
         self.thread = None
         self.log_file = "log/process_killer_log.txt"
         self.state_file = "log/process_killer_state.json"
@@ -60,7 +60,6 @@ class ProcessKiller:
         state = {
             "active": self.active,
             "processes_to_kill": list(self.processes_to_kill),
-            "site_to_kill": list(self.site_to_kill), 
         }
         with open(self.state_file, "w") as f:
             json.dump(state, f)
@@ -71,4 +70,4 @@ class ProcessKiller:
                 state = json.load(f)
                 self.active = state.get("active", False)
                 self.processes_to_kill = set(state.get("processes_to_kill", []))
-                self.site_to_kill = set(state.get("site_to_kill", []))
+

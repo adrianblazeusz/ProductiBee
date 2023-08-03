@@ -1,9 +1,7 @@
 import sys
 import os
 import ctypes
-import tkinter.messagebox as messagebox
 from frontend import App 
-from blocker_app import ProcessKiller
 
 # Check if script is running with admin rights
 if not ctypes.windll.shell32.IsUserAnAdmin():
