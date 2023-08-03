@@ -4,6 +4,7 @@ import psutil
 from threading import Thread
 from time import sleep
 from datetime import datetime
+from blocker_web import Web_blocker
 
 class ProcessKiller:
     def __init__(self):
@@ -13,6 +14,7 @@ class ProcessKiller:
         self.thread = None
         self.log_file = "log/process_killer_log.txt"
         self.state_file = "log/process_killer_state.json"
+        self.web_blocker = Web_blocker()
 
     def start(self):
         if self.thread is not None and self.thread.is_alive():
@@ -56,18 +58,29 @@ class ProcessKiller:
         with open(self.log_file, "a") as f:
             f.write(log_message + "\n")
 
+    def set_blocked_websites(self, websites, add_new=True):
+        self.web_blocker.set_blocked_websites(websites, add_new)
+
+    def block_websites(self):
+        self.web_blocker.block_websites()
+
+    def unblock_websites(self):
+        self.web_blocker.unblock_websites()
+
     def save_state(self):
         state = {
             "active": self.active,
             "processes_to_kill": list(self.processes_to_kill),
+            "site_to_kill": list(self.web_blocker.site_to_kill),
         }
-        with open(self.state_file, "w") as f:
+        with open("log/process_killer_state.json", "w") as f:
             json.dump(state, f)
 
+            
     def load_state(self):
         if os.path.exists(self.state_file):
             with open(self.state_file, "r") as f:
                 state = json.load(f)
                 self.active = state.get("active", False)
                 self.processes_to_kill = set(state.get("processes_to_kill", []))
-
+                self.site_to_kill = set(state.get("site_to_kill", []))

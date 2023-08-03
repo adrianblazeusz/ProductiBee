@@ -3,6 +3,7 @@ import tkinter
 import tkinter.messagebox
 import customtkinter
 from blocker_app import ProcessKiller
+from blocker_web import Web_blocker
 
 customtkinter.set_appearance_mode("System")  # Modes: "System" (standard), "Dark", "Light"
 customtkinter.set_default_color_theme("blue") 
@@ -31,11 +32,13 @@ class App(customtkinter.CTk):
         self.process_killer = ProcessKiller()
         self.process_killer.load_state()
 
+        self.web_blocker = Web_blocker()
+        self.web_blocker.load_state()
+
         # If ProcessKiller is active, disable the "Block" button and enable the "Unblock" button
         if self.process_killer.active:
             self.block_button.configure(state="disabled")
             self.unblock_button.configure(state="normal")
-
 
     def create_navigation_frame(self):
         # create navigation frame
@@ -230,6 +233,13 @@ class App(customtkinter.CTk):
 
         self.blocked_app_listbox.delete("end-1c", "end")
 
+    def prepare_processes_list(self, processes_input):
+        processes_list = [process.strip() for process in processes_input.split(",") if process.strip()]
+
+        processes_list = [process + ".exe" if not process.lower().endswith(".exe") else process for process in processes_list]
+
+        return processes_list
+
 
     ## WEB LISTBOX FUNC
     def on_add_web_button_click(self):
@@ -237,6 +247,7 @@ class App(customtkinter.CTk):
 
         if websites_input:
             websites_list = self.prepare_websites_list(websites_input)
+            self.process_killer.set_blocked_websites(websites_list)
 
             with open(r"C:\Users\asus\Desktop\Saving-time\log\process_killer_state.json", "r") as file:
                 data = json.load(file)
@@ -245,12 +256,14 @@ class App(customtkinter.CTk):
                 json.dump(data, file)
 
             self.update_blocked_web_listbox()
+            self.process_killer.save_state()
 
     def on_delete_web_button_click(self):
         websites_input = self.delete_web.get().strip()
 
         if websites_input:
             websites_list = self.prepare_websites_list(websites_input)
+            self.process_killer.set_blocked_websites(websites_list, add_new=False)
 
             with open(r"C:\Users\asus\Desktop\Saving-time\log\process_killer_state.json", "r") as file:
                 data = json.load(file)
@@ -261,6 +274,7 @@ class App(customtkinter.CTk):
                 json.dump(data, file)
 
             self.update_blocked_web_listbox()
+            self.process_killer.save_state()
 
     def update_blocked_web_listbox(self):
         with open(r"C:\Users\asus\Desktop\Saving-time\log\process_killer_state.json", "r") as file:
@@ -280,7 +294,9 @@ class App(customtkinter.CTk):
 
         self.blocked_web_listbox.delete("end-1c", "end")
 
-
+    def prepare_websites_list(self, websites_input):
+        websites_list = [website.strip() for website in websites_input.split(",") if website.strip()]
+        return websites_list
 
     def confirm_processes(self):
         processes_input = self.entry_exe.get()
@@ -288,16 +304,8 @@ class App(customtkinter.CTk):
         self.process_killer.set_blocked_processes(processes_list, add_new=True)
         self.process_killer.save_state()
 
-    def prepare_processes_list(self, processes_input):
-        processes_list = [process.strip() for process in processes_input.split(",") if process.strip()]
 
-        processes_list = [process + ".exe" if not process.lower().endswith(".exe") else process for process in processes_list]
-
-        return processes_list
-
-    def prepare_websites_list(self, websites_input):
-        websites_list = [website.strip() for website in websites_input.split(",") if website.strip()]
-        return websites_list
+    
 
     def start_process_killer(self):
         processes_input = self.entry_exe.get()
@@ -344,5 +352,3 @@ class App(customtkinter.CTk):
 
     def change_appearance_mode_event(self, new_appearance_mode):
         customtkinter.set_appearance_mode(new_appearance_mode)
-
-
