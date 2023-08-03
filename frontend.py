@@ -105,14 +105,14 @@ class App(customtkinter.CTk):
         self.entry_exe.grid(row=1, column=0, columnspan=2, padx=(10, 10), pady=(20, 10), sticky="nw")
 
         self.add_exe_button = customtkinter.CTkButton(self.tabview.tab("BLOCK"), text="Add App",
-                                                      command=self.on_confirm_button_click)
+                                                      command=self.on_add_app_button_click)
         self.add_exe_button.grid(row=1, column=1, columnspan=2, padx=(10, 20), pady=(20, 10), sticky="se")
 
         self.entry_web = customtkinter.CTkEntry(self.tabview.tab("BLOCK"), placeholder_text="facebook.com, youtube.com ...", width=325)
         self.entry_web.grid(row=2, column=0, columnspan=2, padx=(10, 10), pady=(10, 10), sticky="nw")
 
         self.add_web_button = customtkinter.CTkButton(self.tabview.tab("BLOCK"), text="Add Site",
-                                                      command=self.on_confirm_button_click)
+                                                      command=self.on_add_web_button_click)
         self.add_web_button.grid(row=2, column=1, columnspan=2, padx=(10, 20), pady=(10, 20), sticky="se")
 
         # App listbox in BLOCK
@@ -142,15 +142,15 @@ class App(customtkinter.CTk):
         self.delete_exe = customtkinter.CTkEntry(self.tabview.tab("UNBLOCK"), placeholder_text="Discord, Steam ...", width=325)
         self.delete_exe.grid(row=1, column=0, columnspan=2, padx=(10, 10), pady=(20, 10), sticky="nw")
 
-        self.delete_button = customtkinter.CTkButton(self.tabview.tab("UNBLOCK"), text="Delete App",
-                                            command=self.on_delete_button_click) 
-        self.delete_button.grid(row=1, column=1, columnspan=2, padx=(10, 20), pady=(20, 10), sticky="se")
+        self.delete_app_button = customtkinter.CTkButton(self.tabview.tab("UNBLOCK"), text="Delete App",
+                                            command=self.on_delete_app_button_click) 
+        self.delete_app_button.grid(row=1, column=1, columnspan=2, padx=(10, 20), pady=(20, 10), sticky="se")
 
         self.delete_web = customtkinter.CTkEntry(self.tabview.tab("UNBLOCK"), placeholder_text="facebook.com, youtube.com ...", width=325)
         self.delete_web.grid(row=2, column=0, columnspan=2, padx=(10, 10), pady=(10, 10), sticky="nw")
 
         self.delete_web_button = customtkinter.CTkButton(self.tabview.tab("UNBLOCK"), text="Delete Site",
-                                                        command=self.on_delete_button_click)
+                                                        command=self.on_delete_web_button_click)
         self.delete_web_button.grid(row=2, column=1, columnspan=2, padx=(10, 20), pady=(10, 20), sticky="se")
 
         # App listbox in UNBLOCK 
@@ -176,9 +176,11 @@ class App(customtkinter.CTk):
         self.unblock_button.grid(row=4, column=0, columnspan=4, padx=(10, 10), pady=(10, 20), sticky="sew")
 
                 
-        self.update_blocked_listbox()
-
-    def on_confirm_button_click(self):
+        self.update_blocked_app_listbox()
+        self.update_blocked_web_listbox()
+        
+    ## APP LISTBOX FUNC
+    def on_add_app_button_click(self):
         processes_input = self.entry_exe.get().strip()
 
         if processes_input:
@@ -190,9 +192,9 @@ class App(customtkinter.CTk):
             with open(r"C:\Users\asus\Desktop\Saving-time\log\process_killer_state.json", "w") as file:
                 json.dump(data, file)
 
-            self.update_blocked_listbox()
+            self.update_blocked_app_listbox()
 
-    def on_delete_button_click(self):
+    def on_delete_app_button_click(self):
         processes_input = self.delete_exe.get().strip()
 
         if processes_input:
@@ -206,10 +208,10 @@ class App(customtkinter.CTk):
             with open(r"C:\Users\asus\Desktop\Saving-time\log\process_killer_state.json", "w") as file:
                 json.dump(data, file)
 
-            self.update_blocked_listbox()
+            self.update_blocked_app_listbox()
 
 
-    def update_blocked_listbox(self):
+    def update_blocked_app_listbox(self):
         with open(r"C:\Users\asus\Desktop\Saving-time\log\process_killer_state.json", "r") as file:
             data = json.load(file)
         blocked_list = data["processes_to_kill"]
@@ -228,6 +230,58 @@ class App(customtkinter.CTk):
 
         self.blocked_app_listbox.delete("end-1c", "end")
 
+
+    ## WEB LISTBOX FUNC
+    def on_add_web_button_click(self):
+        websites_input = self.entry_web.get().strip()
+
+        if websites_input:
+            websites_list = self.prepare_websites_list(websites_input)
+
+            with open(r"C:\Users\asus\Desktop\Saving-time\log\process_killer_state.json", "r") as file:
+                data = json.load(file)
+            data["site_to_kill"].extend(websites_list)
+            with open(r"C:\Users\asus\Desktop\Saving-time\log\process_killer_state.json", "w") as file:
+                json.dump(data, file)
+
+            self.update_blocked_web_listbox()
+
+    def on_delete_web_button_click(self):
+        websites_input = self.delete_web.get().strip()
+
+        if websites_input:
+            websites_list = self.prepare_websites_list(websites_input)
+
+            with open(r"C:\Users\asus\Desktop\Saving-time\log\process_killer_state.json", "r") as file:
+                data = json.load(file)
+            for website in websites_list:
+                if website in data["site_to_kill"]:
+                    data["site_to_kill"].remove(website)
+            with open(r"C:\Users\asus\Desktop\Saving-time\log\process_killer_state.json", "w") as file:
+                json.dump(data, file)
+
+            self.update_blocked_web_listbox()
+
+    def update_blocked_web_listbox(self):
+        with open(r"C:\Users\asus\Desktop\Saving-time\log\process_killer_state.json", "r") as file:
+            data = json.load(file)
+        blocked_list = data["site_to_kill"]
+
+        self.blocked_web_listbox.delete(1.0, "end")
+        self.unblocked_web_listbox.delete(1.0, "end")
+        separator = "\n-----------------------------------------------\n"
+
+        self.blocked_web_listbox.insert("end", f"SITE:{separator}")
+        self.unblocked_web_listbox.insert("end", f"SITE:{separator}")
+
+        for site in blocked_list:
+            self.blocked_web_listbox.insert("end", f"{site}{separator}")
+            self.unblocked_web_listbox.insert("end", f"{site}{separator}")
+
+        self.blocked_web_listbox.delete("end-1c", "end")
+
+
+
     def confirm_processes(self):
         processes_input = self.entry_exe.get()
         processes_list = self.prepare_processes_list(processes_input)
@@ -240,6 +294,10 @@ class App(customtkinter.CTk):
         processes_list = [process + ".exe" if not process.lower().endswith(".exe") else process for process in processes_list]
 
         return processes_list
+
+    def prepare_websites_list(self, websites_input):
+        websites_list = [website.strip() for website in websites_input.split(",") if website.strip()]
+        return websites_list
 
     def start_process_killer(self):
         processes_input = self.entry_exe.get()
