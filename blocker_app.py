@@ -1,38 +1,43 @@
-import os
-import json
 import psutil
-from threading import Thread
+from threading import Thread, Event
 from time import sleep
 from datetime import datetime
 from blocker_web import Web_blocker
+from json_manager import JSONManager
 
 class ProcessKiller:
     def __init__(self):
-        self.active = False
         self.processes_to_kill = set()
         self.site_to_kill = set() 
         self.thread = None
         self.log_file = "log/process_killer_log.txt"
         self.state_file = "log/process_killer_state.json"
         self.web_blocker = Web_blocker()
+        self.json_m = JSONManager(self.state_file)
+        self.stop_event = Event()
 
     def start(self):
         if self.thread is not None and self.thread.is_alive():
             self.log("Blocking is already running")
             return
+        
+        self.json_m.load_state()
+        self.json_m.set_active(True)  
+        self.json_m.save_state()  
 
-        self.active = True
+        self.stop_event.clear()  # Reset the Event when starting
         self.thread = Thread(target=self.kill_processes)
         self.thread.start()
         self.log("Blocking has started")
 
     def stop(self):
-        self.active = False
-        if self.thread is not None:
-            self.thread.join()
-            self.log("Blocking stopped")
-        else:
-            self.log("The blocker isn't running")
+        self.stop_event.set()  # Set the Event to stop the thread
+
+        self.json_m.set_active(False)
+        self.json_m.save_state()
+        
+        self.log("Blocking stopped")
+
 
     def set_blocked_processes(self, processes, add_new=True):
         if add_new:
@@ -41,7 +46,7 @@ class ProcessKiller:
             self.processes_to_kill = set(processes)
 
     def kill_processes(self):
-        while self.active:
+        while not self.stop_event.is_set():  # Use the Event to control the loop
             for proc in psutil.process_iter():
                 try:
                     if proc.name() in self.processes_to_kill:
@@ -58,29 +63,4 @@ class ProcessKiller:
         with open(self.log_file, "a") as f:
             f.write(log_message + "\n")
 
-    def set_blocked_websites(self, websites, add_new=True):
-        self.web_blocker.set_blocked_websites(websites, add_new)
 
-    def block_websites(self):
-        self.web_blocker.block_websites()
-
-    def unblock_websites(self):
-        self.web_blocker.unblock_websites()
-
-    def save_state(self):
-        state = {
-            "active": self.active,
-            "processes_to_kill": list(self.processes_to_kill),
-            "site_to_kill": list(self.web_blocker.site_to_kill),
-        }
-        with open("log/process_killer_state.json", "w") as f:
-            json.dump(state, f)
-
-            
-    def load_state(self):
-        if os.path.exists(self.state_file):
-            with open(self.state_file, "r") as f:
-                state = json.load(f)
-                self.active = state.get("active", False)
-                self.processes_to_kill = set(state.get("processes_to_kill", []))
-                self.site_to_kill = set(state.get("site_to_kill", []))

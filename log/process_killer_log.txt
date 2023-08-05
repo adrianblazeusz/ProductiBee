@@ -168,3 +168,129 @@ iscord.exe
 [2023-08-03 22:45:08] Blocking has started
 [2023-08-03 22:45:08] Successfully blocked ScreenToGif.exe
 [2023-08-03 22:45:33] Blocking stopped
+[2023-08-04 13:25:22] Blocking has started
+[2023-08-04 13:25:42] Blocking stopped
+[2023-08-04 13:25:44] Blocking has started
+[2023-08-04 13:26:03] Blocking stopped
+[2023-08-04 13:26:06] Blocking has started
+[2023-08-04 14:02:09] Blocking has started
+[2023-08-04 14:04:52] Blocking has started
+[2023-08-04 14:08:04] Blocking has started
+[2023-08-04 14:34:58] Blocking has started
+[2023-08-04 14:35:16] Blocking stopped
+[2023-08-04 14:38:29] Blocking has started
+[2023-08-04 14:39:12] Blocking has started
+[2023-08-05 14:57:03] The blocker isn't running
+[2023-08-05 14:59:16] Blocking has started
+[2023-08-05 15:28:33] The blocker isn't running
+[2023-08-05 15:30:01] Blocking has started
+[2023-08-05 15:30:08] Successfully blocked ScreenToGif.exe
+[2023-08-05 15:30:10] Successfully blocked Discord.exe
+[2023-08-05 15:47:51] Blocking has started
+[2023-08-05 15:47:54] Successfully blocked ScreenToGif.exe
+[2023-08-05 15:51:30] The blocker isn't running
+[2023-08-05 15:51:37] Blocking has started
+[2023-08-05 15:51:44] Successfully blocked Discord.exe
+[2023-08-05 15:51:44] Successfully blocked Discord.exe
+[2023-08-05 15:52:22] Blocking has started
+[2023-08-05 15:55:58] Blocking has started
+[2023-08-05 15:56:01] Blocking has started
+[2023-08-05 15:56:04] Blocking is already running
+[2023-08-05 15:56:11] Blocking has started
+[2023-08-05 15:56:13] Blocking is already running
+[2023-08-05 15:59:19] Blocking has started
+[2023-08-05 16:02:15] Blocking has started
+[2023-08-05 16:06:01] The blocker isn't running
+[2023-08-05 16:08:13] Blocking has started
+[2023-08-05 16:08:13] Successfully blocked Discord.exe
+[2023-08-05 16:08:13] Successfully blocked Discord.exe
+[2023-08-05 16:08:13] Successfully blocked Discord.exe
+[2023-08-05 16:08:13] Successfully blocked Discord.exe
+[2023-08-05 16:08:13] Successfully blocked Discord.exe
+[2023-08-05 16:08:13] Successfully blocked Discord.exe
+[2023-08-05 16:08:19] Successfully blocked Discord.exe
+[2023-08-05 16:08:19] Successfully blocked Discord.exe
+[2023-08-05 16:08:19] Successfully blocked Discord.exe
+[2023-08-05 16:08:19] Successfully blocked Discord.exe
+[2023-08-05 16:08:19] Successfully blocked Discord.exe
+[2023-08-05 16:10:18] Blocking has started
+[2023-08-05 16:10:23] Successfully blocked Discord.exe
+[2023-08-05 16:10:23] Successfully blocked Discord.exe
+[2023-08-05 16:10:27] Blocking stopped
+[2023-08-05 16:10:33] Successfully blocked Discord.exe
+[2023-08-05 16:10:36] Successfully blocked ScreenToGif.exe
+[2023-08-05 16:10:37] Successfully blocked ScreenToGif.exe
+[2023-08-05 16:10:37] Successfully blocked ScreenToGif.exe
+[2023-08-05 16:10:38] Successfully blocked ScreenToGif.exe
+[2023-08-05 16:10:39] Successfully blocked ScreenToGif.exe
+[2023-08-05 16:11:26] Blocking has started
+[2023-08-05 16:11:32] Successfully blocked ScreenToGif.exe
+[2023-08-05 16:11:35] Blocking stopped
+[2023-08-05 16:11:38] Successfully blocked ScreenToGif.exe
+[2023-08-05 16:11:39] Successfully blocked ScreenToGif.exe
+[2023-08-05 16:11:41] Successfully blocked ScreenToGif.exe
+[2023-08-05 16:11:41] Successfully blocked ScreenToGif.exe
+[2023-08-05 16:11:42] Successfully blocked ScreenToGif.exe
+[2023-08-05 16:11:42] Successfully blocked ScreenToGif.exe
+[2023-08-05 16:11:43] Successfully blocked ScreenToGif.exe
+[2023-08-05 16:14:15] Blocking has started
+[2023-08-05 16:14:19] Successfully blocked Discord.exe
+[2023-08-05 16:14:27] Blocking stopped
+[2023-08-05 16:14:33] Successfully blocked ScreenToGif.exe
+[2023-08-05 16:14:35] Successfully blocked ScreenToGif.exe
+[2023-08-05 16:14:35] Successfully blocked ScreenToGif.exe
+[2023-08-05 16:14:37] Successfully blocked ScreenToGif.exe
+[2023-08-05 16:18:19] Blocking has started
+[2023-08-05 16:26:02] Blocking has started
+[2023-08-05 16:26:08] Successfully blocked Discord.exe
+[2023-08-05 16:26:17] Blocking stopped
+[2023-08-05 16:28:30] Blocking has started
+[2023-08-05 16:28:33] Blocking stopped
+[2023-08-05 16:30:23] Blocking has started
+[2023-08-05 16:30:28] Successfully blocked ScreenToGif.exe
+[2023-08-05 16:30:30] Blocking stopped
+[2023-08-05 16:49:58] Blocking has started
+[2023-08-05 16:50:04] Successfully blocked Discord.exe
+[2023-08-05 16:50:04] Successfully blocked Discord.exe
+[2023-08-05 16:50:04] Successfully blocked Discord.exe
+[2023-08-05 16:50:04] Successfully blocked Discord.exe
+[2023-08-05 16:50:04] Successfully blocked Discord.exe
+[2023-08-05 16:50:06] Successfully blocked Discord.exe
+[2023-08-05 16:50:06] Successfully blocked Discord.exe
+[2023-08-05 16:50:06] Successfully blocked Discord.exe
+[2023-08-05 16:50:06] Successfully blocked Discord.exe
+[2023-08-05 16:50:06] Successfully blocked Discord.exe
+[2023-08-05 16:50:09] Blocking stopped
+[2023-08-05 16:51:55] Blocking has started
+[2023-08-05 16:51:56] Blocking stopped
+[2023-08-05 16:54:34] Blocking has started
+[2023-08-05 16:54:36] Blocking stopped
+[2023-08-05 16:55:41] Blocking has started
+[2023-08-05 16:55:43] Blocking stopped
+[2023-08-05 17:11:03] Blocking has started
+[2023-08-05 17:11:07] Successfully blocked Discord.exe
+[2023-08-05 17:11:07] Successfully blocked Discord.exe
+[2023-08-05 17:11:07] Successfully blocked Discord.exe
+[2023-08-05 17:11:07] Successfully blocked Discord.exe
+[2023-08-05 17:11:07] Successfully blocked Discord.exe
+[2023-08-05 17:11:09] Blocking stopped
+[2023-08-05 17:11:15] Blocking has started
+[2023-08-05 17:11:17] Successfully blocked Discord.exe
+[2023-08-05 17:13:53] Blocking has started
+[2023-08-05 17:14:00] Successfully blocked Discord.exe
+[2023-08-05 17:14:03] Successfully blocked ScreenToGif.exe
+[2023-08-05 17:14:46] Blocking has started
+[2023-08-05 17:35:24] Blocking stopped
+[2023-08-05 17:35:26] Blocking has started
+[2023-08-05 17:35:26] Successfully blocked ScreenToGif.exe
+[2023-08-05 17:35:30] Blocking stopped
+[2023-08-05 17:42:59] Blocking has started
+[2023-08-05 17:43:51] Blocking stopped
+[2023-08-05 17:49:39] Blocking has started
+[2023-08-05 17:49:46] Successfully blocked ScreenToGif.exe
+[2023-08-05 17:49:49] Blocking stopped
+[2023-08-05 17:51:01] Blocking has started
+[2023-08-05 17:51:04] Blocking stopped
+[2023-08-05 17:51:11] Blocking has started
+[2023-08-05 17:51:15] Successfully blocked ScreenToGif.exe
+[2023-08-05 17:51:19] Blocking stopped

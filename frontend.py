@@ -1,9 +1,9 @@
-import json
 import tkinter
 import tkinter.messagebox
 import customtkinter
 from blocker_app import ProcessKiller
 from blocker_web import Web_blocker
+from json_manager import JSONManager
 
 customtkinter.set_appearance_mode("System")  # Modes: "System" (standard), "Dark", "Light"
 customtkinter.set_default_color_theme("blue") 
@@ -15,6 +15,15 @@ class App(customtkinter.CTk):
 
         self.title("ProductiBee")
         self.geometry("700x450")
+
+        self.state_file = "log/process_killer_state.json"
+        self.json_m = JSONManager(self.state_file)
+
+        # Load ProcessKiller state (if it exists)
+        self.process_killer = ProcessKiller()
+        self.web_blocker = Web_blocker()
+        self.json_m.load_state()
+        active = self.json_m.is_active()
 
         # set grid layout 1x2
         self.grid_rowconfigure(0, weight=1)
@@ -28,17 +37,13 @@ class App(customtkinter.CTk):
         # Select default frame
         self.select_frame_by_name("home")
 
-        # Load ProcessKiller state (if it exists)
-        self.process_killer = ProcessKiller()
-        self.process_killer.load_state()
-
-        self.web_blocker = Web_blocker()
-        self.web_blocker.load_state()
-
         # If ProcessKiller is active, disable the "Block" button and enable the "Unblock" button
-        if self.process_killer.active:
+        if  active == True:
             self.block_button.configure(state="disabled")
             self.unblock_button.configure(state="normal")
+        else: 
+            self.block_button.configure(state="normal")
+            self.unblock_button.configure(state="disabled")
 
     def create_navigation_frame(self):
         # create navigation frame
@@ -189,11 +194,8 @@ class App(customtkinter.CTk):
         if processes_input:
             processes_list = self.prepare_processes_list(processes_input)
 
-            with open(r"C:\Users\asus\Desktop\Saving-time\log\process_killer_state.json", "r") as file:
-                data = json.load(file)
-            data["processes_to_kill"].extend(processes_list)
-            with open(r"C:\Users\asus\Desktop\Saving-time\log\process_killer_state.json", "w") as file:
-                json.dump(data, file)
+            self.json_m.add_processes_to_kill(processes_list)
+            self.json_m.save_state()
 
             self.update_blocked_app_listbox()
 
@@ -203,21 +205,14 @@ class App(customtkinter.CTk):
         if processes_input:
             processes_list = self.prepare_processes_list(processes_input)
 
-            with open(r"C:\Users\asus\Desktop\Saving-time\log\process_killer_state.json", "r") as file:
-                data = json.load(file)
-            for process in processes_list:
-                if process in data["processes_to_kill"]:
-                    data["processes_to_kill"].remove(process)
-            with open(r"C:\Users\asus\Desktop\Saving-time\log\process_killer_state.json", "w") as file:
-                json.dump(data, file)
+            self.json_m.remove_processes_to_kill(processes_list)
+            self.json_m.save_state()
 
             self.update_blocked_app_listbox()
 
 
     def update_blocked_app_listbox(self):
-        with open(r"C:\Users\asus\Desktop\Saving-time\log\process_killer_state.json", "r") as file:
-            data = json.load(file)
-        blocked_list = data["processes_to_kill"]
+        blocked_list = self.json_m.get_processes_to_kill()
 
         self.blocked_app_listbox.delete(1.0, "end")
         self.unblocked_app_listbox.delete(1.0, "end")
@@ -233,6 +228,12 @@ class App(customtkinter.CTk):
 
         self.blocked_app_listbox.delete("end-1c", "end")
 
+
+    def prepare_processes_list_to_block(self, processes_input):
+        processes_list = [process.strip(",") for process in processes_input]
+        return processes_list
+    
+    
     def prepare_processes_list(self, processes_input):
         processes_list = [process.strip() for process in processes_input.split(",") if process.strip()]
 
@@ -243,43 +244,26 @@ class App(customtkinter.CTk):
 
     ## WEB LISTBOX FUNC
     def on_add_web_button_click(self):
-        websites_input = self.entry_web.get().strip()
+        processes_input = self.entry_web.get().strip()
 
-        if websites_input:
-            websites_list = self.prepare_websites_list(websites_input)
-            self.process_killer.set_blocked_websites(websites_list)
-
-            with open(r"C:\Users\asus\Desktop\Saving-time\log\process_killer_state.json", "r") as file:
-                data = json.load(file)
-            data["site_to_kill"].extend(websites_list)
-            with open(r"C:\Users\asus\Desktop\Saving-time\log\process_killer_state.json", "w") as file:
-                json.dump(data, file)
-
+        if processes_input:
+            processes_list = self.prepare_websites_list(processes_input)
+            self.json_m.add_sites_to_kill(processes_list)
+            self.json_m.save_state()
             self.update_blocked_web_listbox()
-            self.process_killer.save_state()
 
     def on_delete_web_button_click(self):
         websites_input = self.delete_web.get().strip()
 
         if websites_input:
             websites_list = self.prepare_websites_list(websites_input)
-            self.process_killer.set_blocked_websites(websites_list, add_new=False)
-
-            with open(r"C:\Users\asus\Desktop\Saving-time\log\process_killer_state.json", "r") as file:
-                data = json.load(file)
-            for website in websites_list:
-                if website in data["site_to_kill"]:
-                    data["site_to_kill"].remove(website)
-            with open(r"C:\Users\asus\Desktop\Saving-time\log\process_killer_state.json", "w") as file:
-                json.dump(data, file)
-
+            self.json_m.remove_sites_to_kill(sites_list=websites_list)
+            self.json_m.save_state()
             self.update_blocked_web_listbox()
-            self.process_killer.save_state()
+            
 
     def update_blocked_web_listbox(self):
-        with open(r"C:\Users\asus\Desktop\Saving-time\log\process_killer_state.json", "r") as file:
-            data = json.load(file)
-        blocked_list = data["site_to_kill"]
+        blocked_list = self.json_m.get_sites_to_kill()
 
         self.blocked_web_listbox.delete(1.0, "end")
         self.unblocked_web_listbox.delete(1.0, "end")
@@ -298,30 +282,25 @@ class App(customtkinter.CTk):
         websites_list = [website.strip() for website in websites_input.split(",") if website.strip()]
         return websites_list
 
-    def confirm_processes(self):
-        processes_input = self.entry_exe.get()
-        processes_list = self.prepare_processes_list(processes_input)
-        self.process_killer.set_blocked_processes(processes_list, add_new=True)
-        self.process_killer.save_state()
-
-
-    
 
     def start_process_killer(self):
-        processes_input = self.entry_exe.get()
-        processes_list = self.prepare_processes_list(processes_input)
+        processes_input = self.json_m.get_processes_to_kill()
+        processes_list = self.prepare_processes_list_to_block(processes_input)
 
         self.process_killer.set_blocked_processes(processes_list)
         self.process_killer.start()
-        self.process_killer.save_state() 
+
+        self.json_m.set_active(True)  # Set the "active" state to True
+        self.json_m.save_state()
 
         self.block_button.configure(state="disabled")
         self.unblock_button.configure(state="normal")
 
     def stop_process_killer(self):
         self.process_killer.stop()
-        self.process_killer.active = False 
-        self.process_killer.save_state()
+
+        self.json_m.set_active(False)  # Set the "active" state to False
+        self.json_m.save_state()
 
         self.block_button.configure(state="normal")
         self.unblock_button.configure(state="disabled")

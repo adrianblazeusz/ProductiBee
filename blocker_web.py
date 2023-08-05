@@ -1,6 +1,5 @@
 from time import sleep
-import json
-import os
+from json_manager import JSONManager
 
 class Web_blocker:     
     def __init__(self):
@@ -8,14 +7,9 @@ class Web_blocker:
         self.hosts_path = '/etc/hosts'
         self.redirect = "127.0.0.1"
         self.state_file = "log/process_killer_state.json"
-        self.load_state()
+        self.json_m = JSONManager(self.state_file)
+        self.site_to_kill = self.json_m.get_sites_to_kill()
 
-
-    def load_state(self):
-        if os.path.exists(self.state_file):
-            with open(self.state_file, "r") as f:
-                state = json.load(f)
-                self.site_to_kill = set(state.get("site_to_kill", []))
 
     def set_blocked_websites(self, websites, add_new=True):
         if add_new:
@@ -44,3 +38,12 @@ class Web_blocker:
                         hostfile.write(line)
                 hostfile.truncate()
             sleep(1)
+
+    def set_blocked_websites(self, websites, add_new=True):
+        self.set_blocked_websites(websites, add_new)
+
+    def block_websites(self):
+        self.block_websites()
+
+    def unblock_websites(self):
+        self.unblock_websites()
