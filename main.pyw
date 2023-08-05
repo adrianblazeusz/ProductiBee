@@ -10,8 +10,8 @@ if not ctypes.windll.shell32.IsUserAnAdmin():
     sys.exit()
 
 # Hide the additional terminal window (stdout) when running the script
-#if sys.stdout is not None:
-#    sys.stdout = open(os.devnull, "w")
+if sys.stdout is not None:
+    sys.stdout = open(os.devnull, "w")
 
 # Create a Tkinter window and start the UI
 if __name__ == "__main__":

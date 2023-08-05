@@ -294,3 +294,15 @@ iscord.exe
 [2023-08-05 17:51:11] Blocking has started
 [2023-08-05 17:51:15] Successfully blocked ScreenToGif.exe
 [2023-08-05 17:51:19] Blocking stopped
+[2023-08-05 22:55:17] Blocking has started
+[2023-08-05 22:58:19] Blocking stopped
+[2023-08-05 22:58:31] Blocking stopped
+[2023-08-05 23:20:11] Blocking has started
+[2023-08-05 23:20:16] Successfully blocked Discord.exe
+[2023-08-05 23:20:16] Successfully blocked Discord.exe
+[2023-08-05 23:20:16] Successfully blocked Discord.exe
+[2023-08-05 23:20:16] Successfully blocked Discord.exe
+[2023-08-05 23:20:16] Successfully blocked Discord.exe
+[2023-08-05 23:20:18] Blocking stopped
+[2023-08-05 23:20:24] Successfully blocked ScreenToGif.exe
+[2023-08-05 23:20:24] Blocking has started
