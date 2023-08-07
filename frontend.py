@@ -260,8 +260,10 @@ class App(customtkinter.CTk):
 
         if processes_input:
             processes_list = self.prepare_websites_list(processes_input)
+
             self.json_m.add_sites_to_kill(processes_list)
             self.json_m.save_state()
+
             self.update_blocked_web_listbox()
 
     def on_delete_web_button_click(self):
@@ -291,18 +293,21 @@ class App(customtkinter.CTk):
         self.blocked_web_listbox.delete("end-1c", "end")
 
     def prepare_websites_list(self, websites_input):
-        website_list = [website.strip(",") for website in websites_input]
+        website_list = [website.strip() for website in websites_input.split(",") if website.strip()]
         return website_list
 
+    def prepare_website_list_to_block(self, websites_input):
+        websites_list = [website.strip(",") for website in websites_input]
+        return websites_list
 
     def start_process_killer(self):
-        #website_input = self.json_m.get_sites_to_kill()
-        #website_list = self.prepare_websites_list(website_input)
+        websites_input = self.json_m.get_sites_to_kill()
+        websites_list = self.prepare_website_list_to_block(websites_input)
         processes_input = self.json_m.get_processes_to_kill()
         processes_list = self.prepare_processes_list_to_block(processes_input)
 
-        #self.web_blocker.set_blocked_websites(website_list)
-        #self.web_blocker.block_websites()
+        self.web_blocker.set_blocked_websites(websites_list)
+        self.web_blocker.block_websites()
         self.process_killer.set_blocked_processes(processes_list)
         self.process_killer.start()
 
@@ -314,7 +319,7 @@ class App(customtkinter.CTk):
 
     def stop_process_killer(self):
         self.process_killer.stop()
-        #self.web_blocker.unblock_websites()
+        self.web_blocker.unblock_websites()
 
         self.json_m.set_active(False)  # Set the "active" state to False
         self.json_m.save_state()

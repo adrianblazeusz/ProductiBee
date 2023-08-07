@@ -8,11 +8,9 @@ from json_manager import JSONManager
 class ProcessKiller:
     def __init__(self):
         self.processes_to_kill = set()
-        self.site_to_kill = set() 
         self.thread = None
         self.log_file = "log/process_killer_log.txt"
         self.state_file = "log/process_killer_state.json"
-        self.web_blocker = Web_blocker()
         self.json_m = JSONManager(self.state_file)
         self.stop_event = Event()
 

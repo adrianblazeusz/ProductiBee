@@ -4,11 +4,10 @@ from json_manager import JSONManager
 class Web_blocker:     
     def __init__(self):
         self.site_to_kill = set()  
-        self.hosts_path = 'C:\Windows\System32\drivers\etchosts'
+        self.hosts_path = 'C:\Windows\System32\drivers\etc\hosts'
         self.redirect = "127.0.0.1"
         self.state_file = "log/process_killer_state.json"
         self.json_m = JSONManager(self.state_file)
-        self.site_to_kill = self.json_m.get_sites_to_kill()
 
 
     def block_websites(self):
@@ -31,9 +30,8 @@ class Web_blocker:
             hostfile.truncate()
     
     def set_blocked_websites(self, websites, add_new=True):
-        websites_set = set(websites)  # Convert the list to a set
         if add_new:
-            self.site_to_kill.update(websites_set)
+            self.site_to_kill.update(websites)  
         else:
-            self.site_to_kill = websites_set
+            self.site_to_kill = set(websites)
                 
