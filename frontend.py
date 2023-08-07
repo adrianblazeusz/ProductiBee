@@ -90,22 +90,27 @@ class App(customtkinter.CTk):
         self.home_frame_button_1.grid(row=1, column=0, padx=20, pady=10)
 
     def create_work_frame(self):
-        self.work_frame = customtkinter.CTkFrame(self, corner_radius=0, fg_color="transparent")
-        self.work_frame.grid_columnconfigure(0, weight=1)
-        # create navigation frame
-        self.navigation_frame = customtkinter.CTkFrame(self.work_frame, corner_radius=0)
-        self.navigation_frame.grid(row=0, column=0, sticky="new")
-        self.navigation_frame.grid_rowconfigure(1, weight=1)
+        self.work_frame = customtkinter.CTkFrame(self, corner_radius=1, fg_color="transparent")
+        self.work_frame.grid_columnconfigure(1, weight=1)
 
-        # create navigation frame label
-        self.navigation_frame_label = customtkinter.CTkLabel(self.navigation_frame, text="Work Mode",
-                                                             compound="left", font=customtkinter.CTkFont(size=15, weight="bold"))
-        self.navigation_frame_label.grid(row=0, column=0, padx=225, pady=20)
+        self.tabview_timer = customtkinter.CTkTabview(self.work_frame, width=250, height=225)
+        self.tabview_timer.grid(row=1, column=0, columnspan=1, sticky="nsw")
+        self.start_timer = customtkinter.CTkButton(self.tabview_timer, text="Start!")
+        self.start_timer.grid(row=2, column=0, padx=10, pady=10)
+        self.set_timer = customtkinter.CTkButton(self.tabview_timer, text="Set time")
+        self.set_timer.grid(row=3, column=0, padx=10, pady=10)
 
-        self.tabview_work = customtkinter.CTkTabview(self.work_frame, width=250, height=425)
-        self.tabview_work.grid(row=1, column=0, columnspan=3, sticky="ew")
-        self.home_frame_button_1 = customtkinter.CTkButton(self.tabview_work, text="Work Time!")
-        self.home_frame_button_1.grid(row=1, column=0, padx=20, pady=10)
+        self.tabview_set = customtkinter.CTkTabview(self.work_frame, width=150, height=225)
+        self.tabview_set.grid(row=1, column=1, columnspan=2, sticky="nse")
+
+        self.set_app = customtkinter.CTkButton(self.tabview_set, text="Set applications")
+        self.set_app.grid(row=2, column=0, padx=10, pady=10)
+        self.set_web = customtkinter.CTkButton(self.tabview_set, text="Set website")
+        self.set_web.grid(row=3, column=0, padx=10, pady=10)
+
+        self.tabview_analys = customtkinter.CTkTabview(self.work_frame, width=220, height=200)
+        self.tabview_analys.grid(row=3, column=0, columnspan=3, sticky="sew")
+
 
 
     def create_blocker_frame(self):
@@ -141,7 +146,7 @@ class App(customtkinter.CTk):
         self.blocked_app_listbox.configure(state="normal")
 
         # Disable the listbox so that the user can't select the text
-        self.blocked_app_listbox.bind("<1>", lambda event: "break")
+        #self.blocked_app_listbox.bind("<1>", lambda event: "break")
         self.blocked_app_listbox.bind("<Key>", lambda event: "break")
 
         #Web listbox in BLOCK
@@ -150,7 +155,7 @@ class App(customtkinter.CTk):
         self.blocked_web_listbox.configure(state="normal")
 
         # Disable the listbox so that the user can't select the text
-        self.blocked_web_listbox.bind("<1>", lambda event: "break")
+        #self.blocked_web_listbox.bind("<1>", lambda event: "break")
         self.blocked_web_listbox.bind("<Key>", lambda event: "break")
 
         self.block_button = customtkinter.CTkButton(self.tabview.tab("BLOCK"), text="Block", 
