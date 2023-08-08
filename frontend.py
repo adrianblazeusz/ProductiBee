@@ -4,6 +4,8 @@ import customtkinter
 from blocker_app import ProcessKiller
 from blocker_web import Web_blocker
 from json_manager import JSONManager
+from timer_set import Timer
+
 
 customtkinter.set_appearance_mode("System")  # Modes: "System" (standard), "Dark", "Light"
 customtkinter.set_default_color_theme("blue") 
@@ -24,6 +26,8 @@ class App(customtkinter.CTk):
         self.web_blocker = Web_blocker()
         self.json_m.load_state()
         active = self.json_m.is_active()
+
+        self.timer = Timer()
 
         # set grid layout 1x2
         self.grid_rowconfigure(0, weight=1)
@@ -97,13 +101,24 @@ class App(customtkinter.CTk):
         self.tabview_timer = customtkinter.CTkTabview(self.work_frame, width=260, height=225)
         self.tabview_timer.grid(row=1, column=0, columnspan=2, sticky="nsw", padx=(10,10))
 
-        self.start_timer = customtkinter.CTkButton(self.tabview_timer, text="Start")
-        self.start_timer.grid(row=3, column=0, columnspan=2, stick="sew", padx=(20,20), pady=20) 
+        self.timer_label = customtkinter.CTkLabel(self.tabview_timer, text="00:00:00", font=customtkinter.CTkFont(size=30))
+        self.timer_label.grid(row=2, column=0, columnspan=2, padx=(20, 20), pady=(40, 20), stick="sew")
+        self.timer.set_display_label(self.timer_label)
+
+        self.start_timer_tabvie = customtkinter.CTkButton(self.tabview_timer, text="Start", 
+                                                      command=self.start_timer_event)
+        self.start_timer_tabvie.grid(row=3, column=0, columnspan=2, stick="sew", padx=(20,20), pady=20)
+
 
         self.tabview_set = customtkinter.CTkTabview(self.work_frame, width=215, height=225)
         self.tabview_set.grid(row=1, column=1, columnspan=4, sticky="nse", padx=(10,10))
 
-        self.set_app = customtkinter.CTkButton(self.tabview_set, text="Set applications")
+        self.set_time = customtkinter.CTkButton(self.tabview_set, text="Set time",
+                                                command=self.open_input_dialog_event)
+        
+        self.set_time.grid(row=2, column=0,columnspan=2, padx=(10,10), pady=(170,20), stick="we")
+        self.set_app = customtkinter.CTkButton(self.tabview_set, text="Set applications",
+                                               command=self.set_app_button)
         self.set_app.grid(row=2, column=0,columnspan=2, padx=(10,10), pady=(0,150), stick="we")
         self.info_app = customtkinter.CTkLabel(self.tabview_set, text="You will block 5 apps")
         self.info_app.grid(row=2, column=0,columnspan=2, padx=(10,10), pady=(10,100), stick="we")
@@ -113,9 +128,7 @@ class App(customtkinter.CTk):
         self.info_web = customtkinter.CTkLabel(self.tabview_set, text="You will block 3 websites")
         self.info_web.grid(row=2, column=0,columnspan=2, padx=(10,10), pady=(60,0), stick="we")
 
-        self.set_time = customtkinter.CTkButton(self.tabview_set, text="Set time",
-                                                command=self.open_input_dialog_event)
-        self.set_time.grid(row=2, column=0,columnspan=2, padx=(10,10), pady=(170,20), stick="we")
+
 
         self.tabview_analys = customtkinter.CTkTabview(self.work_frame, width=220, height=200)
         self.tabview_analys.grid(row=2, column=0, columnspan=2, sticky="sew", padx=(10,10), pady=(0,20))
@@ -342,8 +355,27 @@ class App(customtkinter.CTk):
 
 
     def open_input_dialog_event(self):
-        dialog = customtkinter.CTkInputDialog(text=f"Set your time for work:\n2:30, 45", title="Set time")
-        print("CTkInputDialog:", dialog.get_input())
+        dialog = customtkinter.CTkInputDialog(text="Set your time for work:\n(hh:mm or mm)", title="Set time")
+        input_time = dialog.get_input()
+        if input_time:
+            self.timer.set_timer(input_time)
+    
+    def start_timer_event(self):
+        if self.timer.total_seconds <= 0:
+            tkinter.messagebox.showwarning("Warning", "Please set the timer first.")
+        else:
+            #self.timer.start_timer()  # Start the timer
+            self.update_timer_display()  # Schedule the initial display update
+
+    def update_timer_display(self):
+        if self.timer.is_running:
+            self.timer.update_display()  # Update the timer display
+            self.after(1000, self.update_timer_display)
+
+    def set_app_button(self):
+        set_app_frame = customtkinter.CTkFrame(self, corner_radius=1, fg_color="transparent")
+        set_app_frame.grid_columnconfigure(1, weight=1)
+
 
     def select_frame_by_name(self, name):
         self.home_frame.grid_remove()
