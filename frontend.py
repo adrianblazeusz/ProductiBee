@@ -90,27 +90,35 @@ class App(customtkinter.CTk):
         self.home_frame_button_1.grid(row=1, column=0, padx=20, pady=10)
 
     def create_work_frame(self):
-        self.work_frame = customtkinter.CTkFrame(self, corner_radius=1, fg_color="transparent")
+        self.work_frame = customtkinter.CTkFrame(self, corner_radius=4, fg_color="transparent")
         self.work_frame.grid_columnconfigure(1, weight=1)
+        self.work_frame.grid_rowconfigure(6, weight=1)
 
-        self.tabview_timer = customtkinter.CTkTabview(self.work_frame, width=250, height=225)
-        self.tabview_timer.grid(row=1, column=0, columnspan=1, sticky="nsw")
-        self.start_timer = customtkinter.CTkButton(self.tabview_timer, text="Start!")
-        self.start_timer.grid(row=2, column=0, padx=10, pady=10)
-        self.set_timer = customtkinter.CTkButton(self.tabview_timer, text="Set time")
-        self.set_timer.grid(row=3, column=0, padx=10, pady=10)
+        self.tabview_timer = customtkinter.CTkTabview(self.work_frame, width=260, height=225)
+        self.tabview_timer.grid(row=1, column=0, columnspan=2, sticky="nsw", padx=(10,10))
 
-        self.tabview_set = customtkinter.CTkTabview(self.work_frame, width=150, height=225)
-        self.tabview_set.grid(row=1, column=1, columnspan=2, sticky="nse")
+        self.start_timer = customtkinter.CTkButton(self.tabview_timer, text="Start")
+        self.start_timer.grid(row=3, column=0, columnspan=2, stick="sew", padx=(20,20), pady=20) 
+
+        self.tabview_set = customtkinter.CTkTabview(self.work_frame, width=215, height=225)
+        self.tabview_set.grid(row=1, column=1, columnspan=4, sticky="nse", padx=(10,10))
 
         self.set_app = customtkinter.CTkButton(self.tabview_set, text="Set applications")
-        self.set_app.grid(row=2, column=0, padx=10, pady=10)
+        self.set_app.grid(row=2, column=0,columnspan=2, padx=(10,10), pady=(0,150), stick="we")
+        self.info_app = customtkinter.CTkLabel(self.tabview_set, text="You will block 5 apps")
+        self.info_app.grid(row=2, column=0,columnspan=2, padx=(10,10), pady=(10,100), stick="we")
+
         self.set_web = customtkinter.CTkButton(self.tabview_set, text="Set website")
-        self.set_web.grid(row=3, column=0, padx=10, pady=10)
+        self.set_web.grid(row=2, column=0,columnspan=2, padx=(10,10), pady=(0,0), stick="we")
+        self.info_web = customtkinter.CTkLabel(self.tabview_set, text="You will block 3 websites")
+        self.info_web.grid(row=2, column=0,columnspan=2, padx=(10,10), pady=(60,0), stick="we")
+
+        self.set_time = customtkinter.CTkButton(self.tabview_set, text="Set time",
+                                                command=self.open_input_dialog_event)
+        self.set_time.grid(row=2, column=0,columnspan=2, padx=(10,10), pady=(170,20), stick="we")
 
         self.tabview_analys = customtkinter.CTkTabview(self.work_frame, width=220, height=200)
-        self.tabview_analys.grid(row=3, column=0, columnspan=3, sticky="sew")
-
+        self.tabview_analys.grid(row=2, column=0, columnspan=2, sticky="sew", padx=(10,10), pady=(0,20))
 
 
     def create_blocker_frame(self):
@@ -332,6 +340,10 @@ class App(customtkinter.CTk):
         self.block_button.configure(state="normal")
         self.unblock_button.configure(state="disabled")
 
+
+    def open_input_dialog_event(self):
+        dialog = customtkinter.CTkInputDialog(text=f"Set your time for work:\n2:30, 45", title="Set time")
+        print("CTkInputDialog:", dialog.get_input())
 
     def select_frame_by_name(self, name):
         self.home_frame.grid_remove()
