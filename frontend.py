@@ -105,9 +105,9 @@ class App(customtkinter.CTk):
         self.timer_label.grid(row=2, column=0, columnspan=2, padx=(20, 20), pady=(40, 20), stick="sew")
         self.timer.set_display_label(self.timer_label)
 
-        self.start_timer_tabvie = customtkinter.CTkButton(self.tabview_timer, text="Start", 
+        self.start_timer_button = customtkinter.CTkButton(self.tabview_timer, text="Start", 
                                                       command=self.start_timer_event)
-        self.start_timer_tabvie.grid(row=3, column=0, columnspan=2, stick="sew", padx=(20,20), pady=20)
+        self.start_timer_button.grid(row=3, column=0, columnspan=2, stick="sew", padx=(20,20), pady=20)
 
 
         self.tabview_set = customtkinter.CTkTabview(self.work_frame, width=215, height=225)
@@ -364,14 +364,25 @@ class App(customtkinter.CTk):
         if self.timer.total_seconds <= 0:
             tkinter.messagebox.showwarning("Warning", "Please set the timer first.")
         else:
-            #self.timer.start_timer()  # Start the timer
-            self.update_timer_display()  # Schedule the initial display update
+            self.set_time.configure(state="disabled")  
+            self.start_timer_button.configure(state="disabled")  
+            self.timer.start_timer()  
+            self.update_timer_display()  
+
+    def stop_timer_event(self):
+        self.set_time.configure(state="normal")  
+        self.start_timer_button.configure(state="normal")  
+        self.timer.stop_timer()  
 
     def update_timer_display(self):
         if self.timer.is_running:
-            self.timer.update_display()  # Update the timer display
-            self.after(1000, self.update_timer_display)
-
+            self.timer.update_display()
+            if self.timer.is_running:
+                self.after(1000, self.update_timer_display)
+            else:
+                self.set_time.configure(state="normal")
+                self.start_timer_button.configure(state="normal")
+                
     def set_app_button(self):
         set_app_frame = customtkinter.CTkFrame(self, corner_radius=1, fg_color="transparent")
         set_app_frame.grid_columnconfigure(1, weight=1)

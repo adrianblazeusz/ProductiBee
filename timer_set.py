@@ -1,11 +1,13 @@
 import time
+import  threading
 
 class Timer:
     def __init__(self):
         self.total_seconds = 0
         self.is_running = False
         self.display_label = None
-
+        self.timer_thread = None
+        self.stop_event = threading.Event()
 
     def set_display_label(self, label):
         self.display_label = label
@@ -27,13 +29,20 @@ class Timer:
             print("Timer not set. Please set the timer first.")
             return
 
+        if not self.is_running:
+            self.is_running = True
+            self.stop_event.clear()
+            self.timer_thread = threading.Thread(target=self._countdown)
+            self.timer_thread.start()
+
+    def stop_timer(self):
         if self.is_running:
-            print("Timer is already running.")
-            return
+            self.stop_event.set()
+            self.timer_thread.join()
+            self.is_running = False
 
-        self.is_running = True
-
-        while self.total_seconds:
+    def _countdown(self):
+        while self.total_seconds and not self.stop_event.is_set():
             mins, secs = divmod(self.total_seconds, 60)
             hours, mins = divmod(mins, 60)
             timeformat = '{:02d}:{:02d}:{:02d}'.format(hours, mins, secs)
@@ -42,7 +51,8 @@ class Timer:
             self.total_seconds -= 1
 
         self.is_running = False
-        print("Time's up!")
+        if self.display_label is not None:
+            self.display_label.configure(text="Time's up!")
 
     def update_display(self):
         if self.display_label is not None:
@@ -50,5 +60,6 @@ class Timer:
             hours, mins = divmod(mins, 60)
             timeformat = '{:02d}:{:02d}:{:02d}'.format(hours, mins, secs)
             self.display_label.configure(text=timeformat)
+        
 
 
