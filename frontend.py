@@ -379,9 +379,9 @@ class App(customtkinter.CTk):
             self.timer.update_display()
             if self.timer.is_running:
                 self.after(1000, self.update_timer_display)
-            else:
-                self.set_time.configure(state="normal")
-                self.start_timer_button.configure(state="normal")
+        else:
+            self.set_time.configure(state="normal")
+            self.start_timer_button.configure(state="normal")
                 
     def set_app_button(self):
         set_app_frame = customtkinter.CTkFrame(self, corner_radius=1, fg_color="transparent")
