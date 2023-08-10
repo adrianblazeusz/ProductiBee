@@ -49,3 +49,10 @@ class JSONManager:
     def get_sites_to_kill(self):
         return self.state["site_to_kill"]
     
+    def get_num_blocked_apps(self):
+        state = self.load_state()
+        return len(state.get("processes_to_kill", []))
+
+    def get_num_blocked_sites(self):
+        state = self.load_state()
+        return len(state.get("site_to_kill", []))

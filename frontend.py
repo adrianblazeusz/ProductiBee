@@ -73,7 +73,7 @@ class App(customtkinter.CTk):
         self.blocker_button_frame.grid(row=3, column=0, sticky="ew")
 
         # create appearance mode menu
-        self.appearance_mode_menu = customtkinter.CTkOptionMenu(self.navigation_frame, values=["Dark", "Light",  "System"],
+        self.appearance_mode_menu = customtkinter.CTkOptionMenu(self.navigation_frame, values=["Dark", "Light", "System"],
                                                                 command=self.change_appearance_mode_event)
         self.appearance_mode_menu.grid(row=6, column=0, padx=20, pady=20, sticky="s")
 
@@ -96,7 +96,7 @@ class App(customtkinter.CTk):
         self.tabview_timer.grid(row=2, column=0, columnspan=2, sticky="nsw", padx=(10,10), pady=(0,50))
 
         self.timer_label = customtkinter.CTkLabel(self.tabview_timer, text="00:00:00", font=customtkinter.CTkFont(size=40))
-        self.timer_label.grid(row=2, column=0, columnspan=2, padx=(20, 20), pady=(60, 10), stick="ew")
+        self.timer_label.grid(row=2, column=0, columnspan=2, padx=(20, 20), pady=(20, 10), stick="ew")
         self.timer.set_display_label(self.timer_label)
 
         self.start_timer_button = customtkinter.CTkButton(self.tabview_timer, text="Start", 
@@ -108,19 +108,18 @@ class App(customtkinter.CTk):
 
         self.set_time = customtkinter.CTkButton(self.tabview_timer, text="Set time",
                                                 command=self.open_input_dialog_event)
-        self.set_time.grid(row=3, column=0,columnspan=2, padx=(10,10), pady=(45,5), stick="swe")
+        self.set_time.grid(row=3, column=0,columnspan=2, padx=(10,10), pady=(25,10), stick="swe")
 
-        self.info_app = customtkinter.CTkLabel(self.set_lable, text="You will block 5 apps")
-        self.info_app.grid(row=2, column=0,columnspan=2, padx=(10,10), pady=(10,70), stick="we")
-        self.blocked_app_listbox = customtkinter.CTkTextbox(self.set_lable,width=200, height=50)
-        self.blocked_app_listbox.grid(row=2, column=0, padx=(10, 10), pady=(50, 20), sticky="nsw")
-        self.blocked_app_listbox.configure(state="normal")
-        self.blocked_app_listbox.bind("<Key>", lambda event: "break")
- 
-        self.info_web = customtkinter.CTkLabel(self.set_lable, text="You will block 3 websites")
-        self.info_web.grid(row=2, column=0,columnspan=2, padx=(10,10), pady=(90,0), stick="we")
 
-        self.tabview_analys = customtkinter.CTkTabview(self.work_frame, width=220, height=220)
+        num_blocked_apps = self.json_m.get_num_blocked_apps()
+        num_blocked_sites = self.json_m.get_num_blocked_sites()
+        info_text = f"You will block {num_blocked_apps} apps and {num_blocked_sites} websites"
+
+        self.info_app = customtkinter.CTkLabel(self.set_lable, text=info_text)
+        self.info_app.grid(row=2, column=0,columnspan=2, padx=(10,10), pady=(30,30), stick="we")
+
+
+        self.tabview_analys = customtkinter.CTkTabview(self.work_frame, width=220, height=250)
         self.tabview_analys.grid(row=1, column=0, columnspan=2, sticky="sew", padx=(10,10), pady=(0,0))
        
 
@@ -146,7 +145,7 @@ class App(customtkinter.CTk):
         self.add_exe_button.grid(row=1, column=1, columnspan=2, padx=(10, 10), pady=(20, 10), sticky="se")
 
         self.entry_web = customtkinter.CTkEntry(self.tabview.tab("BLOCK"), placeholder_text="facebook.com, youtube.com ...", width=325)
-        self.entry_web.grid(row=2, column=0, columnspan=2, padx=(10, 15), pady=(10, 10), sticky="nw")
+        self.entry_web.grid(row=2, column=0, columnspan=2, padx=(10, 10), pady=(10, 10), sticky="nw")
 
         self.add_web_button = customtkinter.CTkButton(self.tabview.tab("BLOCK"), text="Add Site",
                                                       command=self.on_add_web_button_click)
@@ -176,31 +175,31 @@ class App(customtkinter.CTk):
 
         self.delete_app_button = customtkinter.CTkButton(self.tabview.tab("UNBLOCK"), text="Delete App",
                                             command=self.on_delete_app_button_click) 
-        self.delete_app_button.grid(row=1, column=1, columnspan=2, padx=(10, 20), pady=(20, 10), sticky="se")
+        self.delete_app_button.grid(row=1, column=1, columnspan=2, padx=(10, 10), pady=(20, 10), sticky="se")
 
         self.delete_web = customtkinter.CTkEntry(self.tabview.tab("UNBLOCK"), placeholder_text="facebook.com, youtube.com ...", width=325)
         self.delete_web.grid(row=2, column=0, columnspan=2, padx=(10, 10), pady=(10, 10), sticky="nw")
 
         self.delete_web_button = customtkinter.CTkButton(self.tabview.tab("UNBLOCK"), text="Delete Site",
                                                         command=self.on_delete_web_button_click)
-        self.delete_web_button.grid(row=2, column=1, columnspan=2, padx=(10, 20), pady=(10, 20), sticky="se")
+        self.delete_web_button.grid(row=2, column=1, columnspan=2, padx=(10, 10), pady=(10, 20), sticky="se")
 
         # App listbox in UNBLOCK 
-        self.unblocked_app_listbox = customtkinter.CTkTextbox(self.tabview.tab("UNBLOCK"), width=225)
-        self.unblocked_app_listbox.grid(row=3, column=0, padx=(10, 5), pady=(0, 10), sticky="nsw")
+        self.unblocked_app_listbox = customtkinter.CTkTextbox(self.tabview.tab("UNBLOCK"), width=225, height=250)
+        self.unblocked_app_listbox.grid(row=3, column=0, padx=(10, 5), pady=(0, 20), sticky="nsw")
         self.unblocked_app_listbox.configure(state="normal")
 
         # Disable the listbox so that the user can't select the text
-        self.unblocked_app_listbox.bind("<1>", lambda event: "break")
+        # self.unblocked_app_listbox.bind("<1>", lambda event: "break")
         self.unblocked_app_listbox.bind("<Key>", lambda event: "break")
 
-
-        #Web listbox in UNBLOCK
-        self.unblocked_web_listbox = customtkinter.CTkTextbox(self.tabview.tab("UNBLOCK"), width=225)
-        self.unblocked_web_listbox.grid(row=3, column=1, padx=(30, 10), pady=(0, 10), sticky="nse")
+        # Web listbox in UNBLOCK
+        self.unblocked_web_listbox = customtkinter.CTkTextbox(self.tabview.tab("UNBLOCK"), width=225, height=250)
+        self.unblocked_web_listbox.grid(row=3, column=1, padx=(10, 10), pady=(0, 20), sticky="nse")
+        self.unblocked_web_listbox.configure(state="normal")
 
         # Disable the listbox so that the user can't select the text
-        self.unblocked_web_listbox.bind("<1>", lambda event: "break")
+        # self.unblocked_web_listbox.bind("<1>", lambda event: "break")
         self.unblocked_web_listbox.bind("<Key>", lambda event: "break")
 
 
@@ -360,6 +359,12 @@ class App(customtkinter.CTk):
         else:
             self.set_time.configure(state="normal")
             self.start_timer_button.configure(state="normal")
+            
+            if self.timer.total_seconds <= 0 and self.json_m.is_active():
+                self.stop_timer_event()  # Call the method to stop the timer and blocking processes
+
+            self.json_m.set_active(False)  # Update active state to False
+            self.json_m.save_state()
             
 
     def select_frame_by_name(self, name):
