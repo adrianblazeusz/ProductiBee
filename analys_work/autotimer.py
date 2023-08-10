@@ -1,6 +1,6 @@
 from __future__ import print_function
 import time
-from os import system
+import os
 from activity import *
 import json
 import datetime
@@ -65,9 +65,11 @@ try:
                 if not exists:
                     activity = Activity(activity_name, [time_entry])
                     activeList.activities.append(activity)
-                with open('activities.json', 'w') as json_file:
-                    json.dump(activeList.serialize(), json_file,
-                              indent=4, sort_keys=True)
+                
+                # Zmiana ścieżki zapisu pliku JSON
+                json_file_path = os.path.join(os.path.dirname(__file__), 'json', 'activities.json')
+                with open(json_file_path, 'w') as json_file:
+                    json.dump(activeList.serialize(), json_file, indent=4, sort_keys=True)
                     start_time = datetime.datetime.now()
             first_time = False
             active_window_name = new_window_name
@@ -75,5 +77,7 @@ try:
         time.sleep(1)
     
 except KeyboardInterrupt:
-    with open('activities.json', 'w') as json_file:
+    # Zmiana ścieżki zapisu pliku JSON
+    json_file_path = os.path.join(os.path.dirname(__file__), 'json', 'activities.json')
+    with open(json_file_path, 'w') as json_file:
         json.dump(activeList.serialize(), json_file, indent=4, sort_keys=True)

@@ -1,0 +1,38 @@
+{
+    "activities": [
+        {
+            "name": "Track Apps and Software \u2013 Opera",
+            "time_entries": [
+                {
+                    "days": 0,
+                    "end_time": "2023-08-10 22:28:20",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 3,
+                    "start_time": "2023-08-10 22:28:17"
+                },
+                {
+                    "days": 0,
+                    "end_time": "2023-08-10 22:28:29",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 2,
+                    "start_time": "2023-08-10 22:28:27"
+                }
+            ]
+        },
+        {
+            "name": "Best Optimum Solution with Explanation! (Using Joins) - Replace Employee ID With The Unique Identifier - LeetCode \u2013 Opera",
+            "time_entries": [
+                {
+                    "days": 0,
+                    "end_time": "2023-08-10 22:32:00",
+                    "hours": 0,
+                    "minutes": 3,
+                    "seconds": 31,
+                    "start_time": "2023-08-10 22:28:29"
+                }
+            ]
+        }
+    ]
+}
