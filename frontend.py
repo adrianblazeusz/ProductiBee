@@ -1,5 +1,4 @@
-import tkinter
-import tkinter.messagebox
+from tkinter import messagebox
 import customtkinter
 from blocker_app import ProcessKiller
 from blocker_web import Web_blocker
@@ -121,7 +120,6 @@ class App(customtkinter.CTk):
 
         self.tabview_analys = customtkinter.CTkTabview(self.work_frame, width=220, height=250)
         self.tabview_analys.grid(row=1, column=0, columnspan=2, sticky="sew", padx=(10,10), pady=(0,0))
-       
 
 
     def create_blocker_frame(self):
@@ -336,7 +334,7 @@ class App(customtkinter.CTk):
     
     def start_timer_event(self):
         if self.timer.total_seconds <= 0:
-            tkinter.messagebox.showwarning("Warning", "Please set the timer first.")
+            messagebox.showwarning("Warning", "Please set the timer first.")
         else:
             self.set_time.configure(state="disabled")  
             self.start_timer_button.configure(state="disabled")  
