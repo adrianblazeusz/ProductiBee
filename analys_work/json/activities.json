@@ -1,130 +1,54 @@
 {
     "activities": [
         {
-            "name": "autotimer.py - Saving-time - Visual Studio Code",
+            "name": "YouTube \u2013 Opera",
             "time_entries": [
                 {
                     "days": 0,
-                    "end_time": "2023-08-11 16:24:53",
-                    "hours": 0,
-                    "minutes": 0,
-                    "seconds": 1,
-                    "start_time": "2023-08-11 16:24:52"
-                },
-                {
-                    "days": 0,
-                    "end_time": "2023-08-11 16:26:18",
-                    "hours": 0,
-                    "minutes": 0,
-                    "seconds": 6,
-                    "start_time": "2023-08-11 16:26:12"
-                },
-                {
-                    "days": 0,
-                    "end_time": "2023-08-11 16:37:56",
-                    "hours": 0,
-                    "minutes": 0,
-                    "seconds": 7,
-                    "start_time": "2023-08-11 16:37:49"
-                }
-            ]
-        },
-        {
-            "name": "Activity Tracking with Python \u2013 Opera",
-            "time_entries": [
-                {
-                    "days": 0,
-                    "end_time": "2023-08-11 16:24:57",
-                    "hours": 0,
-                    "minutes": 0,
-                    "seconds": 4,
-                    "start_time": "2023-08-11 16:24:53"
-                }
-            ]
-        },
-        {
-            "name": "adrianblazeusz (Adrian B\u0142azeusz ) \u2013 Opera",
-            "time_entries": [
-                {
-                    "days": 0,
-                    "end_time": "2023-08-11 16:24:59",
+                    "end_time": "2023-08-11 23:30:23",
                     "hours": 0,
                     "minutes": 0,
                     "seconds": 2,
-                    "start_time": "2023-08-11 16:24:57"
+                    "start_time": "2023-08-11 23:30:21"
                 }
             ]
         },
         {
-            "name": "Szybkie wybieranie \u2013 Opera",
+            "name": "Opera",
             "time_entries": [
                 {
                     "days": 0,
-                    "end_time": "2023-08-11 16:26:06",
+                    "end_time": "2023-08-11 23:33:19",
                     "hours": 0,
-                    "minutes": 1,
-                    "seconds": 7,
-                    "start_time": "2023-08-11 16:24:59"
+                    "minutes": 2,
+                    "seconds": 56,
+                    "start_time": "2023-08-11 23:30:23"
                 }
             ]
         },
         {
-            "name": "import json",
+            "name": "",
             "time_entries": [
                 {
                     "days": 0,
-                    "end_time": "2023-08-11 16:26:12",
+                    "end_time": "2023-08-11 23:33:24",
                     "hours": 0,
                     "minutes": 0,
                     "seconds": 5,
-                    "start_time": "2023-08-11 16:26:06"
-                },
-                {
-                    "days": 0,
-                    "end_time": "2023-08-11 16:31:47",
-                    "hours": 0,
-                    "minutes": 5,
-                    "seconds": 28,
-                    "start_time": "2023-08-11 16:26:18"
+                    "start_time": "2023-08-11 23:33:19"
                 }
             ]
         },
         {
-            "name": "Ravens Rock - Sweet Dreams (Slowed + Reverb)",
+            "name": "Saving-time",
             "time_entries": [
                 {
                     "days": 0,
-                    "end_time": "2023-08-11 16:31:48",
+                    "end_time": "2023-08-11 23:33:26",
                     "hours": 0,
                     "minutes": 0,
-                    "seconds": 1,
-                    "start_time": "2023-08-11 16:31:47"
-                }
-            ]
-        },
-        {
-            "name": "Spotify Premium",
-            "time_entries": [
-                {
-                    "days": 0,
-                    "end_time": "2023-08-11 16:37:49",
-                    "hours": 0,
-                    "minutes": 6,
-                    "seconds": 1,
-                    "start_time": "2023-08-11 16:31:48"
-                }
-            ]
-        },
-        {
-            "name": "\u25cf autotimer.py - Saving-time - Visual Studio Code",
-            "time_entries": [
-                {
-                    "days": 0,
-                    "end_time": "2023-08-11 16:37:57",
-                    "hours": 0,
-                    "minutes": 0,
-                    "seconds": 1,
-                    "start_time": "2023-08-11 16:37:56"
+                    "seconds": 2,
+                    "start_time": "2023-08-11 23:33:24"
                 }
             ]
         }

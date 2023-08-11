@@ -14,11 +14,12 @@ activity_name = ""
 start_time = datetime.datetime.now()
 activeList = AcitivyList([])
 first_time = True
+json_file_path = json_file_path = r"C:\Users\asus\Desktop\Saving-time\analys_work\json\activities.json"
 
 
 def url_to_name(url):
     string_list = url.split('/')
-    return string_list[2]
+    return string_list[3]
 
 
 def get_active_window():
@@ -33,51 +34,68 @@ def get_chrome_url():
     edit = chromeControl.EditControl()
     return 'https://' + edit.GetValuePattern().Value
 
+def extract_app_name(window_title):
+    separators = [' - ', ' | ', ' :: ', ' – ']  # Add other possible separators
+    for separator in separators:
+        if separator in window_title:
+            return window_title.split(separator)[1].strip()
+    return window_title
 
 try:
     activeList.initialize_me()
 except Exception:
     print('No json')
 
+# Ensure the 'json' directory exists
+os.makedirs(os.path.dirname(json_file_path), exist_ok=True)
 
 try:
     while True:
-        previous_site = ""
         new_window_name = get_active_window()
         if 'Google Chrome' in new_window_name:
             new_window_name = url_to_name(get_chrome_url())
 
-        if active_window_name != new_window_name:
-            print(active_window_name)
-            activity_name = active_window_name
+        app_name = extract_app_name(new_window_name)  # Function to extract only the app name
 
+        if active_window_name != app_name:
             if not first_time:
                 end_time = datetime.datetime.now()
-                time_entry = TimeEntry(start_time, end_time, 0, 0, 0, 0)
-                time_entry._get_specific_times()
+                time_spent = (end_time - start_time).seconds
 
                 exists = False
                 for activity in activeList.activities:
-                    if activity.name == activity_name:
+                    if activity.name == app_name:
                         exists = True
-                        activity.time_entries.append(time_entry)
+                        if time_spent >= 60:  # Check if at least 1 minute passed
+                            activity.time_entries[-1].end_time = end_time  # Update the previous entry's end time
+                            activity.time_entries[-1]._get_specific_times()  # Update specific times
 
                 if not exists:
-                    activity = Activity(activity_name, [time_entry])
+                    activity = Activity(app_name, [TimeEntry(start_time, end_time, 0, 0, 0, 0)])
                     activeList.activities.append(activity)
-                
-                # Zmiana ścieżki zapisu pliku JSON
-                json_file_path = os.path.join(os.path.dirname(__file__), 'json', 'activities.json')
-                with open(json_file_path, 'w') as json_file:
-                    json.dump(activeList.serialize(), json_file, indent=4, sort_keys=True)
-                    start_time = datetime.datetime.now()
+
+            # Load existing JSON data
+            if os.path.exists(json_file_path):
+                with open(json_file_path, 'r') as json_file:
+                    existing_data = json.load(json_file)
+            else:
+                existing_data = {"activities": []}
+
+            # Update existing JSON data with new entries
+            existing_data['activities'] += activeList.activities_to_json()
+
+            # Write the updated data back to the JSON file
+            with open(json_file_path, 'w') as json_file:
+                json.dump(existing_data, json_file, indent=4, sort_keys=True)
+
             first_time = False
-            active_window_name = new_window_name
+            active_window_name = app_name
+            start_time = datetime.datetime.now()  # Update start time for the new activity
 
         time.sleep(1)
     
 except KeyboardInterrupt:
     # Zmiana ścieżki zapisu pliku JSON
-    json_file_path = os.path.join(os.path.dirname(__file__), 'json', 'activities.json')
+    json_file_path = r"C:\Users\asus\Desktop\Saving-time\analys_work\json\activities.json"
     with open(json_file_path, 'w') as json_file:
         json.dump(activeList.serialize(), json_file, indent=4, sort_keys=True)

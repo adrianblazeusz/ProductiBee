@@ -80,23 +80,20 @@ class TimeEntry:
         self.start_time = start_time
         self.end_time = end_time
         self.total_time = end_time - start_time
-        self.days = days
-        self.hours = hours
-        self.minutes = minutes
-        self.seconds = seconds
+        self._get_specific_times()  # Calculate specific times upon initialization
     
     def _get_specific_times(self):
-        self.days, self.seconds = self.total_time.days, self.total_time.seconds
-        self.hours = self.days * 24 + self.seconds // 3600
-        self.minutes = (self.seconds % 3600) // 60
-        self.seconds = self.seconds % 60
+        total_seconds = self.total_time.total_seconds()
+        self.days, remainder = divmod(total_seconds, 86400)
+        self.hours, remainder = divmod(remainder, 3600)
+        self.minutes, self.seconds = divmod(remainder, 60)
 
     def serialize(self):
         return {
-            'start_time' : self.start_time.strftime("%Y-%m-%d %H:%M:%S"),
-            'end_time' : self.end_time.strftime("%Y-%m-%d %H:%M:%S"),
-            'days' : self.days,
-            'hours' : self.hours,
-            'minutes' : self.minutes,
-            'seconds' : self.seconds
+            'start_time': self.start_time.strftime("%Y-%m-%d %H:%M:%S"),
+            'end_time': self.end_time.strftime("%Y-%m-%d %H:%M:%S"),
+            'days': int(self.days),
+            'hours': int(self.hours),
+            'minutes': int(self.minutes),
+            'seconds': int(self.seconds)
         }
