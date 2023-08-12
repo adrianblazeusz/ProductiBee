@@ -4,6 +4,8 @@ from blockers.blocker_app import ProcessKiller
 from blockers.blocker_web import Web_blocker
 from func.json_manager import JSONManager
 from func.timer_set import Timer
+from analys_work.autotimer import Autotimer
+
 
 
 customtkinter.set_appearance_mode("System")  # Modes: "System" (standard), "Dark", "Light"
@@ -28,6 +30,7 @@ class App(customtkinter.CTk):
         active = self.json_m.is_active()
 
         self.timer = Timer()
+        self.autotimer = Autotimer()
 
         # set grid layout 1x2
         self.grid_rowconfigure(0, weight=1)
@@ -75,8 +78,8 @@ class App(customtkinter.CTk):
         self.work_frame.grid_columnconfigure(1, weight=1)
         self.work_frame.grid_rowconfigure(6, weight=1)
 
-        self.tabview_timer = customtkinter.CTkTabview(self.work_frame, width=235, height=70)
-        self.tabview_timer.grid(row=2, column=0, columnspan=2, sticky="nsw", padx=(10,10), pady=(0,50))
+        self.tabview_timer = customtkinter.CTkTabview(self.work_frame, width=235, height=50)
+        self.tabview_timer.grid(row=2, column=0, columnspan=2, sticky="ew", padx=(10,10), pady=(0,10))
 
         self.timer_label = customtkinter.CTkLabel(self.tabview_timer, text="00:00:00", font=customtkinter.CTkFont(size=40))
         self.timer_label.grid(row=2, column=0, columnspan=2, padx=(20, 20), pady=(20, 10), stick="ew")
@@ -92,18 +95,12 @@ class App(customtkinter.CTk):
         self.set_time = customtkinter.CTkButton(self.tabview_timer, text="Set time",
                                                 command=self.open_input_dialog_event)
         self.set_time.grid(row=3, column=0,columnspan=2, padx=(10,10), pady=(25,10), stick="swe")
+        
+        self.analys_list = customtkinter.CTkTextbox(self.work_frame, width=500, height=250)
+        self.analys_list.grid(row=1, column=0, padx=(10, 10), pady=(10, 0), sticky="sew")
+        self.analys_list.configure(state="normal")
 
-
-        num_blocked_apps = self.json_m.get_num_blocked_apps()
-        num_blocked_sites = self.json_m.get_num_blocked_sites()
-        info_text = f"You will block {num_blocked_apps} apps and {num_blocked_sites} websites"
-
-        self.info_app = customtkinter.CTkLabel(self.set_lable, text=info_text)
-        self.info_app.grid(row=2, column=0,columnspan=2, padx=(10,10), pady=(30,30), stick="we")
-
-
-        self.tabview_analys = customtkinter.CTkTabview(self.work_frame, width=220, height=250)
-        self.tabview_analys.grid(row=1, column=0, columnspan=2, sticky="sew", padx=(10,10), pady=(0,0))
+        self.update_analysis_list()
 
 
     def create_blocker_frame(self):
@@ -183,7 +180,6 @@ class App(customtkinter.CTk):
         # Disable the listbox so that the user can't select the text
         # self.unblocked_web_listbox.bind("<1>", lambda event: "break")
         self.unblocked_web_listbox.bind("<Key>", lambda event: "break")
-
 
         self.update_blocked_app_listbox()
         self.update_blocked_web_listbox() 
@@ -309,7 +305,6 @@ class App(customtkinter.CTk):
         self.json_m.set_active(False)  
         self.json_m.save_state()
 
-
     def open_input_dialog_event(self):
         dialog = customtkinter.CTkInputDialog(text="Set your time for work:\n(hh:mm or mm)", title="Set time")
         input_time = dialog.get_input()
@@ -320,17 +315,21 @@ class App(customtkinter.CTk):
         if self.timer.total_seconds <= 0:
             messagebox.showwarning("Warning", "Please set the timer first.")
         else:
-            self.set_time.configure(state="disabled")  
-            self.start_timer_button.configure(state="disabled")  
+            self.set_time.configure(state="disabled")
+            self.start_timer_button.configure(state="disabled")
             self.timer.start_timer()
-            self.start_process_killer() 
-            self.update_timer_display()  
+
+            self.start_process_killer()
+            self.autotimer.start_auto_timer()  # Start the autotimer
+            self.update_timer_display()
+
 
     def stop_timer_event(self):
-        self.set_time.configure(state="normal")  
-        self.start_timer_button.configure(state="normal") 
+        self.set_time.configure(state="normal")
+        self.start_timer_button.configure(state="normal")
         self.timer.stop_timer()
         self.stop_process_killer()
+        self.autotimer.stop_auto_timer()  # Stop the autotimer
         self.update_timer_display()
         
     def update_timer_display(self):
@@ -348,12 +347,25 @@ class App(customtkinter.CTk):
             self.json_m.set_active(False)  # Update active state to False
             self.json_m.save_state()
             
+    def update_analysis_list(self):
+        json_file_path = r"C:\Users\asus\Desktop\Saving-time\analys_work\json\activities.json"
+
+        try:
+            with open(json_file_path, 'r') as json_file:
+                activities_json = json_file.read()
+
+            # Wstawienie danych do widżetu
+            self.analys_list.delete(1.0, "end")  # Wyczyść widżet
+            self.analys_list.insert("end", activities_json)  # Wstaw dane
+        except FileNotFoundError:
+            self.analys_list.delete(1.0, "end")
+            self.analys_list.insert("end", "File not found.")
+
 
     def select_frame_by_name(self, name):
         self.work_frame.grid_remove()
         self.blocker_frame.grid_remove()
 
-        # Show the selected frame based on the given name
         if name == "work":
             self.work_frame.grid(row=0, column=1, sticky="nsew")
         elif name == "blocker":
