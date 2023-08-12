@@ -1,9 +1,9 @@
 from tkinter import messagebox
 import customtkinter
-from blocker_app import ProcessKiller
-from blocker_web import Web_blocker
-from json_manager import JSONManager
-from timer_set import Timer
+from blockers.blocker_app import ProcessKiller
+from blockers.blocker_web import Web_blocker
+from func.json_manager import JSONManager
+from func.timer_set import Timer
 
 
 customtkinter.set_appearance_mode("System")  # Modes: "System" (standard), "Dark", "Light"
@@ -34,12 +34,11 @@ class App(customtkinter.CTk):
         self.grid_columnconfigure(1, weight=1)
 
         self.create_navigation_frame()
-        self.create_home_frame()
         self.create_work_frame()
         self.create_blocker_frame()
 
         # Select default frame
-        self.select_frame_by_name("home")
+        self.select_frame_by_name("work")
 
 
     def create_navigation_frame(self):
@@ -53,11 +52,6 @@ class App(customtkinter.CTk):
                                                              compound="left", font=customtkinter.CTkFont(size=15, weight="bold"))
         self.navigation_frame_label.grid(row=0, column=0, padx=20, pady=20)
 
-        # create home button
-        self.home_button_frame = customtkinter.CTkButton(self.navigation_frame, corner_radius=0, height=40, border_spacing=10, text="Home",
-                                                   fg_color="transparent", text_color=("gray10", "gray90"), hover_color=("gray70", "gray30"),
-                                                   anchor="w", command=self.frame_home_button_event)
-        self.home_button_frame.grid(row=1, column=0, sticky="ew")
 
         # create work mode button
         self.work_button_frame = customtkinter.CTkButton(self.navigation_frame, corner_radius=0, height=40, border_spacing=10, text="Work Mode",
@@ -75,16 +69,6 @@ class App(customtkinter.CTk):
         self.appearance_mode_menu = customtkinter.CTkOptionMenu(self.navigation_frame, values=["Dark", "Light", "System"],
                                                                 command=self.change_appearance_mode_event)
         self.appearance_mode_menu.grid(row=6, column=0, padx=20, pady=20, sticky="s")
-
-    def create_home_frame(self):
-        self.home_frame = customtkinter.CTkFrame(self, corner_radius=0, fg_color="transparent")
-        self.home_frame.grid_columnconfigure(0, weight=1)
-
-        self.home_frame_large_image_label = customtkinter.CTkLabel(self.home_frame, text="Logo ProductiBee")
-        self.home_frame_large_image_label.grid(row=0, column=0, padx=20, pady=10)
-
-        self.home_frame_button_1 = customtkinter.CTkButton(self.home_frame, text="HI")
-        self.home_frame_button_1.grid(row=1, column=0, padx=20, pady=10)
 
     def create_work_frame(self):
         self.work_frame = customtkinter.CTkFrame(self, corner_radius=4, fg_color="transparent")
@@ -366,20 +350,15 @@ class App(customtkinter.CTk):
             
 
     def select_frame_by_name(self, name):
-        self.home_frame.grid_remove()
         self.work_frame.grid_remove()
         self.blocker_frame.grid_remove()
 
         # Show the selected frame based on the given name
-        if name == "home":
-            self.home_frame.grid(row=0, column=1, sticky="nsew")
-        elif name == "work":
+        if name == "work":
             self.work_frame.grid(row=0, column=1, sticky="nsew")
         elif name == "blocker":
             self.blocker_frame.grid(row=0, column=1, sticky="nsew")
 
-    def frame_home_button_event(self):
-        self.select_frame_by_name("home")
 
     def frame_work_button_event(self):
         self.select_frame_by_name("work")

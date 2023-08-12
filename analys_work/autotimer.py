@@ -8,7 +8,6 @@ import sys
 import win32gui
 import uiautomation as auto
 
-
 active_window_name = ""
 activity_name = ""
 start_time = datetime.datetime.now()
@@ -19,7 +18,7 @@ json_file_path = json_file_path = r"C:\Users\asus\Desktop\Saving-time\analys_wor
 
 def url_to_name(url):
     string_list = url.split('/')
-    return string_list[3]
+    return string_list[2]
 
 
 def get_active_window():
@@ -38,7 +37,7 @@ def extract_app_name(window_title):
     separators = [' - ', ' | ', ' :: ', ' – ']  # Add other possible separators
     for separator in separators:
         if separator in window_title:
-            return window_title.split(separator)[1].strip()
+            return window_title.split(separator)[-1].strip()
     return window_title
 
 try:
@@ -46,8 +45,10 @@ try:
 except Exception:
     print('No json')
 
-# Ensure the 'json' directory exists
-os.makedirs(os.path.dirname(json_file_path), exist_ok=True)
+existing_data = {"activities": []}
+if os.path.exists(json_file_path):
+    with open(json_file_path, 'r') as json_file:
+        existing_data = json.load(json_file)
 
 try:
     while True:
@@ -55,7 +56,7 @@ try:
         if 'Google Chrome' in new_window_name:
             new_window_name = url_to_name(get_chrome_url())
 
-        app_name = extract_app_name(new_window_name)  # Function to extract only the app name
+        app_name = extract_app_name(new_window_name)
 
         if active_window_name != app_name:
             if not first_time:
@@ -66,23 +67,16 @@ try:
                 for activity in activeList.activities:
                     if activity.name == app_name:
                         exists = True
-                        if time_spent >= 60:  # Check if at least 1 minute passed
-                            activity.time_entries[-1].end_time = end_time  # Update the previous entry's end time
-                            activity.time_entries[-1]._get_specific_times()  # Update specific times
+                        if time_spent >= 60:
+                            activity.time_entries[-1].end_time = end_time
+                            activity.time_entries[-1]._get_specific_times()
 
                 if not exists:
                     activity = Activity(app_name, [TimeEntry(start_time, end_time, 0, 0, 0, 0)])
                     activeList.activities.append(activity)
 
-            # Load existing JSON data
-            if os.path.exists(json_file_path):
-                with open(json_file_path, 'r') as json_file:
-                    existing_data = json.load(json_file)
-            else:
-                existing_data = {"activities": []}
-
             # Update existing JSON data with new entries
-            existing_data['activities'] += activeList.activities_to_json()
+            existing_data['activities'].extend(activeList.activities_to_json())
 
             # Write the updated data back to the JSON file
             with open(json_file_path, 'w') as json_file:
@@ -90,12 +84,12 @@ try:
 
             first_time = False
             active_window_name = app_name
-            start_time = datetime.datetime.now()  # Update start time for the new activity
+            start_time = datetime.datetime.now()
 
         time.sleep(1)
-    
+
 except KeyboardInterrupt:
     # Zmiana ścieżki zapisu pliku JSON
     json_file_path = r"C:\Users\asus\Desktop\Saving-time\analys_work\json\activities.json"
     with open(json_file_path, 'w') as json_file:
-        json.dump(activeList.serialize(), json_file, indent=4, sort_keys=True)
+        json.dump(existing_data, json_file, indent=4, sort_keys=True)
