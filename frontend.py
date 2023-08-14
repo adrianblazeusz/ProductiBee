@@ -4,9 +4,7 @@ from blockers.blocker_app import ProcessKiller
 from blockers.blocker_web import Web_blocker
 from func.json_manager import JSONManager
 from func.timer_set import Timer
-#from analys_work.autotimer import Autotimer
-
-
+from analys_work.autotimer import Autotimer
 
 customtkinter.set_appearance_mode("System")  # Modes: "System" (standard), "Dark", "Light"
 customtkinter.set_default_color_theme("blue") 
@@ -30,7 +28,7 @@ class App(customtkinter.CTk):
         active = self.json_m.is_active()
 
         self.timer = Timer()
-        #self.autotimer = Autotimer()
+        self.autotimer = Autotimer()
 
         # set grid layout 1x2
         self.grid_rowconfigure(0, weight=1)
@@ -100,10 +98,10 @@ class App(customtkinter.CTk):
         self.analys_list.grid(row=1, column=0, padx=(10, 10), pady=(10, 0), sticky="sew")
         self.analys_list.configure(state="normal")
 
-        #self.update_analysis_list()
+        self.update_analysis_list()
 
         # Start the autotimer loop
-        # self.update_autotimer()
+        #self.update_autotimer()
 
 
     def create_blocker_frame(self):
@@ -323,8 +321,7 @@ class App(customtkinter.CTk):
             self.timer.start_timer()
 
             self.start_process_killer()
-            #self.autotimer.start_auto_timer()  
-
+            self.autotimer.start_analys()
             self.update_timer_display()
 
     def stop_timer_event(self):
@@ -332,7 +329,7 @@ class App(customtkinter.CTk):
         self.start_timer_button.configure(state="normal")
         self.timer.stop_timer()
         self.stop_process_killer()
-        #self.autotimer.stop_auto_timer()  # Stop the autotimer
+        self.autotimer.stop_analys()
         self.update_timer_display()
         
     def update_timer_display(self):
@@ -349,9 +346,6 @@ class App(customtkinter.CTk):
             self.json_m.set_active(False)
             self.json_m.save_state()
                 
-    #def update_autotimer(self):
-    #    self.autotimer.update_active_window()
-    #    self.after(1000, self.update_autotimer)
         
     def update_analysis_list(self):
         json_file_path = r"C:\Users\asus\Desktop\Saving-time\analys_work\json\activities.json"
