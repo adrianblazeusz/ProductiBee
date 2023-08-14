@@ -379,3 +379,11 @@ iscord.exe
 [2023-08-12 19:46:57] Blocking stopped
 [2023-08-12 19:54:40] Blocking has started
 [2023-08-12 19:56:41] Blocking stopped
+[2023-08-13 21:06:57] Blocking has started
+[2023-08-13 21:08:57] Blocking stopped
+[2023-08-13 21:22:16] Blocking has started
+[2023-08-13 21:24:17] Blocking stopped
+[2023-08-13 21:25:39] Blocking has started
+[2023-08-13 21:27:40] Blocking stopped
+[2023-08-13 21:31:35] Blocking has started
+[2023-08-13 21:32:36] Blocking stopped

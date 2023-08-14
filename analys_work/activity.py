@@ -1,3 +1,4 @@
+
 import datetime
 import json
 from dateutil import parser
@@ -76,24 +77,24 @@ class Activity:
 
 
 class TimeEntry:
-    def __init__(self, start_time, end_time, days, hours, minutes, seconds):
+    def __init__(self, start_time, end_time, hours, minutes, seconds):
         self.start_time = start_time
         self.end_time = end_time
         self.total_time = end_time - start_time
-        self._get_specific_times()  # Calculate specific times upon initialization
+        self.hours = hours
+        self.minutes = minutes
+        self.seconds = seconds
     
     def _get_specific_times(self):
-        total_seconds = self.total_time.total_seconds()
-        self.days, remainder = divmod(total_seconds, 86400)
-        self.hours, remainder = divmod(remainder, 3600)
-        self.minutes, self.seconds = divmod(remainder, 60)
+        self.hours = self.total_time.seconds // 3600
+        self.minutes = (self.total_time.seconds % 3600) // 60
+        self.seconds = self.total_time.seconds % 60
 
     def serialize(self):
         return {
             'start_time': self.start_time.strftime("%Y-%m-%d %H:%M:%S"),
             'end_time': self.end_time.strftime("%Y-%m-%d %H:%M:%S"),
-            'days': int(self.days),
-            'hours': int(self.hours),
-            'minutes': int(self.minutes),
-            'seconds': int(self.seconds)
+            'hours': self.hours,
+            'minutes': self.minutes,
+            'seconds': self.seconds
         }

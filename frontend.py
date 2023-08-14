@@ -4,7 +4,7 @@ from blockers.blocker_app import ProcessKiller
 from blockers.blocker_web import Web_blocker
 from func.json_manager import JSONManager
 from func.timer_set import Timer
-from analys_work.autotimer import Autotimer
+#from analys_work.autotimer import Autotimer
 
 
 
@@ -30,7 +30,7 @@ class App(customtkinter.CTk):
         active = self.json_m.is_active()
 
         self.timer = Timer()
-        self.autotimer = Autotimer()
+        #self.autotimer = Autotimer()
 
         # set grid layout 1x2
         self.grid_rowconfigure(0, weight=1)
@@ -100,7 +100,10 @@ class App(customtkinter.CTk):
         self.analys_list.grid(row=1, column=0, padx=(10, 10), pady=(10, 0), sticky="sew")
         self.analys_list.configure(state="normal")
 
-        self.update_analysis_list()
+        #self.update_analysis_list()
+
+        # Start the autotimer loop
+        # self.update_autotimer()
 
 
     def create_blocker_frame(self):
@@ -320,33 +323,36 @@ class App(customtkinter.CTk):
             self.timer.start_timer()
 
             self.start_process_killer()
-            self.autotimer.start_auto_timer()  # Start the autotimer
-            self.update_timer_display()
+            #self.autotimer.start_auto_timer()  
 
+            self.update_timer_display()
 
     def stop_timer_event(self):
         self.set_time.configure(state="normal")
         self.start_timer_button.configure(state="normal")
         self.timer.stop_timer()
         self.stop_process_killer()
-        self.autotimer.stop_auto_timer()  # Stop the autotimer
+        #self.autotimer.stop_auto_timer()  # Stop the autotimer
         self.update_timer_display()
         
     def update_timer_display(self):
         if self.timer.is_running:
             self.timer.update_display()
-            if self.timer.is_running:
-                self.after(1000, self.update_timer_display)
+            self.after(1000, self.update_timer_display)  # Continue the timer update loop
         else:
             self.set_time.configure(state="normal")
             self.start_timer_button.configure(state="normal")
-            
-            if self.timer.total_seconds <= 0 and self.json_m.is_active():
-                self.stop_timer_event()  # Call the method to stop the timer and blocking processes
 
-            self.json_m.set_active(False)  # Update active state to False
+            if self.timer.total_seconds <= 0 and self.json_m.is_active():
+                self.stop_timer_event()
+
+            self.json_m.set_active(False)
             self.json_m.save_state()
-            
+                
+    #def update_autotimer(self):
+    #    self.autotimer.update_active_window()
+    #    self.after(1000, self.update_autotimer)
+        
     def update_analysis_list(self):
         json_file_path = r"C:\Users\asus\Desktop\Saving-time\analys_work\json\activities.json"
 

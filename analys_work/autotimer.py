@@ -1,103 +1,100 @@
+from __future__ import print_function
 import time
 import os
+from activity import *
 import json
 import datetime
-import threading
+import sys
 import win32gui
-import analys_work.activity as an
+import uiautomation as auto
+if sys.platform in ['linux', 'linux2']:
+        import linux as l
 
-class Autotimer:
-    def __init__(self):
-        self.active_window_name = ""
-        self.activity_name = ""
-        self.start_time = datetime.datetime.now()
-        self.activeList = an.AcitivyList([])
-        self.first_time = True
-        self.json_file_path = r"C:\Users\asus\Desktop\Saving-time\analys_work\json\activities.json"
-        self.stop_auto_timer_event = threading.Event()
-        self.auto_timer_thread = None
+active_window_name = ""
+activity_name = ""
+start_time = datetime.datetime.now()
+activeList = AcitivyList([])
+first_time = True
+json_directory = r"C:\Users\asus\Desktop\Saving-time\analys_work\json"
+json_filename = os.path.join(json_directory, 'activities.json')
 
-    def url_to_name(self, url):
-        string_list = url.split('/')
-        return string_list[2]
 
-    def get_active_window(self):
+def url_to_name(url):
+    string_list = url.split('/')
+    return string_list[2]
+
+
+def get_active_window():
+    _active_window_name = None
+    if sys.platform in ['Windows', 'win32', 'cygwin']:
         window = win32gui.GetForegroundWindow()
         _active_window_name = win32gui.GetWindowText(window)
-        return _active_window_name
+    else:
+        print("sys.platform={platform} is not supported."
+              .format(platform=sys.platform))
+        print(sys.version)
+    return _active_window_name
 
-    def extract_app_name(self, window_title):
-        separators = [' - ', ' | ', ' :: ', ' – ']
-        for separator in separators:
-            if separator in window_title:
-                return window_title.split(separator)[-1].strip()
-        return window_title
 
-    def start_auto_timer(self):
-        def auto_timer_loop():
-            existing_data = {"activities": []}
+def get_chrome_url():
+    if sys.platform in ['Windows', 'win32', 'cygwin']:
+        window = win32gui.GetForegroundWindow()
+        chromeControl = auto.ControlFromHandle(window)
+        edit = chromeControl.EditControl()
+        return 'https://' + edit.GetValuePattern().Value
 
-            if os.path.exists(self.json_file_path):
-                with open(self.json_file_path, 'r') as json_file:
-                    existing_data = json.load(json_file)
+def extract_app_name(window_title):
+    separators = [' - ', ' | ', ' :: ', ' – ']
+    for separator in separators:
+        if separator in window_title:
+            return window_title.split(separator)[-1].strip()
+    return window_title
 
-            unique_app_names = set()
-            active_window_name = ""
-            start_time = datetime.datetime.now()
-            activeList = an.AcitivyList([])
+try:
+    activeList.initialize_me()
+except Exception:
+    print('No json')
 
-            try:
-                activeList.initialize_me()
-            except Exception:
-                print('No json')
+try:
+    while True:
+        previous_site = ""
+        if sys.platform not in ['linux', 'linux2']:
+            new_window_name = get_active_window()
+            if 'Google Chrome' in new_window_name:
+                new_window_name = url_to_name(get_chrome_url())
+        if sys.platform in ['linux', 'linux2']:
+            new_window_name = l.get_active_window_x()
+            if 'Google Chrome' in new_window_name:
+                new_window_name = l.get_chrome_url_x()
 
-            while not self.stop_auto_timer_event.is_set():
-                new_window_name = self.get_active_window()
-                app_name = self.extract_app_name(new_window_name)
+        if active_window_name != new_window_name:
+            end_time = datetime.datetime.now()
+            time_entry = TimeEntry(start_time, end_time, 0, 0, 0)  # Remove 'days' field
+            time_entry._get_specific_times()
 
-                if app_name not in unique_app_names:
-                    unique_app_names.add(app_name)
+            activity_found = False
+            for activity in activeList.activities:
+                if activity.name == activity_name:
+                    activity_found = True
+                    # Update existing activity's time entries
+                    activity.time_entries.append(time_entry)
+                    break
 
-                    if active_window_name != app_name:
-                        if not self.first_time:
-                            end_time = datetime.datetime.now()
-                            time_spent = (end_time - start_time).seconds
+            if not activity_found:
+                activity = Activity(activity_name, [time_entry])
+                activeList.activities.append(activity)
 
-                            exists = False
-                            for activity in activeList.activities:
-                                if activity.name == app_name:
-                                    exists = True
-                                    if time_spent >= 60:
-                                        activity.time_entries[-1].end_time = end_time
-                                        activity.time_entries[-1]._get_specific_times()
+            active_window_name = new_window_name
+            activity_name = extract_app_name(active_window_name)  # Assign the correct activity name
 
-                            if not exists and time_spent >= 60:
-                                activity = an.Activity(app_name, [an.TimeEntry(start_time, end_time, 0, 0, 0, 0)])
-                                activeList.activities.append(activity)
+            with open(json_filename, 'w') as json_file:
+                json.dump(activeList.serialize(), json_file,
+                          indent=4, sort_keys=True)
+                start_time = datetime.datetime.now()
 
-                            existing_data['activities'].extend(activeList.activities_to_json())
+            first_time = False
 
-                            try:
-                                with open(self.json_file_path, 'w') as json_file:
-                                    json.dump(existing_data, json_file, indent=4, sort_keys=True)
-                                    print("Data saved:", existing_data)
-                            except Exception as e:
-                                print("Error while saving data:", e)
-
-                            self.first_time = False
-                            active_window_name = app_name
-                            start_time = datetime.datetime.now()
-
-                time.sleep(1)
-
-                try:
-                    activeList.initialize_me()
-                except Exception:
-                    print('No json')
-
-        self.auto_timer_thread = threading.Thread(target=auto_timer_loop)
-        self.auto_timer_thread.start()
-
-    def stop_auto_timer(self):
-        self.stop_auto_timer_event.set()
-        self.auto_timer_thread.join()
+        time.sleep(1)
+except KeyboardInterrupt:
+    with open(json_filename, 'w') as json_file:
+        json.dump(activeList.serialize(), json_file, indent=4, sort_keys=True)
