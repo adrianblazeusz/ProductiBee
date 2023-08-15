@@ -4,11 +4,18 @@
             "name": "",
             "time_entries": [
                 {
-                    "end_time": "2023-08-15 21:36:23",
+                    "end_time": "2023-08-15 23:40:28",
                     "hours": 0,
                     "minutes": 0,
                     "seconds": 0,
-                    "start_time": "2023-08-15 21:36:23"
+                    "start_time": "2023-08-15 23:40:28"
+                },
+                {
+                    "end_time": "2023-08-15 23:40:51",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 1,
+                    "start_time": "2023-08-15 23:40:50"
                 }
             ]
         },
@@ -16,18 +23,25 @@
             "name": "ProductiBee",
             "time_entries": [
                 {
-                    "end_time": "2023-08-15 21:36:25",
+                    "end_time": "2023-08-15 23:40:30",
                     "hours": 0,
                     "minutes": 0,
                     "seconds": 2,
-                    "start_time": "2023-08-15 21:36:23"
+                    "start_time": "2023-08-15 23:40:28"
                 },
                 {
-                    "end_time": "2023-08-15 21:36:30",
+                    "end_time": "2023-08-15 23:40:52",
                     "hours": 0,
                     "minutes": 0,
                     "seconds": 1,
-                    "start_time": "2023-08-15 21:36:29"
+                    "start_time": "2023-08-15 23:40:51"
+                },
+                {
+                    "end_time": "2023-08-15 23:41:51",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 10,
+                    "start_time": "2023-08-15 23:41:41"
                 }
             ]
         },
@@ -35,11 +49,39 @@
             "name": "Visual Studio Code",
             "time_entries": [
                 {
-                    "end_time": "2023-08-15 21:36:29",
+                    "end_time": "2023-08-15 23:40:50",
                     "hours": 0,
                     "minutes": 0,
-                    "seconds": 4,
-                    "start_time": "2023-08-15 21:36:25"
+                    "seconds": 20,
+                    "start_time": "2023-08-15 23:40:30"
+                },
+                {
+                    "end_time": "2023-08-15 23:41:41",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 49,
+                    "start_time": "2023-08-15 23:40:52"
+                },
+                {
+                    "end_time": "2023-08-15 23:41:58",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 7,
+                    "start_time": "2023-08-15 23:41:51"
+                },
+                {
+                    "end_time": "2023-08-15 23:41:59",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 1,
+                    "start_time": "2023-08-15 23:41:58"
+                },
+                {
+                    "end_time": "2023-08-15 23:42:10",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 11,
+                    "start_time": "2023-08-15 23:41:59"
                 }
             ]
         }

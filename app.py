@@ -34,6 +34,8 @@ class App(customtkinter.CTk):
         self.autotimer = Autotimer()
         self.repo = Report()
 
+        self.activity_thread = None
+
         # set grid layout 1x2
         self.grid_rowconfigure(0, weight=1)
         self.grid_columnconfigure(1, weight=1)
@@ -101,9 +103,8 @@ class App(customtkinter.CTk):
         self.analys_list = customtkinter.CTkTextbox(self.work_frame, width=500, height=250)
         self.analys_list.grid(row=1, column=0, padx=(10, 10), pady=(10, 0), sticky="sew")
         self.analys_list.configure(state="normal")
-        self.analys_list.bind("<Key>", lambda event: "break")
+#        self.analys_list.bind("<Key>", lambda event: "break")
 
-        #self.update_analysis_list()
 
 
     def create_blocker_frame(self):
@@ -318,8 +319,8 @@ class App(customtkinter.CTk):
             self.start_timer_button.configure(state="disabled")
             self.timer.start_timer()
 
-            activity_thread = threading.Thread(target=self.start_activity_analysis)
-            activity_thread.start()
+            self.activity_thread = threading.Thread(target=self.start_activity_analysis)
+            self.activity_thread.start()
 
             self.start_process_killer()
             self.update_timer_display()
@@ -328,10 +329,11 @@ class App(customtkinter.CTk):
         self.set_time.configure(state="normal")
         self.start_timer_button.configure(state="normal")
         self.timer.stop_timer()
-        self.update_analysis_list()
         self.stop_process_killer()
         self.autotimer.stop_analys()
+        self.update_analysis_list()
         self.update_timer_display()
+        
             
     def update_timer_display(self):
         if self.timer.is_running:
@@ -347,21 +349,22 @@ class App(customtkinter.CTk):
             self.json_m.set_active(False)
             self.json_m.save_state()
                 
+
     def start_activity_analysis(self):
         self.autotimer.start_analys()
 
+
     def update_analysis_list(self):
         try:
-            activities_json = self.repo.report()
+            activity_times = self.repo.report()
+            activities_str = "Your last session went like this:\n"
 
-            # Convert the activities_json dictionary to a formatted string
-            activities_str = json.dumps(activities_json, indent=4)
-
-            self.analys_list.delete(1.0, "end")  
-            self.analys_list.insert("end", activities_str)  
+            self.analys_list.delete(1.0, "end")
+            self.analys_list.insert("end", f"{activities_str}{activity_times}")
         except FileNotFoundError:
             self.analys_list.delete(1.0, "end")
             self.analys_list.insert("end", "File not found.")
+
 
     def select_frame_by_name(self, name):
         self.work_frame.grid_remove()
