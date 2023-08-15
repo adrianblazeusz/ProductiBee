@@ -397,3 +397,34 @@ iscord.exe
 [2023-08-14 18:36:13] Blocking has started
 [2023-08-14 18:38:03] Blocking has started
 [2023-08-14 18:39:58] Blocking has started
+[2023-08-15 19:03:24] Blocking has started
+[2023-08-15 19:05:05] Blocking has started
+[2023-08-15 19:08:40] Blocking has started
+[2023-08-15 19:09:35] Blocking has started
+[2023-08-15 19:10:46] Blocking has started
+[2023-08-15 19:13:28] Blocking has started
+[2023-08-15 19:14:17] Blocking has started
+[2023-08-15 19:28:19] Blocking has started
+[2023-08-15 19:30:20] Blocking stopped
+[2023-08-15 19:42:30] Blocking has started
+[2023-08-15 19:44:31] Blocking stopped
+[2023-08-15 19:46:57] Blocking has started
+[2023-08-15 19:47:57] Blocking stopped
+[2023-08-15 19:56:48] Blocking has started
+[2023-08-15 19:58:49] Blocking stopped
+[2023-08-15 20:04:09] Blocking has started
+[2023-08-15 20:06:10] Blocking stopped
+[2023-08-15 20:16:39] Blocking has started
+[2023-08-15 20:17:40] Blocking stopped
+[2023-08-15 20:52:39] Blocking has started
+[2023-08-15 20:52:39] Successfully blocked ScreenToGif.exe
+[2023-08-15 20:54:14] Blocking has started
+[2023-08-15 20:55:15] Blocking stopped
+[2023-08-15 21:13:15] Blocking has started
+[2023-08-15 21:13:15] Successfully blocked ScreenToGif.exe
+[2023-08-15 21:15:16] Blocking stopped
+[2023-08-15 21:16:11] Blocking has started
+[2023-08-15 21:18:11] Blocking stopped
+[2023-08-15 21:22:46] Blocking has started
+[2023-08-15 21:24:47] Blocking stopped
+[2023-08-15 21:36:23] Blocking has started

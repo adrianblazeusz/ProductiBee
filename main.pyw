@@ -1,7 +1,7 @@
 import sys
 import os
 import ctypes
-from frontend import App 
+from app import App 
 
 # Check if script is running with admin rights
 if not ctypes.windll.shell32.IsUserAnAdmin():

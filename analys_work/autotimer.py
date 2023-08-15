@@ -7,8 +7,7 @@ import datetime
 import sys
 import win32gui
 import uiautomation as auto
-if sys.platform in ['linux', 'linux2']:
-        import linux as l
+
 
 class Autotimer:
 
@@ -23,12 +22,20 @@ class Autotimer:
         self.json_filename = os.path.join(self.json_directory, 'activities.json')
 
 
-    def url_to_name(url):
+    def load_existing_data(self):
+        try:
+            with open(self.json_filename, 'r') as json_file:
+                existing_data = json.load(json_file)
+                self.activeList.activities = existing_data.get('activities', [])
+        except FileNotFoundError:
+            pass 
+
+    def url_to_name(self, url):
         string_list = url.split('/')
         return string_list[2]
 
 
-    def get_active_window():
+    def get_active_window(self):
         _active_window_name = None
         if sys.platform in ['Windows', 'win32', 'cygwin']:
             window = win32gui.GetForegroundWindow()
@@ -40,14 +47,14 @@ class Autotimer:
         return _active_window_name
 
 
-    def get_chrome_url():
+    def get_chrome_url(self):
         if sys.platform in ['Windows', 'win32', 'cygwin']:
             window = win32gui.GetForegroundWindow()
             chromeControl = auto.ControlFromHandle(window)
             edit = chromeControl.EditControl()
             return 'https://' + edit.GetValuePattern().Value
 
-    def extract_app_name(window_title):
+    def extract_app_name(self, window_title):  
         separators = [' - ', ' | ', ' :: ', ' – ']
         for separator in separators:
             if separator in window_title:
@@ -55,26 +62,29 @@ class Autotimer:
         return window_title
 
     def start_analys(self):
+        self.analys_running = True
         try:
             self.activeList.initialize_me()
+            self.load_existing_data()  
         except Exception:
             print('No json')
 
         try:
+            active_window_name = ""  # Initialize active_window_name
+            activity_name = ""  # Initialize activity_name
+            start_time = datetime.datetime.now()  # Initialize start_time
+
             while True:
                 self.previous_site = ""
-                if sys.platform not in ['linux', 'linux2']:
-                    new_window_name = self.get_active_window()
+                new_window_name = self.get_active_window()
+
+                if sys.platform in ['Windows', 'win32', 'cygwin']:
                     if 'Google Chrome' in new_window_name:
-                        new_window_name = self.url_to_name(self.get_chrome_url())
-                if sys.platform in ['linux', 'linux2']:
-                    new_window_name = l.get_active_window_x()
-                    if 'Google Chrome' in new_window_name:
-                        new_window_name = l.get_chrome_url_x()
+                        new_window_name = self.get_chrome_url()
 
                 if active_window_name != new_window_name:
                     end_time = datetime.datetime.now()
-                    time_entry = an.TimeEntry(start_time, end_time, 0, 0, 0)  # Remove 'days' field
+                    time_entry = an.TimeEntry(start_time, end_time, 0, 0, 0)  
                     time_entry._get_specific_times()
 
                     activity_found = False
@@ -105,5 +115,7 @@ class Autotimer:
                 json.dump(self.activeList.serialize(), json_file, indent=4, sort_keys=True)
 
     def stop_analys(self):
+        self.analys_running = False
+
         with open(self.json_filename, 'w') as json_file:
             json.dump(self.activeList.serialize(), json_file, indent=4, sort_keys=True)

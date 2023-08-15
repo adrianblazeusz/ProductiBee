@@ -1,5 +1,3 @@
-
-import datetime
 import json
 from dateutil import parser
 
