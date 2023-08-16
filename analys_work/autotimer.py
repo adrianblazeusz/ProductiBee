@@ -20,6 +20,7 @@ class Autotimer:
         self.first_time = True
         self.json_directory = r"C:\Users\asus\Desktop\Saving-time\analys_work\json"
         self.json_filename = os.path.join(self.json_directory, 'activities.json')
+        self.analys_running = True
 
 
     def load_existing_data(self):
@@ -74,7 +75,7 @@ class Autotimer:
             activity_name = ""  # Initialize activity_name
             start_time = datetime.datetime.now()  # Initialize start_time
 
-            while True:
+            while self.analys_running:
                 self.previous_site = ""
                 new_window_name = self.get_active_window()
 
@@ -109,7 +110,7 @@ class Autotimer:
 
                     self.first_time = False
 
-                time.sleep(1)
+                    time.sleep(1)
         except KeyboardInterrupt:
             with open(self.json_filename, 'w') as json_file:
                 json.dump(self.activeList.serialize(), json_file, indent=4, sort_keys=True)

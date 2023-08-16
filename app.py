@@ -331,7 +331,6 @@ class App(customtkinter.CTk):
         self.timer.stop_timer()
         self.stop_process_killer()
         self.autotimer.stop_analys()
-        self.update_analysis_list()
         self.update_timer_display()
         
             
@@ -346,24 +345,27 @@ class App(customtkinter.CTk):
             if self.timer.total_seconds <= 0 and self.json_m.is_active():
                 self.stop_timer_event()
 
+                # Generate and display the report
+                activity_times = self.repo.report()
+                self.display_report(activity_times)  
+
             self.json_m.set_active(False)
             self.json_m.save_state()
-                
+
+    def display_report(self, activity_times):
+        self.analys_list.delete("1.0", "end")  
+        separator = "\n-----------------------------------------------\n"
+
+        self.analys_list.insert("end", f"ACTIVITY REPORT:{separator}")
+
+        for activity, time in activity_times.items():
+            total_time_str = str(time)
+            self.analys_list.insert("end", f"{activity}: {total_time_str}{separator}")
+
+                    
 
     def start_activity_analysis(self):
         self.autotimer.start_analys()
-
-
-    def update_analysis_list(self):
-        try:
-            activity_times = self.repo.report()
-            activities_str = "Your last session went like this:\n"
-
-            self.analys_list.delete(1.0, "end")
-            self.analys_list.insert("end", f"{activities_str}{activity_times}")
-        except FileNotFoundError:
-            self.analys_list.delete(1.0, "end")
-            self.analys_list.insert("end", "File not found.")
 
 
     def select_frame_by_name(self, name):

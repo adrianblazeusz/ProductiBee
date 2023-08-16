@@ -30,7 +30,7 @@ class Report:
                 )
                 total_time += time_entry
 
-            if total_time.total_seconds() >= 60:
+            if total_time.total_seconds() >= 10:
                 activity_times[activity_name] = total_time
 
         return activity_times
