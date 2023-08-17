@@ -189,6 +189,13 @@ class App(customtkinter.CTk):
         processes_input = self.entry_exe.get().strip()
 
         if processes_input:
+            forbidden_names = ["ProductiBee", "python","Python" ,"windows"]
+            
+            for name in forbidden_names:
+                if name in processes_input:
+                    messagebox.showwarning("Warning", f"You cannot block {name}.")
+                    return
+
             processes_list = self.prepare_processes_list(processes_input)
 
             self.json_m.add_processes_to_kill(processes_list)

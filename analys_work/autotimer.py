@@ -18,7 +18,7 @@ class Autotimer:
         self.start_time = datetime.datetime.now()
         self.activeList = an.AcitivyList([])
         self.first_time = True
-        self.json_directory = r"C:\Users\asus\Desktop\Saving-time\analys_work\json"
+        self.json_directory = "analys_work/json"
         self.json_filename = os.path.join(self.json_directory, 'activities.json')
         self.analys_running = True
 
@@ -47,6 +47,11 @@ class Autotimer:
             print(sys.version)
         return _active_window_name
 
+    def delete_data(self):
+
+        with open(self.json_filename, 'w') as json_file:
+                json.dump(self.activeList.serialize(), json_file, indent=4, sort_keys=True)
+
 
     def get_chrome_url(self):
         if sys.platform in ['Windows', 'win32', 'cygwin']:
@@ -64,53 +69,50 @@ class Autotimer:
 
     def start_analys(self):
         self.analys_running = True
-        try:
-            self.activeList.initialize_me()
-            self.load_existing_data()  
-        except Exception:
-            print('No json')
+        self.activeList = an.AcitivyList([])  # Tworzenie nowej pustej listy aktywności
+        self.delete_data()  # Czyszczenie pliku JSON
 
         try:
-            active_window_name = ""  # Initialize active_window_name
-            activity_name = ""  # Initialize activity_name
-            start_time = datetime.datetime.now()  # Initialize start_time
+            active_window_name = "" 
+            activity_name = ""  
+            start_time = datetime.datetime.now()  
 
             while self.analys_running:
-                self.previous_site = ""
-                new_window_name = self.get_active_window()
+                    self.previous_site = ""
+                    new_window_name = self.get_active_window()
 
-                if sys.platform in ['Windows', 'win32', 'cygwin']:
-                    if 'Google Chrome' in new_window_name:
-                        new_window_name = self.get_chrome_url()
+                    if sys.platform in ['Windows', 'win32', 'cygwin']:
+                        if 'Google Chrome' in new_window_name:
+                            new_window_name = self.get_chrome_url()
 
-                if active_window_name != new_window_name:
-                    end_time = datetime.datetime.now()
-                    time_entry = an.TimeEntry(start_time, end_time, 0, 0, 0)  
-                    time_entry._get_specific_times()
+                    if active_window_name != new_window_name:
+                        end_time = datetime.datetime.now()
+                        time_entry = an.TimeEntry(start_time, end_time, 0, 0, 0)  
+                        time_entry._get_specific_times()
 
-                    activity_found = False
-                    for activity in self.activeList.activities:
-                        if activity.name == activity_name:
-                            activity_found = True
-                            # Update existing activity's time entries
-                            activity.time_entries.append(time_entry)
-                            break
+                        activity_found = False
+                        for activity in self.activeList.activities:
+                            if activity.name == activity_name:
+                                activity_found = True
+                                # Update existing activity's time entries
+                                activity.time_entries.append(time_entry)
+                                break
 
-                    if not activity_found:
-                        activity = an.Activity(activity_name, [time_entry])
-                        self.activeList.activities.append(activity)
+                        if not activity_found:
+                            activity = an.Activity(activity_name, [time_entry])
+                            self.activeList.activities.append(activity)
 
-                    active_window_name = new_window_name
-                    activity_name = self.extract_app_name(active_window_name)  # Assign the correct activity name
+                        active_window_name = new_window_name
+                        activity_name = self.extract_app_name(active_window_name) 
 
-                    with open(self.json_filename, 'w') as json_file:
-                        json.dump(self.activeList.serialize(), json_file,
-                                indent=4, sort_keys=True)
-                        start_time = datetime.datetime.now()
+                        with open(self.json_filename, 'w') as json_file:
+                            json.dump(self.activeList.serialize(), json_file,
+                                    indent=4, sort_keys=True)
+                            start_time = datetime.datetime.now()
 
-                    self.first_time = False
+                        self.first_time = False
 
-                    time.sleep(1)
+                        time.sleep(1)
         except KeyboardInterrupt:
             with open(self.json_filename, 'w') as json_file:
                 json.dump(self.activeList.serialize(), json_file, indent=4, sort_keys=True)
