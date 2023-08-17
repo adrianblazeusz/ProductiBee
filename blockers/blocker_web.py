@@ -1,12 +1,13 @@
-from time import sleep
 from func.json_manager import JSONManager
+from utils import get_base_path
+import os
 
 class Web_blocker:     
     def __init__(self):
         self.site_to_kill = set()  
         self.hosts_path = 'C:\Windows\System32\drivers\etc\hosts'
         self.redirect = "127.0.0.1"
-        self.state_file = "log/process_killer_state.json"
+        self.state_file = os.path.join(get_base_path(), "log\\process_killer_state.json")
         self.json_m = JSONManager(self.state_file)
 
 

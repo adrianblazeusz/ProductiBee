@@ -1,14 +1,16 @@
 from tkinter import messagebox
 import customtkinter
 import threading
-import json
+import os
 
 from blockers.blocker_app import ProcessKiller
 from blockers.blocker_web import Web_blocker
 from func.json_manager import JSONManager
 from func.timer_set import Timer
 from analys_work.autotimer import Autotimer
-from analys_work.json.report import Report
+from analys_work.report import Report
+from utils import get_base_path
+
 
 customtkinter.set_appearance_mode("System")  # Modes: "System" (standard), "Dark", "Light"
 customtkinter.set_default_color_theme("blue") 
@@ -21,7 +23,8 @@ class App(customtkinter.CTk):
         self.title("ProductiBee")
         self.geometry("700x450")
 
-        self.state_file = "log/process_killer_state.json"
+        self.state_file = os.path.join(get_base_path(), 'log\\process_killer_state.json')
+        
         self.json_m = JSONManager(self.state_file)
 
         # Load ProcessKiller state (if it exists)

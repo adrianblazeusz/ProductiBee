@@ -4,39 +4,11 @@
             "name": "",
             "time_entries": [
                 {
-                    "end_time": "2023-08-17 15:54:24",
+                    "end_time": "2023-08-18 00:51:09",
                     "hours": 0,
                     "minutes": 0,
                     "seconds": 0,
-                    "start_time": "2023-08-17 15:54:24"
-                },
-                {
-                    "end_time": "2023-08-17 15:54:27",
-                    "hours": 0,
-                    "minutes": 0,
-                    "seconds": 1,
-                    "start_time": "2023-08-17 15:54:26"
-                },
-                {
-                    "end_time": "2023-08-17 15:54:34",
-                    "hours": 0,
-                    "minutes": 0,
-                    "seconds": 1,
-                    "start_time": "2023-08-17 15:54:33"
-                },
-                {
-                    "end_time": "2023-08-17 15:55:16",
-                    "hours": 0,
-                    "minutes": 0,
-                    "seconds": 1,
-                    "start_time": "2023-08-17 15:55:15"
-                },
-                {
-                    "end_time": "2023-08-17 15:55:20",
-                    "hours": 0,
-                    "minutes": 0,
-                    "seconds": 1,
-                    "start_time": "2023-08-17 15:55:19"
+                    "start_time": "2023-08-18 00:51:09"
                 }
             ]
         },
@@ -44,44 +16,11 @@
             "name": "ProductiBee",
             "time_entries": [
                 {
-                    "end_time": "2023-08-17 15:54:26",
+                    "end_time": "2023-08-18 00:51:11",
                     "hours": 0,
                     "minutes": 0,
-                    "seconds": 1,
-                    "start_time": "2023-08-17 15:54:24"
-                },
-                {
-                    "end_time": "2023-08-17 15:55:15",
-                    "hours": 0,
-                    "minutes": 0,
-                    "seconds": 40,
-                    "start_time": "2023-08-17 15:54:34"
-                }
-            ]
-        },
-        {
-            "name": "Visual Studio Code",
-            "time_entries": [
-                {
-                    "end_time": "2023-08-17 15:54:28",
-                    "hours": 0,
-                    "minutes": 0,
-                    "seconds": 1,
-                    "start_time": "2023-08-17 15:54:27"
-                },
-                {
-                    "end_time": "2023-08-17 15:54:33",
-                    "hours": 0,
-                    "minutes": 0,
-                    "seconds": 5,
-                    "start_time": "2023-08-17 15:54:28"
-                },
-                {
-                    "end_time": "2023-08-17 15:55:19",
-                    "hours": 0,
-                    "minutes": 0,
-                    "seconds": 3,
-                    "start_time": "2023-08-17 15:55:16"
+                    "seconds": 2,
+                    "start_time": "2023-08-18 00:51:09"
                 }
             ]
         }

@@ -7,6 +7,7 @@ import datetime
 import sys
 import win32gui
 import uiautomation as auto
+from utils import get_base_path
 
 
 class Autotimer:
@@ -18,8 +19,8 @@ class Autotimer:
         self.start_time = datetime.datetime.now()
         self.activeList = an.AcitivyList([])
         self.first_time = True
-        self.json_directory = "analys_work/json"
-        self.json_filename = os.path.join(self.json_directory, 'activities.json')
+        self.json_filename = os.path.join(get_base_path(), 'analys_work\\json\\activities.json')
+        
         self.analys_running = True
 
 

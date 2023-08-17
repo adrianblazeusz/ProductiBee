@@ -554,3 +554,19 @@ iscord.exe
 [2023-08-17 15:52:00] Blocking stopped
 [2023-08-17 15:54:24] Blocking has started
 [2023-08-17 15:55:25] Blocking stopped
+[2023-08-17 22:50:38] Blocking has started
+[2023-08-17 22:51:38] Blocking stopped
+[2023-08-17 22:52:20] Blocking has started
+[2023-08-17 22:52:29] Successfully blocked Discord.exe
+[2023-08-17 22:53:20] Blocking stopped
+[2023-08-17 23:43:12] Blocking has started
+[2023-08-17 23:44:12] Blocking stopped
+[2023-08-17 23:44:47] Blocking has started
+[2023-08-17 23:45:47] Blocking stopped
+[2023-08-17 23:45:53] Blocking has started
+[2023-08-17 23:46:53] Blocking stopped
+[2023-08-17 23:47:15] Blocking has started
+[2023-08-17 23:48:15] Blocking stopped
+[2023-08-18 00:16:00] Blocking has started
+[2023-08-18 00:17:01] Blocking stopped
+[2023-08-18 00:51:09] Blocking has started
