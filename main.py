@@ -3,11 +3,6 @@ import os
 import ctypes
 from app import App 
 
-
-if hasattr(sys, '_MEIPASS'):
-    base_path = sys._MEIPASS
-else:
-    base_path = os.path.dirname(os.path.abspath(__file__))
 # Check if script is running with admin rights
 if not ctypes.windll.shell32.IsUserAnAdmin():
     print("Script not running with admin rights, relaunching...")

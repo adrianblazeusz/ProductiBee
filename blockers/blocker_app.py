@@ -2,16 +2,15 @@ import psutil
 from threading import Thread, Event
 from time import sleep
 from datetime import datetime
+from blockers.blocker_web import Web_blocker
 from func.json_manager import JSONManager
-from utils import get_base_path  
-import os
 
 class ProcessKiller:
     def __init__(self):
         self.processes_to_kill = set()
         self.thread = None
-        self.log_file = os.path.join(get_base_path(), "log\\process_killer_log.txt")
-        self.state_file = os.path.join(get_base_path(), "log\\process_killer_state.json")
+        self.log_file = "log/process_killer_log.txt"
+        self.state_file = "log/process_killer_state.json"
         self.json_m = JSONManager(self.state_file)
         self.stop_event = Event()
 

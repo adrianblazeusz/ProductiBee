@@ -4,11 +4,39 @@
             "name": "",
             "time_entries": [
                 {
-                    "end_time": "2023-08-18 00:51:09",
+                    "end_time": "2023-08-18 14:21:51",
                     "hours": 0,
                     "minutes": 0,
                     "seconds": 0,
-                    "start_time": "2023-08-18 00:51:09"
+                    "start_time": "2023-08-18 14:21:51"
+                },
+                {
+                    "end_time": "2023-08-18 14:21:53",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 1,
+                    "start_time": "2023-08-18 14:21:52"
+                },
+                {
+                    "end_time": "2023-08-18 14:22:41",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 1,
+                    "start_time": "2023-08-18 14:22:40"
+                },
+                {
+                    "end_time": "2023-08-18 14:22:47",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 1,
+                    "start_time": "2023-08-18 14:22:46"
+                },
+                {
+                    "end_time": "2023-08-18 14:22:51",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 1,
+                    "start_time": "2023-08-18 14:22:50"
                 }
             ]
         },
@@ -16,11 +44,56 @@
             "name": "ProductiBee",
             "time_entries": [
                 {
-                    "end_time": "2023-08-18 00:51:11",
+                    "end_time": "2023-08-18 14:21:52",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 1,
+                    "start_time": "2023-08-18 14:21:51"
+                },
+                {
+                    "end_time": "2023-08-18 14:21:54",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 1,
+                    "start_time": "2023-08-18 14:21:53"
+                }
+            ]
+        },
+        {
+            "name": "YouTube \u2013 Opera",
+            "time_entries": [
+                {
+                    "end_time": "2023-08-18 14:22:40",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 45,
+                    "start_time": "2023-08-18 14:21:54"
+                },
+                {
+                    "end_time": "2023-08-18 14:22:50",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 3,
+                    "start_time": "2023-08-18 14:22:47"
+                }
+            ]
+        },
+        {
+            "name": "Visual Studio Code",
+            "time_entries": [
+                {
+                    "end_time": "2023-08-18 14:22:43",
                     "hours": 0,
                     "minutes": 0,
                     "seconds": 2,
-                    "start_time": "2023-08-18 00:51:09"
+                    "start_time": "2023-08-18 14:22:41"
+                },
+                {
+                    "end_time": "2023-08-18 14:22:46",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 2,
+                    "start_time": "2023-08-18 14:22:43"
                 }
             ]
         }
