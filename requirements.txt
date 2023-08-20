@@ -1,5 +1,12 @@
+<<<<<<< HEAD
 customtkinter>=5.2.0
 psutil>=5.9.5
 python_dateutil>=2.8.2
 pywin32>=306
+=======
+customtkinter>=5.2.0
+psutil>=5.9.5
+python_dateutil>=2.8.2
+pywin32>=306
+>>>>>>> a9ea947dc24f9d3c26fc083d57a9210fdc714df9
 uiautomation>=2.0.18

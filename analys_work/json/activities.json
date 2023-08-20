@@ -1,3 +1,185 @@
+<<<<<<< HEAD
+{
+    "activities": [
+        {
+            "name": "",
+            "time_entries": [
+                {
+                    "end_time": "2023-08-18 20:00:35",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 0,
+                    "start_time": "2023-08-18 20:00:35"
+                },
+                {
+                    "end_time": "2023-08-18 20:00:40",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 3,
+                    "start_time": "2023-08-18 20:00:37"
+                },
+                {
+                    "end_time": "2023-08-18 20:01:13",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 1,
+                    "start_time": "2023-08-18 20:01:12"
+                },
+                {
+                    "end_time": "2023-08-18 20:01:31",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 1,
+                    "start_time": "2023-08-18 20:01:30"
+                },
+                {
+                    "end_time": "2023-08-18 20:01:35",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 1,
+                    "start_time": "2023-08-18 20:01:34"
+                }
+            ]
+        },
+        {
+            "name": "ProductiBee",
+            "time_entries": [
+                {
+                    "end_time": "2023-08-18 20:00:37",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 1,
+                    "start_time": "2023-08-18 20:00:35"
+                },
+                {
+                    "end_time": "2023-08-18 20:01:14",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 1,
+                    "start_time": "2023-08-18 20:01:13"
+                },
+                {
+                    "end_time": "2023-08-18 20:01:32",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 1,
+                    "start_time": "2023-08-18 20:01:31"
+                }
+            ]
+        },
+        {
+            "name": "LeetCode \u2013 Opera",
+            "time_entries": [
+                {
+                    "end_time": "2023-08-18 20:00:43",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 2,
+                    "start_time": "2023-08-18 20:00:40"
+                }
+            ]
+        },
+        {
+            "name": "Opera",
+            "time_entries": [
+                {
+                    "end_time": "2023-08-18 20:00:44",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 1,
+                    "start_time": "2023-08-18 20:00:43"
+                },
+                {
+                    "end_time": "2023-08-18 20:00:47",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 3,
+                    "start_time": "2023-08-18 20:00:44"
+                },
+                {
+                    "end_time": "2023-08-18 20:00:48",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 1,
+                    "start_time": "2023-08-18 20:00:47"
+                },
+                {
+                    "end_time": "2023-08-18 20:00:59",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 10,
+                    "start_time": "2023-08-18 20:00:48"
+                },
+                {
+                    "end_time": "2023-08-18 20:01:00",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 1,
+                    "start_time": "2023-08-18 20:00:59"
+                },
+                {
+                    "end_time": "2023-08-18 20:01:12",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 4,
+                    "start_time": "2023-08-18 20:01:07"
+                },
+                {
+                    "end_time": "2023-08-18 20:01:15",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 1,
+                    "start_time": "2023-08-18 20:01:14"
+                },
+                {
+                    "end_time": "2023-08-18 20:01:24",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 8,
+                    "start_time": "2023-08-18 20:01:15"
+                }
+            ]
+        },
+        {
+            "name": "Szukaj w Google \u2013 Opera",
+            "time_entries": [
+                {
+                    "end_time": "2023-08-18 20:01:07",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 7,
+                    "start_time": "2023-08-18 20:01:00"
+                }
+            ]
+        },
+        {
+            "name": "YouTube \u2013 Opera",
+            "time_entries": [
+                {
+                    "end_time": "2023-08-18 20:01:26",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 1,
+                    "start_time": "2023-08-18 20:01:24"
+                },
+                {
+                    "end_time": "2023-08-18 20:01:30",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 4,
+                    "start_time": "2023-08-18 20:01:26"
+                },
+                {
+                    "end_time": "2023-08-18 20:01:34",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 1,
+                    "start_time": "2023-08-18 20:01:32"
+                }
+            ]
+        }
+    ]
+=======
 {
     "activities": [
         {
@@ -98,4 +280,5 @@
             ]
         }
     ]
+>>>>>>> a9ea947dc24f9d3c26fc083d57a9210fdc714df9
 }
