@@ -1,10 +1,10 @@
-from time import sleep
 from func.json_manager import JSONManager
 
-class Web_blocker:     
+
+class Web_blocker:
     def __init__(self):
-        self.site_to_kill = set()  
-        self.hosts_path = 'C:\Windows\System32\drivers\etc\hosts'
+        self.site_to_kill = set()
+        self.hosts_path = r'C:\Windows\System32\drivers\etc\hosts'
         self.redirect = "127.0.0.1"
         self.state_file = "log/process_killer_state.json"
         self.json_m = JSONManager(self.state_file)
@@ -14,7 +14,7 @@ class Web_blocker:
         print("Block sites")
         with open(self.hosts_path, 'r+') as hostfile:
             hosts_content = hostfile.read()
-            for site in  self.site_to_kill:
+            for site in self.site_to_kill:
                 if site not in hosts_content:
                     hostfile.write(self.redirect + ' ' + site + '\n')
             
@@ -34,4 +34,9 @@ class Web_blocker:
             self.site_to_kill.update(websites)  
         else:
             self.site_to_kill = set(websites)
-                
+
+if __name__ == "__main__":
+
+    web = Web_blocker()
+    web.block_websites()
+    print(web.site_to_kill)

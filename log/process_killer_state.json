@@ -1,1 +1,1 @@
-{"active": false, "processes_to_kill": ["Steam.exe", "Discord.exe"], "site_to_kill": ["facebook.com", "dick.com"]}
+{"active": true, "processes_to_kill": ["Steam.exe", "Discord.exe"], "site_to_kill": ["facebook.com"]}

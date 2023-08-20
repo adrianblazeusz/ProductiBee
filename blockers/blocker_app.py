@@ -2,7 +2,6 @@ import psutil
 from threading import Thread, Event
 from time import sleep
 from datetime import datetime
-from blockers.blocker_web import Web_blocker
 from func.json_manager import JSONManager
 
 class ProcessKiller:

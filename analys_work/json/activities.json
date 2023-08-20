@@ -1,43 +1,336 @@
-<<<<<<< HEAD
 {
     "activities": [
         {
             "name": "",
             "time_entries": [
                 {
-                    "end_time": "2023-08-18 20:00:35",
+                    "end_time": "2023-08-20 20:29:19",
                     "hours": 0,
                     "minutes": 0,
                     "seconds": 0,
-                    "start_time": "2023-08-18 20:00:35"
+                    "start_time": "2023-08-20 20:29:19"
                 },
                 {
-                    "end_time": "2023-08-18 20:00:40",
+                    "end_time": "2023-08-20 20:29:22",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 1,
+                    "start_time": "2023-08-20 20:29:21"
+                },
+                {
+                    "end_time": "2023-08-20 20:29:37",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 1,
+                    "start_time": "2023-08-20 20:29:35"
+                },
+                {
+                    "end_time": "2023-08-20 20:29:40",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 1,
+                    "start_time": "2023-08-20 20:29:39"
+                },
+                {
+                    "end_time": "2023-08-20 20:29:49",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 1,
+                    "start_time": "2023-08-20 20:29:47"
+                },
+                {
+                    "end_time": "2023-08-20 20:30:06",
                     "hours": 0,
                     "minutes": 0,
                     "seconds": 3,
-                    "start_time": "2023-08-18 20:00:37"
+                    "start_time": "2023-08-20 20:30:02"
                 },
                 {
-                    "end_time": "2023-08-18 20:01:13",
+                    "end_time": "2023-08-20 20:30:38",
                     "hours": 0,
                     "minutes": 0,
                     "seconds": 1,
-                    "start_time": "2023-08-18 20:01:12"
+                    "start_time": "2023-08-20 20:30:37"
                 },
                 {
-                    "end_time": "2023-08-18 20:01:31",
+                    "end_time": "2023-08-20 20:30:43",
                     "hours": 0,
                     "minutes": 0,
                     "seconds": 1,
-                    "start_time": "2023-08-18 20:01:30"
+                    "start_time": "2023-08-20 20:30:42"
                 },
                 {
-                    "end_time": "2023-08-18 20:01:35",
+                    "end_time": "2023-08-20 20:31:20",
                     "hours": 0,
                     "minutes": 0,
                     "seconds": 1,
-                    "start_time": "2023-08-18 20:01:34"
+                    "start_time": "2023-08-20 20:31:19"
+                },
+                {
+                    "end_time": "2023-08-20 20:31:32",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 1,
+                    "start_time": "2023-08-20 20:31:31"
+                },
+                {
+                    "end_time": "2023-08-20 20:34:24",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 1,
+                    "start_time": "2023-08-20 20:34:23"
+                },
+                {
+                    "end_time": "2023-08-20 20:34:33",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 1,
+                    "start_time": "2023-08-20 20:34:32"
+                },
+                {
+                    "end_time": "2023-08-20 20:34:37",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 1,
+                    "start_time": "2023-08-20 20:34:36"
+                },
+                {
+                    "end_time": "2023-08-20 20:34:45",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 1,
+                    "start_time": "2023-08-20 20:34:44"
+                },
+                {
+                    "end_time": "2023-08-20 20:34:53",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 1,
+                    "start_time": "2023-08-20 20:34:52"
+                },
+                {
+                    "end_time": "2023-08-20 20:36:16",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 1,
+                    "start_time": "2023-08-20 20:36:15"
+                },
+                {
+                    "end_time": "2023-08-20 20:36:26",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 1,
+                    "start_time": "2023-08-20 20:36:25"
+                },
+                {
+                    "end_time": "2023-08-20 20:36:37",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 1,
+                    "start_time": "2023-08-20 20:36:36"
+                },
+                {
+                    "end_time": "2023-08-20 20:36:42",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 3,
+                    "start_time": "2023-08-20 20:36:39"
+                },
+                {
+                    "end_time": "2023-08-20 20:37:14",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 1,
+                    "start_time": "2023-08-20 20:37:13"
+                },
+                {
+                    "end_time": "2023-08-20 20:37:37",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 1,
+                    "start_time": "2023-08-20 20:37:36"
+                },
+                {
+                    "end_time": "2023-08-20 20:38:09",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 1,
+                    "start_time": "2023-08-20 20:38:08"
+                },
+                {
+                    "end_time": "2023-08-20 20:41:33",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 1,
+                    "start_time": "2023-08-20 20:41:32"
+                },
+                {
+                    "end_time": "2023-08-20 20:42:22",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 2,
+                    "start_time": "2023-08-20 20:42:20"
+                },
+                {
+                    "end_time": "2023-08-20 20:42:33",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 1,
+                    "start_time": "2023-08-20 20:42:32"
+                },
+                {
+                    "end_time": "2023-08-20 20:42:35",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 1,
+                    "start_time": "2023-08-20 20:42:34"
+                },
+                {
+                    "end_time": "2023-08-20 20:42:44",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 1,
+                    "start_time": "2023-08-20 20:42:43"
+                },
+                {
+                    "end_time": "2023-08-20 20:42:48",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 1,
+                    "start_time": "2023-08-20 20:42:47"
+                },
+                {
+                    "end_time": "2023-08-20 20:46:14",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 1,
+                    "start_time": "2023-08-20 20:46:13"
+                },
+                {
+                    "end_time": "2023-08-20 20:46:19",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 1,
+                    "start_time": "2023-08-20 20:46:18"
+                },
+                {
+                    "end_time": "2023-08-20 20:46:21",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 1,
+                    "start_time": "2023-08-20 20:46:20"
+                },
+                {
+                    "end_time": "2023-08-20 20:46:33",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 1,
+                    "start_time": "2023-08-20 20:46:32"
+                },
+                {
+                    "end_time": "2023-08-20 20:47:12",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 1,
+                    "start_time": "2023-08-20 20:47:11"
+                },
+                {
+                    "end_time": "2023-08-20 20:47:15",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 1,
+                    "start_time": "2023-08-20 20:47:14"
+                },
+                {
+                    "end_time": "2023-08-20 20:47:20",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 1,
+                    "start_time": "2023-08-20 20:47:19"
+                },
+                {
+                    "end_time": "2023-08-20 20:47:39",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 1,
+                    "start_time": "2023-08-20 20:47:38"
+                },
+                {
+                    "end_time": "2023-08-20 20:47:47",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 1,
+                    "start_time": "2023-08-20 20:47:46"
+                },
+                {
+                    "end_time": "2023-08-20 20:48:14",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 1,
+                    "start_time": "2023-08-20 20:48:13"
+                },
+                {
+                    "end_time": "2023-08-20 20:49:02",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 1,
+                    "start_time": "2023-08-20 20:49:01"
+                },
+                {
+                    "end_time": "2023-08-20 20:49:39",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 1,
+                    "start_time": "2023-08-20 20:49:38"
+                },
+                {
+                    "end_time": "2023-08-20 20:51:24",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 1,
+                    "start_time": "2023-08-20 20:51:23"
+                },
+                {
+                    "end_time": "2023-08-20 20:51:59",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 1,
+                    "start_time": "2023-08-20 20:51:58"
+                },
+                {
+                    "end_time": "2023-08-20 20:52:04",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 1,
+                    "start_time": "2023-08-20 20:52:03"
+                },
+                {
+                    "end_time": "2023-08-20 20:52:30",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 1,
+                    "start_time": "2023-08-20 20:52:29"
+                },
+                {
+                    "end_time": "2023-08-20 20:54:43",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 1,
+                    "start_time": "2023-08-20 20:54:42"
+                },
+                {
+                    "end_time": "2023-08-20 20:55:56",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 1,
+                    "start_time": "2023-08-20 20:55:55"
+                },
+                {
+                    "end_time": "2023-08-20 20:56:03",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 3,
+                    "start_time": "2023-08-20 20:56:00"
                 }
             ]
         },
@@ -45,37 +338,81 @@
             "name": "ProductiBee",
             "time_entries": [
                 {
-                    "end_time": "2023-08-18 20:00:37",
-                    "hours": 0,
-                    "minutes": 0,
-                    "seconds": 1,
-                    "start_time": "2023-08-18 20:00:35"
-                },
-                {
-                    "end_time": "2023-08-18 20:01:14",
-                    "hours": 0,
-                    "minutes": 0,
-                    "seconds": 1,
-                    "start_time": "2023-08-18 20:01:13"
-                },
-                {
-                    "end_time": "2023-08-18 20:01:32",
-                    "hours": 0,
-                    "minutes": 0,
-                    "seconds": 1,
-                    "start_time": "2023-08-18 20:01:31"
-                }
-            ]
-        },
-        {
-            "name": "LeetCode \u2013 Opera",
-            "time_entries": [
-                {
-                    "end_time": "2023-08-18 20:00:43",
+                    "end_time": "2023-08-20 20:29:21",
                     "hours": 0,
                     "minutes": 0,
                     "seconds": 2,
-                    "start_time": "2023-08-18 20:00:40"
+                    "start_time": "2023-08-20 20:29:19"
+                },
+                {
+                    "end_time": "2023-08-20 20:29:39",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 2,
+                    "start_time": "2023-08-20 20:29:37"
+                },
+                {
+                    "end_time": "2023-08-20 20:36:22",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 3,
+                    "start_time": "2023-08-20 20:36:18"
+                },
+                {
+                    "end_time": "2023-08-20 20:36:25",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 2,
+                    "start_time": "2023-08-20 20:36:23"
+                },
+                {
+                    "end_time": "2023-08-20 20:36:28",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 1,
+                    "start_time": "2023-08-20 20:36:27"
+                },
+                {
+                    "end_time": "2023-08-20 20:36:39",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 1,
+                    "start_time": "2023-08-20 20:36:37"
+                },
+                {
+                    "end_time": "2023-08-20 20:42:28",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 3,
+                    "start_time": "2023-08-20 20:42:24"
+                },
+                {
+                    "end_time": "2023-08-20 20:42:32",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 2,
+                    "start_time": "2023-08-20 20:42:29"
+                },
+                {
+                    "end_time": "2023-08-20 20:42:34",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 1,
+                    "start_time": "2023-08-20 20:42:33"
+                },
+                {
+                    "end_time": "2023-08-20 20:42:45",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 1,
+                    "start_time": "2023-08-20 20:42:44"
+                },
+                {
+                    "end_time": "2023-08-20 20:56:09",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 5,
+                    "start_time": "2023-08-20 20:56:04"
                 }
             ]
         },
@@ -83,180 +420,354 @@
             "name": "Opera",
             "time_entries": [
                 {
-                    "end_time": "2023-08-18 20:00:44",
+                    "end_time": "2023-08-20 20:29:23",
                     "hours": 0,
                     "minutes": 0,
                     "seconds": 1,
-                    "start_time": "2023-08-18 20:00:43"
+                    "start_time": "2023-08-20 20:29:22"
                 },
                 {
-                    "end_time": "2023-08-18 20:00:47",
+                    "end_time": "2023-08-20 20:29:25",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 2,
+                    "start_time": "2023-08-20 20:29:23"
+                },
+                {
+                    "end_time": "2023-08-20 20:29:26",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 1,
+                    "start_time": "2023-08-20 20:29:25"
+                },
+                {
+                    "end_time": "2023-08-20 20:29:32",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 5,
+                    "start_time": "2023-08-20 20:29:26"
+                },
+                {
+                    "end_time": "2023-08-20 20:29:33",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 1,
+                    "start_time": "2023-08-20 20:29:32"
+                },
+                {
+                    "end_time": "2023-08-20 20:29:35",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 2,
+                    "start_time": "2023-08-20 20:29:33"
+                },
+                {
+                    "end_time": "2023-08-20 20:29:51",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 1,
+                    "start_time": "2023-08-20 20:29:50"
+                },
+                {
+                    "end_time": "2023-08-20 20:29:54",
                     "hours": 0,
                     "minutes": 0,
                     "seconds": 3,
-                    "start_time": "2023-08-18 20:00:44"
+                    "start_time": "2023-08-20 20:29:51"
                 },
                 {
-                    "end_time": "2023-08-18 20:00:48",
+                    "end_time": "2023-08-20 20:29:58",
                     "hours": 0,
                     "minutes": 0,
-                    "seconds": 1,
-                    "start_time": "2023-08-18 20:00:47"
+                    "seconds": 3,
+                    "start_time": "2023-08-20 20:29:54"
                 },
                 {
-                    "end_time": "2023-08-18 20:00:59",
-                    "hours": 0,
-                    "minutes": 0,
-                    "seconds": 10,
-                    "start_time": "2023-08-18 20:00:48"
-                },
-                {
-                    "end_time": "2023-08-18 20:01:00",
-                    "hours": 0,
-                    "minutes": 0,
-                    "seconds": 1,
-                    "start_time": "2023-08-18 20:00:59"
-                },
-                {
-                    "end_time": "2023-08-18 20:01:12",
+                    "end_time": "2023-08-20 20:30:02",
                     "hours": 0,
                     "minutes": 0,
                     "seconds": 4,
-                    "start_time": "2023-08-18 20:01:07"
+                    "start_time": "2023-08-20 20:29:58"
                 },
                 {
-                    "end_time": "2023-08-18 20:01:15",
+                    "end_time": "2023-08-20 20:30:37",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 31,
+                    "start_time": "2023-08-20 20:30:06"
+                },
+                {
+                    "end_time": "2023-08-20 20:31:19",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 35,
+                    "start_time": "2023-08-20 20:30:43"
+                },
+                {
+                    "end_time": "2023-08-20 20:31:37",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 4,
+                    "start_time": "2023-08-20 20:31:32"
+                },
+                {
+                    "end_time": "2023-08-20 20:31:39",
                     "hours": 0,
                     "minutes": 0,
                     "seconds": 1,
-                    "start_time": "2023-08-18 20:01:14"
+                    "start_time": "2023-08-20 20:31:37"
                 },
                 {
-                    "end_time": "2023-08-18 20:01:24",
+                    "end_time": "2023-08-20 20:31:56",
                     "hours": 0,
                     "minutes": 0,
-                    "seconds": 8,
-                    "start_time": "2023-08-18 20:01:15"
-                }
-            ]
-        },
-        {
-            "name": "Szukaj w Google \u2013 Opera",
-            "time_entries": [
+                    "seconds": 17,
+                    "start_time": "2023-08-20 20:31:39"
+                },
                 {
-                    "end_time": "2023-08-18 20:01:07",
+                    "end_time": "2023-08-20 20:32:20",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 6,
+                    "start_time": "2023-08-20 20:32:13"
+                },
+                {
+                    "end_time": "2023-08-20 20:33:08",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 3,
+                    "start_time": "2023-08-20 20:33:05"
+                },
+                {
+                    "end_time": "2023-08-20 20:33:50",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 5,
+                    "start_time": "2023-08-20 20:33:44"
+                },
+                {
+                    "end_time": "2023-08-20 20:34:12",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 1,
+                    "start_time": "2023-08-20 20:34:10"
+                },
+                {
+                    "end_time": "2023-08-20 20:34:23",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 11,
+                    "start_time": "2023-08-20 20:34:12"
+                },
+                {
+                    "end_time": "2023-08-20 20:34:36",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 3,
+                    "start_time": "2023-08-20 20:34:33"
+                },
+                {
+                    "end_time": "2023-08-20 20:34:52",
                     "hours": 0,
                     "minutes": 0,
                     "seconds": 7,
-                    "start_time": "2023-08-18 20:01:00"
-                }
-            ]
-        },
-        {
-            "name": "YouTube \u2013 Opera",
-            "time_entries": [
+                    "start_time": "2023-08-20 20:34:45"
+                },
                 {
-                    "end_time": "2023-08-18 20:01:26",
+                    "end_time": "2023-08-20 20:36:30",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 2,
+                    "start_time": "2023-08-20 20:36:28"
+                },
+                {
+                    "end_time": "2023-08-20 20:36:31",
                     "hours": 0,
                     "minutes": 0,
                     "seconds": 1,
-                    "start_time": "2023-08-18 20:01:24"
+                    "start_time": "2023-08-20 20:36:30"
                 },
                 {
-                    "end_time": "2023-08-18 20:01:30",
-                    "hours": 0,
-                    "minutes": 0,
-                    "seconds": 4,
-                    "start_time": "2023-08-18 20:01:26"
-                },
-                {
-                    "end_time": "2023-08-18 20:01:34",
+                    "end_time": "2023-08-20 20:36:32",
                     "hours": 0,
                     "minutes": 0,
                     "seconds": 1,
-                    "start_time": "2023-08-18 20:01:32"
-                }
-            ]
-        }
-    ]
-=======
-{
-    "activities": [
-        {
-            "name": "",
-            "time_entries": [
-                {
-                    "end_time": "2023-08-18 14:21:51",
-                    "hours": 0,
-                    "minutes": 0,
-                    "seconds": 0,
-                    "start_time": "2023-08-18 14:21:51"
+                    "start_time": "2023-08-20 20:36:31"
                 },
                 {
-                    "end_time": "2023-08-18 14:21:53",
+                    "end_time": "2023-08-20 20:36:33",
                     "hours": 0,
                     "minutes": 0,
                     "seconds": 1,
-                    "start_time": "2023-08-18 14:21:52"
+                    "start_time": "2023-08-20 20:36:32"
                 },
                 {
-                    "end_time": "2023-08-18 14:22:41",
+                    "end_time": "2023-08-20 20:36:35",
                     "hours": 0,
                     "minutes": 0,
                     "seconds": 1,
-                    "start_time": "2023-08-18 14:22:40"
+                    "start_time": "2023-08-20 20:36:33"
                 },
                 {
-                    "end_time": "2023-08-18 14:22:47",
+                    "end_time": "2023-08-20 20:36:36",
                     "hours": 0,
                     "minutes": 0,
                     "seconds": 1,
-                    "start_time": "2023-08-18 14:22:46"
+                    "start_time": "2023-08-20 20:36:35"
                 },
                 {
-                    "end_time": "2023-08-18 14:22:51",
+                    "end_time": "2023-08-20 20:37:20",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 5,
+                    "start_time": "2023-08-20 20:37:14"
+                },
+                {
+                    "end_time": "2023-08-20 20:37:36",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 16,
+                    "start_time": "2023-08-20 20:37:20"
+                },
+                {
+                    "end_time": "2023-08-20 20:38:31",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 21,
+                    "start_time": "2023-08-20 20:38:09"
+                },
+                {
+                    "end_time": "2023-08-20 20:41:32",
+                    "hours": 0,
+                    "minutes": 3,
+                    "seconds": 1,
+                    "start_time": "2023-08-20 20:38:31"
+                },
+                {
+                    "end_time": "2023-08-20 20:42:36",
                     "hours": 0,
                     "minutes": 0,
                     "seconds": 1,
-                    "start_time": "2023-08-18 14:22:50"
-                }
-            ]
-        },
-        {
-            "name": "ProductiBee",
-            "time_entries": [
+                    "start_time": "2023-08-20 20:42:35"
+                },
                 {
-                    "end_time": "2023-08-18 14:21:52",
+                    "end_time": "2023-08-20 20:42:37",
                     "hours": 0,
                     "minutes": 0,
                     "seconds": 1,
-                    "start_time": "2023-08-18 14:21:51"
+                    "start_time": "2023-08-20 20:42:36"
                 },
                 {
-                    "end_time": "2023-08-18 14:21:54",
+                    "end_time": "2023-08-20 20:42:38",
                     "hours": 0,
                     "minutes": 0,
                     "seconds": 1,
-                    "start_time": "2023-08-18 14:21:53"
-                }
-            ]
-        },
-        {
-            "name": "YouTube \u2013 Opera",
-            "time_entries": [
-                {
-                    "end_time": "2023-08-18 14:22:40",
-                    "hours": 0,
-                    "minutes": 0,
-                    "seconds": 45,
-                    "start_time": "2023-08-18 14:21:54"
+                    "start_time": "2023-08-20 20:42:37"
                 },
                 {
-                    "end_time": "2023-08-18 14:22:50",
+                    "end_time": "2023-08-20 20:42:41",
                     "hours": 0,
                     "minutes": 0,
                     "seconds": 3,
-                    "start_time": "2023-08-18 14:22:47"
+                    "start_time": "2023-08-20 20:42:38"
+                },
+                {
+                    "end_time": "2023-08-20 20:42:43",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 1,
+                    "start_time": "2023-08-20 20:42:41"
+                },
+                {
+                    "end_time": "2023-08-20 20:42:46",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 1,
+                    "start_time": "2023-08-20 20:42:45"
+                },
+                {
+                    "end_time": "2023-08-20 20:46:18",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 3,
+                    "start_time": "2023-08-20 20:46:14"
+                },
+                {
+                    "end_time": "2023-08-20 20:46:32",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 11,
+                    "start_time": "2023-08-20 20:46:21"
+                },
+                {
+                    "end_time": "2023-08-20 20:47:14",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 2,
+                    "start_time": "2023-08-20 20:47:12"
+                },
+                {
+                    "end_time": "2023-08-20 20:47:21",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 1,
+                    "start_time": "2023-08-20 20:47:20"
+                },
+                {
+                    "end_time": "2023-08-20 20:47:38",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 17,
+                    "start_time": "2023-08-20 20:47:21"
+                },
+                {
+                    "end_time": "2023-08-20 20:48:12",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 24,
+                    "start_time": "2023-08-20 20:47:47"
+                },
+                {
+                    "end_time": "2023-08-20 20:48:13",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 1,
+                    "start_time": "2023-08-20 20:48:12"
+                },
+                {
+                    "end_time": "2023-08-20 20:49:03",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 1,
+                    "start_time": "2023-08-20 20:49:02"
+                },
+                {
+                    "end_time": "2023-08-20 20:49:38",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 34,
+                    "start_time": "2023-08-20 20:49:03"
+                },
+                {
+                    "end_time": "2023-08-20 20:51:58",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 34,
+                    "start_time": "2023-08-20 20:51:24"
+                },
+                {
+                    "end_time": "2023-08-20 20:52:29",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 25,
+                    "start_time": "2023-08-20 20:52:04"
+                },
+                {
+                    "end_time": "2023-08-20 20:55:55",
+                    "hours": 0,
+                    "minutes": 1,
+                    "seconds": 12,
+                    "start_time": "2023-08-20 20:54:43"
                 }
             ]
         },
@@ -264,21 +775,785 @@
             "name": "Visual Studio Code",
             "time_entries": [
                 {
-                    "end_time": "2023-08-18 14:22:43",
+                    "end_time": "2023-08-20 20:29:45",
                     "hours": 0,
                     "minutes": 0,
-                    "seconds": 2,
-                    "start_time": "2023-08-18 14:22:41"
+                    "seconds": 4,
+                    "start_time": "2023-08-20 20:29:40"
                 },
                 {
-                    "end_time": "2023-08-18 14:22:46",
+                    "end_time": "2023-08-20 20:29:47",
                     "hours": 0,
                     "minutes": 0,
                     "seconds": 2,
-                    "start_time": "2023-08-18 14:22:43"
+                    "start_time": "2023-08-20 20:29:45"
+                },
+                {
+                    "end_time": "2023-08-20 20:30:39",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 1,
+                    "start_time": "2023-08-20 20:30:38"
+                },
+                {
+                    "end_time": "2023-08-20 20:30:42",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 1,
+                    "start_time": "2023-08-20 20:30:40"
+                },
+                {
+                    "end_time": "2023-08-20 20:31:29",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 8,
+                    "start_time": "2023-08-20 20:31:20"
+                },
+                {
+                    "end_time": "2023-08-20 20:31:31",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 2,
+                    "start_time": "2023-08-20 20:31:29"
+                },
+                {
+                    "end_time": "2023-08-20 20:34:27",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 2,
+                    "start_time": "2023-08-20 20:34:24"
+                },
+                {
+                    "end_time": "2023-08-20 20:34:30",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 3,
+                    "start_time": "2023-08-20 20:34:27"
+                },
+                {
+                    "end_time": "2023-08-20 20:34:32",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 2,
+                    "start_time": "2023-08-20 20:34:30"
+                },
+                {
+                    "end_time": "2023-08-20 20:34:44",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 6,
+                    "start_time": "2023-08-20 20:34:37"
+                },
+                {
+                    "end_time": "2023-08-20 20:34:54",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 1,
+                    "start_time": "2023-08-20 20:34:53"
+                },
+                {
+                    "end_time": "2023-08-20 20:34:57",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 2,
+                    "start_time": "2023-08-20 20:34:54"
+                },
+                {
+                    "end_time": "2023-08-20 20:34:58",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 1,
+                    "start_time": "2023-08-20 20:34:57"
+                },
+                {
+                    "end_time": "2023-08-20 20:35:02",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 4,
+                    "start_time": "2023-08-20 20:34:58"
+                },
+                {
+                    "end_time": "2023-08-20 20:35:05",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 2,
+                    "start_time": "2023-08-20 20:35:02"
+                },
+                {
+                    "end_time": "2023-08-20 20:35:06",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 1,
+                    "start_time": "2023-08-20 20:35:05"
+                },
+                {
+                    "end_time": "2023-08-20 20:36:15",
+                    "hours": 0,
+                    "minutes": 1,
+                    "seconds": 8,
+                    "start_time": "2023-08-20 20:35:06"
+                },
+                {
+                    "end_time": "2023-08-20 20:36:17",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 1,
+                    "start_time": "2023-08-20 20:36:16"
+                },
+                {
+                    "end_time": "2023-08-20 20:36:27",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 1,
+                    "start_time": "2023-08-20 20:36:26"
+                },
+                {
+                    "end_time": "2023-08-20 20:37:13",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 30,
+                    "start_time": "2023-08-20 20:36:42"
+                },
+                {
+                    "end_time": "2023-08-20 20:37:43",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 5,
+                    "start_time": "2023-08-20 20:37:37"
+                },
+                {
+                    "end_time": "2023-08-20 20:38:08",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 25,
+                    "start_time": "2023-08-20 20:37:43"
+                },
+                {
+                    "end_time": "2023-08-20 20:41:37",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 3,
+                    "start_time": "2023-08-20 20:41:33"
+                },
+                {
+                    "end_time": "2023-08-20 20:41:52",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 14,
+                    "start_time": "2023-08-20 20:41:37"
+                },
+                {
+                    "end_time": "2023-08-20 20:41:55",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 3,
+                    "start_time": "2023-08-20 20:41:52"
+                },
+                {
+                    "end_time": "2023-08-20 20:42:15",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 20,
+                    "start_time": "2023-08-20 20:41:55"
+                },
+                {
+                    "end_time": "2023-08-20 20:42:20",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 4,
+                    "start_time": "2023-08-20 20:42:15"
+                },
+                {
+                    "end_time": "2023-08-20 20:42:23",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 1,
+                    "start_time": "2023-08-20 20:42:22"
+                },
+                {
+                    "end_time": "2023-08-20 20:42:52",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 3,
+                    "start_time": "2023-08-20 20:42:48"
+                },
+                {
+                    "end_time": "2023-08-20 20:42:56",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 4,
+                    "start_time": "2023-08-20 20:42:52"
+                },
+                {
+                    "end_time": "2023-08-20 20:42:57",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 1,
+                    "start_time": "2023-08-20 20:42:56"
+                },
+                {
+                    "end_time": "2023-08-20 20:43:12",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 14,
+                    "start_time": "2023-08-20 20:42:57"
+                },
+                {
+                    "end_time": "2023-08-20 20:43:49",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 36,
+                    "start_time": "2023-08-20 20:43:12"
+                },
+                {
+                    "end_time": "2023-08-20 20:43:50",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 1,
+                    "start_time": "2023-08-20 20:43:49"
+                },
+                {
+                    "end_time": "2023-08-20 20:44:10",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 19,
+                    "start_time": "2023-08-20 20:43:51"
+                },
+                {
+                    "end_time": "2023-08-20 20:44:20",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 10,
+                    "start_time": "2023-08-20 20:44:10"
+                },
+                {
+                    "end_time": "2023-08-20 20:45:20",
+                    "hours": 0,
+                    "minutes": 1,
+                    "seconds": 0,
+                    "start_time": "2023-08-20 20:44:20"
+                },
+                {
+                    "end_time": "2023-08-20 20:45:46",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 26,
+                    "start_time": "2023-08-20 20:45:20"
+                },
+                {
+                    "end_time": "2023-08-20 20:45:56",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 9,
+                    "start_time": "2023-08-20 20:45:46"
+                },
+                {
+                    "end_time": "2023-08-20 20:45:59",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 2,
+                    "start_time": "2023-08-20 20:45:56"
+                },
+                {
+                    "end_time": "2023-08-20 20:46:03",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 4,
+                    "start_time": "2023-08-20 20:45:59"
+                },
+                {
+                    "end_time": "2023-08-20 20:46:07",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 3,
+                    "start_time": "2023-08-20 20:46:03"
+                },
+                {
+                    "end_time": "2023-08-20 20:46:13",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 5,
+                    "start_time": "2023-08-20 20:46:07"
+                },
+                {
+                    "end_time": "2023-08-20 20:46:20",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 1,
+                    "start_time": "2023-08-20 20:46:19"
+                },
+                {
+                    "end_time": "2023-08-20 20:46:35",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 2,
+                    "start_time": "2023-08-20 20:46:33"
+                },
+                {
+                    "end_time": "2023-08-20 20:46:39",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 3,
+                    "start_time": "2023-08-20 20:46:35"
+                },
+                {
+                    "end_time": "2023-08-20 20:46:50",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 11,
+                    "start_time": "2023-08-20 20:46:39"
+                },
+                {
+                    "end_time": "2023-08-20 20:46:55",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 4,
+                    "start_time": "2023-08-20 20:46:50"
+                },
+                {
+                    "end_time": "2023-08-20 20:46:56",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 1,
+                    "start_time": "2023-08-20 20:46:55"
+                },
+                {
+                    "end_time": "2023-08-20 20:46:58",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 1,
+                    "start_time": "2023-08-20 20:46:56"
+                },
+                {
+                    "end_time": "2023-08-20 20:47:00",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 2,
+                    "start_time": "2023-08-20 20:46:58"
+                },
+                {
+                    "end_time": "2023-08-20 20:47:11",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 10,
+                    "start_time": "2023-08-20 20:47:00"
+                },
+                {
+                    "end_time": "2023-08-20 20:47:19",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 3,
+                    "start_time": "2023-08-20 20:47:15"
+                },
+                {
+                    "end_time": "2023-08-20 20:47:40",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 1,
+                    "start_time": "2023-08-20 20:47:39"
+                },
+                {
+                    "end_time": "2023-08-20 20:47:46",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 5,
+                    "start_time": "2023-08-20 20:47:40"
+                },
+                {
+                    "end_time": "2023-08-20 20:48:17",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 2,
+                    "start_time": "2023-08-20 20:48:14"
+                },
+                {
+                    "end_time": "2023-08-20 20:48:58",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 40,
+                    "start_time": "2023-08-20 20:48:17"
+                },
+                {
+                    "end_time": "2023-08-20 20:49:01",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 2,
+                    "start_time": "2023-08-20 20:48:58"
+                },
+                {
+                    "end_time": "2023-08-20 20:49:40",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 1,
+                    "start_time": "2023-08-20 20:49:39"
+                },
+                {
+                    "end_time": "2023-08-20 20:49:41",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 1,
+                    "start_time": "2023-08-20 20:49:40"
+                },
+                {
+                    "end_time": "2023-08-20 20:49:45",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 3,
+                    "start_time": "2023-08-20 20:49:41"
+                },
+                {
+                    "end_time": "2023-08-20 20:49:58",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 13,
+                    "start_time": "2023-08-20 20:49:45"
+                },
+                {
+                    "end_time": "2023-08-20 20:50:01",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 3,
+                    "start_time": "2023-08-20 20:49:58"
+                },
+                {
+                    "end_time": "2023-08-20 20:50:02",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 1,
+                    "start_time": "2023-08-20 20:50:01"
+                },
+                {
+                    "end_time": "2023-08-20 20:50:04",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 2,
+                    "start_time": "2023-08-20 20:50:02"
+                },
+                {
+                    "end_time": "2023-08-20 20:50:10",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 5,
+                    "start_time": "2023-08-20 20:50:04"
+                },
+                {
+                    "end_time": "2023-08-20 20:50:15",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 5,
+                    "start_time": "2023-08-20 20:50:10"
+                },
+                {
+                    "end_time": "2023-08-20 20:50:21",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 5,
+                    "start_time": "2023-08-20 20:50:15"
+                },
+                {
+                    "end_time": "2023-08-20 20:50:25",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 3,
+                    "start_time": "2023-08-20 20:50:21"
+                },
+                {
+                    "end_time": "2023-08-20 20:50:28",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 2,
+                    "start_time": "2023-08-20 20:50:25"
+                },
+                {
+                    "end_time": "2023-08-20 20:50:29",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 1,
+                    "start_time": "2023-08-20 20:50:28"
+                },
+                {
+                    "end_time": "2023-08-20 20:50:30",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 1,
+                    "start_time": "2023-08-20 20:50:29"
+                },
+                {
+                    "end_time": "2023-08-20 20:50:32",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 1,
+                    "start_time": "2023-08-20 20:50:30"
+                },
+                {
+                    "end_time": "2023-08-20 20:50:33",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 1,
+                    "start_time": "2023-08-20 20:50:32"
+                },
+                {
+                    "end_time": "2023-08-20 20:50:34",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 1,
+                    "start_time": "2023-08-20 20:50:33"
+                },
+                {
+                    "end_time": "2023-08-20 20:50:35",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 1,
+                    "start_time": "2023-08-20 20:50:34"
+                },
+                {
+                    "end_time": "2023-08-20 20:50:46",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 10,
+                    "start_time": "2023-08-20 20:50:35"
+                },
+                {
+                    "end_time": "2023-08-20 20:50:49",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 2,
+                    "start_time": "2023-08-20 20:50:46"
+                },
+                {
+                    "end_time": "2023-08-20 20:50:56",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 7,
+                    "start_time": "2023-08-20 20:50:49"
+                },
+                {
+                    "end_time": "2023-08-20 20:50:57",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 1,
+                    "start_time": "2023-08-20 20:50:56"
+                },
+                {
+                    "end_time": "2023-08-20 20:51:05",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 7,
+                    "start_time": "2023-08-20 20:50:57"
+                },
+                {
+                    "end_time": "2023-08-20 20:51:06",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 1,
+                    "start_time": "2023-08-20 20:51:05"
+                },
+                {
+                    "end_time": "2023-08-20 20:51:22",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 16,
+                    "start_time": "2023-08-20 20:51:06"
+                },
+                {
+                    "end_time": "2023-08-20 20:52:00",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 1,
+                    "start_time": "2023-08-20 20:51:59"
+                },
+                {
+                    "end_time": "2023-08-20 20:52:03",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 2,
+                    "start_time": "2023-08-20 20:52:00"
+                },
+                {
+                    "end_time": "2023-08-20 20:52:31",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 1,
+                    "start_time": "2023-08-20 20:52:30"
+                },
+                {
+                    "end_time": "2023-08-20 20:52:33",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 2,
+                    "start_time": "2023-08-20 20:52:31"
+                },
+                {
+                    "end_time": "2023-08-20 20:52:44",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 10,
+                    "start_time": "2023-08-20 20:52:33"
+                },
+                {
+                    "end_time": "2023-08-20 20:53:00",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 16,
+                    "start_time": "2023-08-20 20:52:44"
+                },
+                {
+                    "end_time": "2023-08-20 20:53:03",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 3,
+                    "start_time": "2023-08-20 20:53:00"
+                },
+                {
+                    "end_time": "2023-08-20 20:54:05",
+                    "hours": 0,
+                    "minutes": 1,
+                    "seconds": 1,
+                    "start_time": "2023-08-20 20:53:03"
+                },
+                {
+                    "end_time": "2023-08-20 20:54:21",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 15,
+                    "start_time": "2023-08-20 20:54:05"
+                },
+                {
+                    "end_time": "2023-08-20 20:54:40",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 19,
+                    "start_time": "2023-08-20 20:54:21"
+                },
+                {
+                    "end_time": "2023-08-20 20:54:42",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 1,
+                    "start_time": "2023-08-20 20:54:40"
+                },
+                {
+                    "end_time": "2023-08-20 20:56:00",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 3,
+                    "start_time": "2023-08-20 20:55:56"
+                }
+            ]
+        },
+        {
+            "name": "Visual",
+            "time_entries": [
+                {
+                    "end_time": "2023-08-20 20:30:40",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 1,
+                    "start_time": "2023-08-20 20:30:39"
+                }
+            ]
+        },
+        {
+            "name": "YouTube \u2013 Opera",
+            "time_entries": [
+                {
+                    "end_time": "2023-08-20 20:32:13",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 17,
+                    "start_time": "2023-08-20 20:31:56"
+                },
+                {
+                    "end_time": "2023-08-20 20:33:05",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 44,
+                    "start_time": "2023-08-20 20:32:20"
+                },
+                {
+                    "end_time": "2023-08-20 20:33:44",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 35,
+                    "start_time": "2023-08-20 20:33:08"
+                },
+                {
+                    "end_time": "2023-08-20 20:34:10",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 19,
+                    "start_time": "2023-08-20 20:33:50"
+                }
+            ]
+        },
+        {
+            "name": "C:\\Users\\asus\\Desktop\\ProductiBee\\venv\\Scripts\\python.exe",
+            "time_entries": [
+                {
+                    "end_time": "2023-08-20 20:36:18",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 1,
+                    "start_time": "2023-08-20 20:36:17"
+                },
+                {
+                    "end_time": "2023-08-20 20:42:24",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 1,
+                    "start_time": "2023-08-20 20:42:23"
+                },
+                {
+                    "end_time": "2023-08-20 20:42:47",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 1,
+                    "start_time": "2023-08-20 20:42:46"
+                }
+            ]
+        },
+        {
+            "name": "Set time",
+            "time_entries": [
+                {
+                    "end_time": "2023-08-20 20:36:23",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 1,
+                    "start_time": "2023-08-20 20:36:22"
+                },
+                {
+                    "end_time": "2023-08-20 20:42:29",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 1,
+                    "start_time": "2023-08-20 20:42:28"
+                }
+            ]
+        },
+        {
+            "name": "Eksplorator plik\u00f3w",
+            "time_entries": [
+                {
+                    "end_time": "2023-08-20 20:56:04",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 1,
+                    "start_time": "2023-08-20 20:56:03"
+                }
+            ]
+        },
+        {
+            "name": "/usr/bin/bash --login -i",
+            "time_entries": [
+                {
+                    "end_time": "2023-08-20 20:56:10",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 1,
+                    "start_time": "2023-08-20 20:56:09"
                 }
             ]
         }
     ]
->>>>>>> a9ea947dc24f9d3c26fc083d57a9210fdc714df9
 }
