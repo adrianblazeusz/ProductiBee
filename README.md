@@ -1,7 +1,7 @@
 
 
 # ProductiBee: Boost Your Productivity
-ProductiBee is a application designed to enhance your productivity while using a computer. Choose the websites and desktop apps that distract you, and ProductiBee will keep them at bay, allowing you to focus on what truly matters. And after the specified time, you will receive information on how you spent this period.
+ProductiBee is a (demo) application designed to enhance your productivity while using a computer. Choose the websites and desktop apps that distract you, and ProductiBee will keep them at bay, allowing you to focus on what truly matters. And after the specified time, you will receive information on how you spent this period.
 
 ## Features
 ### 1. Selective Blocking
@@ -12,3 +12,15 @@ Take a deep dive into your habits: it's not just about blocking out distractions
 
 ### 3. Unlock information
 Post-Session Conclusion: After the ProductiBee work session is over, it doesn't stop there. Provides reports on usage patterns, helping to identify areas for improvement.
+
+
+### Demo
+The application is only in the early stages of development and there is still much to be developed. If you like this idea and you are willing to create applications together, **I encourage you to make commit.**
+
+## Plans for the future
+
+ - create a website blocker that is more tailored to different sites
+ - improved blocker operation: the program will block websites even after closing the application
+ - Improved application selection: instead of saving applications manually, the program will load the list of applications on the computer.
+ - Improvement of work analysis: better tuned time analysis on the computer as well as the addition of graphs with different time dimensions.
+ - To-do list tab: creating a tab where the user will be able to enter their tasks, as well as include tools that will help them (this function will be used to create a more refined productivity analysis)
