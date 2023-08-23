@@ -14,6 +14,9 @@ Take a deep dive into your habits: it's not just about blocking out distractions
 Post-Session Conclusion: After the ProductiBee work session is over, it doesn't stop there. Provides reports on usage patterns, helping to identify areas for improvement.
 
 
+![demo_pb](https://github.com/adrianblazeusz/ProductiBee/assets/117313800/402fda5a-ffef-40ec-94c4-ce63a4c0b852)
+
+
 ### Demo
 The application is only in the early stages of development and there is still much to be developed. If you like this idea and you are willing to create applications together, **I encourage you to make commits.**
 
