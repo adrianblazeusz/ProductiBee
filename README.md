@@ -15,7 +15,7 @@ Post-Session Conclusion: After the ProductiBee work session is over, it doesn't 
 
 
 ### Demo
-The application is only in the early stages of development and there is still much to be developed. If you like this idea and you are willing to create applications together, **I encourage you to make commit.**
+The application is only in the early stages of development and there is still much to be developed. If you like this idea and you are willing to create applications together, **I encourage you to make commits.**
 
 ## Plans for the future
 
