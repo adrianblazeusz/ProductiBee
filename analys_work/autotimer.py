@@ -1,4 +1,4 @@
-#ten kod został oparty na https://github.com/KalleHallden/AutoTimer
+#this code was based on https://github.com/KalleHallden/AutoTimer
 
 from __future__ import print_function
 import time
