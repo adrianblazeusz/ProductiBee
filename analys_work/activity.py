@@ -1,3 +1,6 @@
+#this code was based on https://github.com/KalleHallden/AutoTimer
+
+
 import json
 from dateutil import parser
 
