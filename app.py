@@ -7,46 +7,46 @@ from blockers.blocker_web import Web_blocker
 from func.json_manager import JSONManager
 from func.timer_set import Timer
 from analys_work.autotimer import Autotimer
-from analys_work.json.report import Report
+from analys_work.report import Report
 
+# Set the appearance mode and color theme for customtkinter
 customtkinter.set_appearance_mode("System")  # Modes: "System" (standard), "Dark", "Light"
-customtkinter.set_default_color_theme("blue") 
+customtkinter.set_default_color_theme("design/honey.json") 
 
-
+# Main Application Class
 class App(customtkinter.CTk):
     def __init__(self):
         super().__init__()
 
+        # Initial setup for the application window
         self.title("ProductiBee")
         self.geometry("700x450")
-
         self.state_file = "log/process_killer_state.json"
         self.json_m = JSONManager(self.state_file)
 
-        # Load ProcessKiller state (if it exists)
+        # Initialize ProcessKiller and WebBlocker with state data
         self.process_killer = ProcessKiller()
         self.web_blocker = Web_blocker()
-        
         self.json_m.load_state()
 
+        # Initialize Timer, AutoTimer, and Report functionalities
         self.timer = Timer()
         self.autotimer = Autotimer()
         self.repo = Report()
-
         self.activity_thread = None
 
-        # set grid layout 1x2
+        # Configure the layout of the main window and create frames
         self.grid_rowconfigure(0, weight=1)
         self.grid_columnconfigure(1, weight=1)
-
         self.create_navigation_frame()
         self.create_work_frame()
         self.create_blocker_frame()
 
-        # Select default frame
+        # Set default frame to "work"
         self.select_frame_by_name("work")
 
 
+    # Method to create the navigation frame (left sidebar)
     def create_navigation_frame(self):
         # create navigation frame
         self.navigation_frame = customtkinter.CTkFrame(self, corner_radius=0)
@@ -76,6 +76,8 @@ class App(customtkinter.CTk):
                                                                 command=self.change_appearance_mode_event)
         self.appearance_mode_menu.grid(row=6, column=0, padx=20, pady=20, sticky="s")
 
+
+    # Method to create the main work frame (timer and activity logger)
     def create_work_frame(self):
         self.work_frame = customtkinter.CTkFrame(self, corner_radius=4, fg_color="transparent")
         self.work_frame.grid_columnconfigure(1, weight=1)
@@ -105,7 +107,7 @@ class App(customtkinter.CTk):
         self.analys_list.bind("<Key>", lambda event: "break")
 
 
-
+    # Method to create the blocker frame (add/remove blocked apps/websites)
     def create_blocker_frame(self):
         self.blocker_frame = customtkinter.CTkFrame(self, corner_radius=0, fg_color="transparent")
         self.blocker_frame.grid_columnconfigure(1, weight=1)
@@ -321,6 +323,7 @@ class App(customtkinter.CTk):
         if self.timer.total_seconds <= 0:
             messagebox.showwarning("Warning", "Please set the timer first.")
         else:
+            self.blocker_button_frame.configure(state="disabled")
             self.set_time.configure(state="disabled")
             self.start_timer_button.configure(state="disabled")
             self.timer.start_timer()
@@ -332,6 +335,7 @@ class App(customtkinter.CTk):
             self.update_timer_display()
 
     def stop_timer_event(self):
+        self.blocker_button_frame.configure(state="normal")
         self.set_time.configure(state="normal")
         self.start_timer_button.configure(state="normal")
         self.timer.stop_timer()
@@ -358,6 +362,8 @@ class App(customtkinter.CTk):
             self.json_m.set_active(False)
             self.json_m.save_state()
 
+
+    # Method to display the activity report after the timer ends
     def display_report(self, activity_times):
         self.analys_list.delete("1.0", "end")  
         separator = "\n-----------------------------------------------\n"
@@ -369,7 +375,7 @@ class App(customtkinter.CTk):
             self.analys_list.insert("end", f"{activity}: {total_time_str}{separator}")
 
                     
-
+    # Method to start activity analysis (track user activity while the timer is running)
     def start_activity_analysis(self):
         self.autotimer.start_analys()
 
@@ -390,6 +396,6 @@ class App(customtkinter.CTk):
     def frame_blocker_button_event(self):
         self.select_frame_by_name("blocker")
 
-
+    # Event handler for changing the appearance mode (dark/light/system)
     def change_appearance_mode_event(self, new_appearance_mode):
         customtkinter.set_appearance_mode(new_appearance_mode)

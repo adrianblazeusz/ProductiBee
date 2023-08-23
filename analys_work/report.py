@@ -1,12 +1,12 @@
 import json
 from datetime import timedelta
 import os
-from utils import get_base_path
 
 class Report:
      
     def __init__(self, json_filename=None):
-            self.json_filename = os.path.join(get_base_path(), 'analys_work\\json\\activities.json')
+            self.json_directory = "analys_work/json"
+            self.json_filename = os.path.join(self.json_directory, 'activities.json')
             self.activity_times = {}
 
     def load_data(self):
