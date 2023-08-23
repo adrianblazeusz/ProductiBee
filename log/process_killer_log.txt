@@ -624,3 +624,34 @@ iscord.exe
 [2023-08-23 15:55:15] Blocking stopped
 [2023-08-23 16:22:53] Blocking has started
 [2023-08-23 16:23:54] Blocking stopped
+[2023-08-23 18:40:12] Blocking has started
+hotoshop.exe
+[2023-08-23 18:40:14] Successfully blocked Photoshop.exe
+[2023-08-23 18:40:16] Successfully blocked Photoshop.exe
+[2023-08-23 18:40:20] Successfully blocked Photoshop.exe
+[2023-08-23 18:40:24] Successfully blocked Photoshop.exe
+[2023-08-23 18:40:25] Successfully blocked Photoshop.exe
+[2023-08-23 18:40:26] Successfully blocked Photoshop.exe
+[2023-08-23 18:45:35] Blocking has started
+[2023-08-23 18:45:35] Successfully blocked Photoshop.exe
+[2023-08-23 18:46:36] Blocking stopped
+[2023-08-23 18:49:59] Blocking has started
+[2023-08-23 18:49:59] Successfully blocked Photoshop.exe
+[2023-08-23 18:51:00] Blocking stopped
+[2023-08-23 18:52:21] Blocking has started
+[2023-08-23 19:02:46] Blocking has started
+[2023-08-23 19:03:46] Blocking stopped
+[2023-08-23 19:06:57] Successfully blocked Photoshop.exe
+[2023-08-23 19:07:00] Successfully blocked Photoshop.exe
+[2023-08-23 19:07:01] Successfully blocked Photoshop.exe
+[2023-08-23 19:07:58] Blocking stopped
+[2023-08-23 19:08:45] Blocking has started
+[2023-08-23 19:09:45] Blocking stopped
+[2023-08-23 19:12:26] Blocking has started
+[2023-08-23 19:12:26] Successfully blocked Photoshop.exe
+[2023-08-23 19:12:28] Successfully blocked Photoshop.exe
+[2023-08-23 19:12:29] Successfully blocked Photoshop.exe
+[2023-08-23 19:12:30] Successfully blocked Photoshop.exe
+[2023-08-23 19:13:27] Blocking stopped
+[2023-08-23 19:13:40] Blocking has started
+[2023-08-23 19:14:40] Blocking stopped

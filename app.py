@@ -205,6 +205,7 @@ class App(customtkinter.CTk):
             self.json_m.save_state()
 
             self.update_blocked_app_listbox()
+            self.entry_exe.delete(0, "end")
 
     def on_delete_app_button_click(self):
         processes_input = self.delete_exe.get().strip()
@@ -216,6 +217,7 @@ class App(customtkinter.CTk):
             self.json_m.save_state()
 
             self.update_blocked_app_listbox()
+            self.delete_exe.delete(0, "end")
 
 
     def update_blocked_app_listbox(self):
@@ -258,6 +260,8 @@ class App(customtkinter.CTk):
             self.json_m.add_sites_to_kill(processes_list)
             self.json_m.save_state()
             self.update_blocked_web_listbox()
+        
+            self.entry_web.delete(0, "end")
 
 
     def on_delete_web_button_click(self):
@@ -268,6 +272,8 @@ class App(customtkinter.CTk):
             self.json_m.remove_sites_to_kill(sites_list=websites_list)
             self.json_m.save_state()
             self.update_blocked_web_listbox()
+
+            self.delete_web.delete(0, "end")
             
 
     def update_blocked_web_listbox(self):

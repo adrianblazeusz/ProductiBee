@@ -4,39 +4,46 @@
             "name": "",
             "time_entries": [
                 {
-                    "end_time": "2023-08-23 16:22:53",
+                    "end_time": "2023-08-23 19:13:40",
                     "hours": 0,
                     "minutes": 0,
                     "seconds": 0,
-                    "start_time": "2023-08-23 16:22:53"
+                    "start_time": "2023-08-23 19:13:40"
                 },
                 {
-                    "end_time": "2023-08-23 16:23:05",
+                    "end_time": "2023-08-23 19:13:53",
                     "hours": 0,
                     "minutes": 0,
                     "seconds": 1,
-                    "start_time": "2023-08-23 16:23:04"
+                    "start_time": "2023-08-23 19:13:52"
                 },
                 {
-                    "end_time": "2023-08-23 16:23:25",
+                    "end_time": "2023-08-23 19:14:06",
                     "hours": 0,
                     "minutes": 0,
                     "seconds": 1,
-                    "start_time": "2023-08-23 16:23:24"
+                    "start_time": "2023-08-23 19:14:05"
                 },
                 {
-                    "end_time": "2023-08-23 16:23:31",
+                    "end_time": "2023-08-23 19:14:10",
                     "hours": 0,
                     "minutes": 0,
                     "seconds": 1,
-                    "start_time": "2023-08-23 16:23:30"
+                    "start_time": "2023-08-23 19:14:09"
                 },
                 {
-                    "end_time": "2023-08-23 16:23:46",
+                    "end_time": "2023-08-23 19:14:13",
                     "hours": 0,
                     "minutes": 0,
                     "seconds": 1,
-                    "start_time": "2023-08-23 16:23:45"
+                    "start_time": "2023-08-23 19:14:11"
+                },
+                {
+                    "end_time": "2023-08-23 19:14:39",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 1,
+                    "start_time": "2023-08-23 19:14:38"
                 }
             ]
         },
@@ -44,23 +51,25 @@
             "name": "ProductiBee",
             "time_entries": [
                 {
-                    "end_time": "2023-08-23 16:22:54",
+                    "end_time": "2023-08-23 19:13:42",
                     "hours": 0,
                     "minutes": 0,
                     "seconds": 1,
-                    "start_time": "2023-08-23 16:22:53"
-                }
-            ]
-        },
-        {
-            "name": "C:\\Users\\asus\\Desktop\\ProductiBee\\venv\\Scripts\\python.exe",
-            "time_entries": [
+                    "start_time": "2023-08-23 19:13:40"
+                },
                 {
-                    "end_time": "2023-08-23 16:22:55",
+                    "end_time": "2023-08-23 19:14:16",
                     "hours": 0,
                     "minutes": 0,
-                    "seconds": 1,
-                    "start_time": "2023-08-23 16:22:54"
+                    "seconds": 3,
+                    "start_time": "2023-08-23 19:14:13"
+                },
+                {
+                    "end_time": "2023-08-23 19:14:38",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 20,
+                    "start_time": "2023-08-23 19:14:17"
                 }
             ]
         },
@@ -68,51 +77,39 @@
             "name": "Visual Studio Code",
             "time_entries": [
                 {
-                    "end_time": "2023-08-23 16:22:59",
+                    "end_time": "2023-08-23 19:13:44",
                     "hours": 0,
                     "minutes": 0,
-                    "seconds": 3,
-                    "start_time": "2023-08-23 16:22:55"
+                    "seconds": 2,
+                    "start_time": "2023-08-23 19:13:42"
                 },
                 {
-                    "end_time": "2023-08-23 16:23:04",
+                    "end_time": "2023-08-23 19:13:47",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 2,
+                    "start_time": "2023-08-23 19:13:44"
+                },
+                {
+                    "end_time": "2023-08-23 19:13:52",
                     "hours": 0,
                     "minutes": 0,
                     "seconds": 5,
-                    "start_time": "2023-08-23 16:22:59"
+                    "start_time": "2023-08-23 19:13:47"
                 },
                 {
-                    "end_time": "2023-08-23 16:23:30",
-                    "hours": 0,
-                    "minutes": 0,
-                    "seconds": 4,
-                    "start_time": "2023-08-23 16:23:25"
-                }
-            ]
-        },
-        {
-            "name": "Opera",
-            "time_entries": [
-                {
-                    "end_time": "2023-08-23 16:23:06",
-                    "hours": 0,
-                    "minutes": 0,
-                    "seconds": 1,
-                    "start_time": "2023-08-23 16:23:05"
-                },
-                {
-                    "end_time": "2023-08-23 16:23:20",
-                    "hours": 0,
-                    "minutes": 0,
-                    "seconds": 14,
-                    "start_time": "2023-08-23 16:23:06"
-                },
-                {
-                    "end_time": "2023-08-23 16:23:24",
+                    "end_time": "2023-08-23 19:14:09",
                     "hours": 0,
                     "minutes": 0,
                     "seconds": 3,
-                    "start_time": "2023-08-23 16:23:20"
+                    "start_time": "2023-08-23 19:14:06"
+                },
+                {
+                    "end_time": "2023-08-23 19:14:17",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 1,
+                    "start_time": "2023-08-23 19:14:16"
                 }
             ]
         },
@@ -120,11 +117,11 @@
             "name": "Spotify",
             "time_entries": [
                 {
-                    "end_time": "2023-08-23 16:23:32",
+                    "end_time": "2023-08-23 19:13:54",
                     "hours": 0,
                     "minutes": 0,
                     "seconds": 1,
-                    "start_time": "2023-08-23 16:23:31"
+                    "start_time": "2023-08-23 19:13:53"
                 }
             ]
         },
@@ -132,54 +129,18 @@
             "name": "Spotify Premium",
             "time_entries": [
                 {
-                    "end_time": "2023-08-23 16:23:45",
+                    "end_time": "2023-08-23 19:14:05",
                     "hours": 0,
                     "minutes": 0,
-                    "seconds": 13,
-                    "start_time": "2023-08-23 16:23:32"
-                }
-            ]
-        },
-        {
-            "name": "Zas\u00f3b 19.png @ 50% (RGB/8) *",
-            "time_entries": [
-                {
-                    "end_time": "2023-08-23 16:23:49",
-                    "hours": 0,
-                    "minutes": 0,
-                    "seconds": 3,
-                    "start_time": "2023-08-23 16:23:46"
+                    "seconds": 10,
+                    "start_time": "2023-08-23 19:13:54"
                 },
                 {
-                    "end_time": "2023-08-23 16:23:51",
+                    "end_time": "2023-08-23 19:14:11",
                     "hours": 0,
                     "minutes": 0,
                     "seconds": 1,
-                    "start_time": "2023-08-23 16:23:50"
-                }
-            ]
-        },
-        {
-            "name": "Adobe Photoshop",
-            "time_entries": [
-                {
-                    "end_time": "2023-08-23 16:23:50",
-                    "hours": 0,
-                    "minutes": 0,
-                    "seconds": 1,
-                    "start_time": "2023-08-23 16:23:49"
-                }
-            ]
-        },
-        {
-            "name": "productibee.png @ 66,7% (Warstwa 1,RGB/8)",
-            "time_entries": [
-                {
-                    "end_time": "2023-08-23 16:23:52",
-                    "hours": 0,
-                    "minutes": 0,
-                    "seconds": 1,
-                    "start_time": "2023-08-23 16:23:51"
+                    "start_time": "2023-08-23 19:14:10"
                 }
             ]
         }
