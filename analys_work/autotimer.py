@@ -1,3 +1,5 @@
+#ten kod został oparty na https://github.com/KalleHallden/AutoTimer
+
 from __future__ import print_function
 import time
 import os
