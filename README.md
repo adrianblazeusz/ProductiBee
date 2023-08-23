@@ -1,3 +1,4 @@
+![productibee](https://github.com/adrianblazeusz/ProductiBee/assets/117313800/50b0dae5-671b-48f7-a626-dc7a2a124057)
 
 # ProductiBee: Boost Your Productivity
 ProductiBee is a (demo) application designed to enhance your productivity while using a computer. Choose the websites and desktop apps that distract you, and ProductiBee will keep them at bay, allowing you to focus on what truly matters. And after the specified time, you will receive information on how you spent this period.
