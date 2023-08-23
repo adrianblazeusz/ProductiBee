@@ -1,6 +1,7 @@
 from tkinter import messagebox
 import customtkinter
 import threading
+from PIL import Image
 
 from blockers.blocker_app import ProcessKiller
 from blockers.blocker_web import Web_blocker
@@ -23,6 +24,7 @@ class App(customtkinter.CTk):
         self.geometry("700x450")
         self.state_file = "log/process_killer_state.json"
         self.json_m = JSONManager(self.state_file)
+        self.logo_image = customtkinter.CTkImage(Image.open("design/pb_app.png"), size=(160, 75))
 
         # Initialize ProcessKiller and WebBlocker with state data
         self.process_killer = ProcessKiller()
@@ -44,7 +46,7 @@ class App(customtkinter.CTk):
 
         # Set default frame to "work"
         self.select_frame_by_name("work")
-
+        
 
     # Method to create the navigation frame (left sidebar)
     def create_navigation_frame(self):
@@ -54,20 +56,20 @@ class App(customtkinter.CTk):
         self.navigation_frame.grid_rowconfigure(4, weight=1)
 
         # create navigation frame label
-        self.navigation_frame_label = customtkinter.CTkLabel(self.navigation_frame, text="ProductiBee",
+        self.navigation_frame_label = customtkinter.CTkLabel(self.navigation_frame,text="", image=self.logo_image,
                                                              compound="left", font=customtkinter.CTkFont(size=15, weight="bold"))
-        self.navigation_frame_label.grid(row=0, column=0, padx=20, pady=20)
+        self.navigation_frame_label.grid(row=0, column=0, padx=10, pady=10)
 
 
         # create work mode button
         self.work_button_frame = customtkinter.CTkButton(self.navigation_frame, corner_radius=0, height=40, border_spacing=10, text="Work Mode",
-                                                      fg_color="transparent", text_color=("gray10", "gray90"), hover_color=("gray70", "gray30"),
+                                                      fg_color="transparent", text_color=("gray10", "gray90"), hover_color=("#FCF2E0", "gray30"),
                                                       anchor="w", command=self.frame_work_button_event)
         self.work_button_frame.grid(row=2, column=0, sticky="ew")
 
         # create blocker button
         self.blocker_button_frame = customtkinter.CTkButton(self.navigation_frame, corner_radius=0, height=40, border_spacing=10, text="Blocker",
-                                                      fg_color="transparent", text_color=("gray10", "gray90"), hover_color=("gray70", "gray30"),
+                                                      fg_color="transparent", text_color=("gray10", "gray90"), hover_color=("#FCF2E0", "gray30"),
                                                       anchor="w", command=self.frame_blocker_button_event)
         self.blocker_button_frame.grid(row=3, column=0, sticky="ew")
 
@@ -90,16 +92,16 @@ class App(customtkinter.CTk):
         self.timer_label.grid(row=2, column=0, columnspan=2, padx=(20, 20), pady=(20, 10), stick="ew")
         self.timer.set_display_label(self.timer_label)
 
-        self.start_timer_button = customtkinter.CTkButton(self.tabview_timer, text="Start", 
+        self.start_timer_button = customtkinter.CTkButton(self.tabview_timer, text="START", 
                                                       command=self.start_timer_event)
-        self.start_timer_button.grid(row=3, column=0, columnspan=2, stick="sew", padx=(10,10), pady=(10,50))
+        self.start_timer_button.grid(row=3, column=0, columnspan=2, stick="sew", padx=(90,90), pady=(10,50))
 
         self.set_lable = customtkinter.CTkTabview(self.work_frame, width=235, height=70)
         self.set_lable.grid(row=2, column=1, columnspan=4, sticky="nse", padx=(10,10), pady=(0,50))
 
         self.set_time = customtkinter.CTkButton(self.tabview_timer, text="Set time",
                                                 command=self.open_input_dialog_event)
-        self.set_time.grid(row=3, column=0,columnspan=2, padx=(10,10), pady=(25,10), stick="swe")
+        self.set_time.grid(row=3, column=0,columnspan=2, padx=(30,30), pady=(25,10), stick="swe")
         
         self.analys_list = customtkinter.CTkTextbox(self.work_frame, width=500, height=250)
         self.analys_list.grid(row=1, column=0, padx=(10, 10), pady=(10, 0), sticky="sew")
@@ -399,3 +401,7 @@ class App(customtkinter.CTk):
     # Event handler for changing the appearance mode (dark/light/system)
     def change_appearance_mode_event(self, new_appearance_mode):
         customtkinter.set_appearance_mode(new_appearance_mode)
+
+if __name__ == "__main__":
+    app = App()
+    app.mainloop()
