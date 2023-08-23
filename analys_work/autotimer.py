@@ -81,9 +81,9 @@ class Autotimer:
                     self.previous_site = ""
                     new_window_name = self.get_active_window()
 
-                    if sys.platform in ['Windows', 'win32', 'cygwin']:
-                        if 'Google Chrome' in new_window_name:
-                            new_window_name = self.get_chrome_url()
+                    #if sys.platform in ['Windows', 'win32', 'cygwin']:
+                    #    if 'Google Chrome' in new_window_name:
+                    #        new_window_name = self.get_chrome_url()
 
                     if active_window_name != new_window_name:
                         end_time = datetime.datetime.now()

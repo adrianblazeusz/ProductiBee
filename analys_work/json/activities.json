@@ -4,46 +4,46 @@
             "name": "",
             "time_entries": [
                 {
-                    "end_time": "2023-08-23 19:13:40",
+                    "end_time": "2023-08-23 21:37:23",
                     "hours": 0,
                     "minutes": 0,
                     "seconds": 0,
-                    "start_time": "2023-08-23 19:13:40"
+                    "start_time": "2023-08-23 21:37:23"
                 },
                 {
-                    "end_time": "2023-08-23 19:13:53",
+                    "end_time": "2023-08-23 21:37:26",
                     "hours": 0,
                     "minutes": 0,
                     "seconds": 1,
-                    "start_time": "2023-08-23 19:13:52"
+                    "start_time": "2023-08-23 21:37:25"
                 },
                 {
-                    "end_time": "2023-08-23 19:14:06",
+                    "end_time": "2023-08-23 21:37:28",
                     "hours": 0,
                     "minutes": 0,
                     "seconds": 1,
-                    "start_time": "2023-08-23 19:14:05"
+                    "start_time": "2023-08-23 21:37:27"
                 },
                 {
-                    "end_time": "2023-08-23 19:14:10",
+                    "end_time": "2023-08-23 21:37:37",
                     "hours": 0,
                     "minutes": 0,
                     "seconds": 1,
-                    "start_time": "2023-08-23 19:14:09"
+                    "start_time": "2023-08-23 21:37:36"
                 },
                 {
-                    "end_time": "2023-08-23 19:14:13",
+                    "end_time": "2023-08-23 21:37:50",
                     "hours": 0,
                     "minutes": 0,
                     "seconds": 1,
-                    "start_time": "2023-08-23 19:14:11"
+                    "start_time": "2023-08-23 21:37:49"
                 },
                 {
-                    "end_time": "2023-08-23 19:14:39",
+                    "end_time": "2023-08-23 21:38:04",
                     "hours": 0,
                     "minutes": 0,
                     "seconds": 1,
-                    "start_time": "2023-08-23 19:14:38"
+                    "start_time": "2023-08-23 21:38:03"
                 }
             ]
         },
@@ -51,25 +51,56 @@
             "name": "ProductiBee",
             "time_entries": [
                 {
-                    "end_time": "2023-08-23 19:13:42",
+                    "end_time": "2023-08-23 21:37:25",
                     "hours": 0,
                     "minutes": 0,
                     "seconds": 1,
-                    "start_time": "2023-08-23 19:13:40"
-                },
+                    "start_time": "2023-08-23 21:37:23"
+                }
+            ]
+        },
+        {
+            "name": "C:\\Users\\asus\\Desktop\\ProductiBee\\venv\\Scripts\\python.exe",
+            "time_entries": [
                 {
-                    "end_time": "2023-08-23 19:14:16",
+                    "end_time": "2023-08-23 21:37:27",
                     "hours": 0,
                     "minutes": 0,
-                    "seconds": 3,
-                    "start_time": "2023-08-23 19:14:13"
+                    "seconds": 1,
+                    "start_time": "2023-08-23 21:37:26"
                 },
                 {
-                    "end_time": "2023-08-23 19:14:38",
+                    "end_time": "2023-08-23 21:37:38",
                     "hours": 0,
                     "minutes": 0,
-                    "seconds": 20,
-                    "start_time": "2023-08-23 19:14:17"
+                    "seconds": 1,
+                    "start_time": "2023-08-23 21:37:37"
+                }
+            ]
+        },
+        {
+            "name": "Opera",
+            "time_entries": [
+                {
+                    "end_time": "2023-08-23 21:37:36",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 7,
+                    "start_time": "2023-08-23 21:37:28"
+                },
+                {
+                    "end_time": "2023-08-23 21:37:51",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 1,
+                    "start_time": "2023-08-23 21:37:50"
+                },
+                {
+                    "end_time": "2023-08-23 21:38:03",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 8,
+                    "start_time": "2023-08-23 21:37:54"
                 }
             ]
         },
@@ -77,70 +108,30 @@
             "name": "Visual Studio Code",
             "time_entries": [
                 {
-                    "end_time": "2023-08-23 19:13:44",
-                    "hours": 0,
-                    "minutes": 0,
-                    "seconds": 2,
-                    "start_time": "2023-08-23 19:13:42"
-                },
-                {
-                    "end_time": "2023-08-23 19:13:47",
-                    "hours": 0,
-                    "minutes": 0,
-                    "seconds": 2,
-                    "start_time": "2023-08-23 19:13:44"
-                },
-                {
-                    "end_time": "2023-08-23 19:13:52",
-                    "hours": 0,
-                    "minutes": 0,
-                    "seconds": 5,
-                    "start_time": "2023-08-23 19:13:47"
-                },
-                {
-                    "end_time": "2023-08-23 19:14:09",
-                    "hours": 0,
-                    "minutes": 0,
-                    "seconds": 3,
-                    "start_time": "2023-08-23 19:14:06"
-                },
-                {
-                    "end_time": "2023-08-23 19:14:17",
+                    "end_time": "2023-08-23 21:37:39",
                     "hours": 0,
                     "minutes": 0,
                     "seconds": 1,
-                    "start_time": "2023-08-23 19:14:16"
+                    "start_time": "2023-08-23 21:37:38"
+                },
+                {
+                    "end_time": "2023-08-23 21:37:49",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 9,
+                    "start_time": "2023-08-23 21:37:39"
                 }
             ]
         },
         {
-            "name": "Spotify",
+            "name": "YouTube \u2013 Opera",
             "time_entries": [
                 {
-                    "end_time": "2023-08-23 19:13:54",
+                    "end_time": "2023-08-23 21:37:54",
                     "hours": 0,
                     "minutes": 0,
-                    "seconds": 1,
-                    "start_time": "2023-08-23 19:13:53"
-                }
-            ]
-        },
-        {
-            "name": "Spotify Premium",
-            "time_entries": [
-                {
-                    "end_time": "2023-08-23 19:14:05",
-                    "hours": 0,
-                    "minutes": 0,
-                    "seconds": 10,
-                    "start_time": "2023-08-23 19:13:54"
-                },
-                {
-                    "end_time": "2023-08-23 19:14:11",
-                    "hours": 0,
-                    "minutes": 0,
-                    "seconds": 1,
-                    "start_time": "2023-08-23 19:14:10"
+                    "seconds": 2,
+                    "start_time": "2023-08-23 21:37:51"
                 }
             ]
         }
