@@ -27,3 +27,4 @@ The application is only in the early stages of development and there is still mu
  - Improved application selection: instead of saving applications manually, the program will load the list of applications on the computer.
  - Improvement of work analysis: better tuned time analysis on the computer as well as the addition of graphs with different time dimensions.
  - To-do list tab: creating a tab where the user will be able to enter their tasks, as well as include tools that will help them (this function will be used to create a more refined productivity analysis)
+ - Creating a user account: The user can set up an account and collect data on his work in it (create a database and server)
