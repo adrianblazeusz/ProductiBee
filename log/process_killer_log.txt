@@ -657,3 +657,9 @@ hotoshop.exe
 [2023-08-23 19:14:40] Blocking stopped
 [2023-08-23 21:37:23] Blocking has started
 [2023-08-23 21:38:23] Blocking stopped
+[2023-08-24 23:01:32] Blocking has started
+[2023-08-24 23:02:32] Blocking stopped
+[2023-08-24 23:20:54] Blocking has started
+[2023-08-24 23:21:54] Blocking stopped
+[2023-08-25 00:24:43] Blocking has started
+[2023-08-25 00:25:44] Blocking stopped
