@@ -5,18 +5,16 @@ import time
 import os
 import analys_work.activity as an
 import json
-from datetime import datetime
+import datetime
 import sys
 import win32gui
 import uiautomation as auto
-import uuid
 
 
 class Autotimer:
 
     def __init__(self):
-
-        self.session_id = str(uuid.uuid4())
+        
         self.active_window_name = ""
         self.activity_name = ""
         self.start_time = datetime.datetime.now()
@@ -84,6 +82,10 @@ class Autotimer:
             while self.analys_running:
                     self.previous_site = ""
                     new_window_name = self.get_active_window()
+
+                    #if sys.platform in ['Windows', 'win32', 'cygwin']:
+                    #    if 'Google Chrome' in new_window_name:
+                    #        new_window_name = self.get_chrome_url()
 
                     if active_window_name != new_window_name:
                         end_time = datetime.datetime.now()

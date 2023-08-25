@@ -1,98 +1,73 @@
 #this code was based on https://github.com/KalleHallden/AutoTimer
+
+
 import json
 from dateutil import parser
-import mysql.connector
+
 
 class AcitivyList:
-    def __init__(self, activities=[]):
+    def __init__(self, activities):
         self.activities = activities
-        self.db = DatabaseManager()
     
     def initialize_me(self):
-        self.activities = self.db.fetch_all_activities()
+        activity_list = AcitivyList([])
         with open('activities.json', 'r') as f:
             data = json.load(f)
-            for activity in data['activities']:
-                self.activities.append(
-                    Activity(
-                        name=activity['name'],
-                        time_entries=self.get_time_entires_from_json(activity)
-                    )
-                )
-        return self.activities
+            activity_list = AcitivyList(
+                activities = self.get_activities_from_json(data)
+            )
+        return activity_list
     
     def get_activities_from_json(self, data):
-        activities_list = []
+        return_list = []
         for activity in data['activities']:
-            activities_list.append(
+            return_list.append(
                 Activity(
-                    name=activity['name'],
-                    time_entries=self.get_time_entires_from_json(activity),
+                    name = activity['name'],
+                    time_entries = self.get_time_entires_from_json(activity),
                 )
             )
-        return activities_list
+        self.activities = return_list
+        return return_list
     
     def get_time_entires_from_json(self, data):
-        time_entries_list = []
+        return_list = []
         for entry in data['time_entries']:
-            time_entries_list.append(
+            return_list.append(
                 TimeEntry(
-                    start_time=parser.parse(entry['start_time']),
-                    end_time=parser.parse(entry['end_time']),
-                    hours=entry['hours'],
-                    minutes=entry['minutes'],
-                    seconds=entry['seconds'],
+                    start_time = parser.parse(entry['start_time']),
+                    end_time = parser.parse(entry['end_time']),
+                    days = entry['days'],
+                    hours = entry['hours'],
+                    minutes = entry['minutes'],
+                    seconds = entry['seconds'],
                 )
             )
-        return time_entries_list
+        self.time_entries = return_list
+        return return_list
     
     def serialize(self):
         return {
-            'activities': self.activities_to_json()
+            'activities' : self.activities_to_json()
         }
     
     def activities_to_json(self):
         activities_ = []
         for activity in self.activities:
             activities_.append(activity.serialize())
+        
         return activities_
 
-class DatabaseManager:
-    def __init__(self):
-        self.conn = mysql.connector.connect(
-            host="localhost",
-            user="root",
-            password="",          # Assuming no password for XAMPP's MySQL root user
-            database="productibeeadvanced"
-        )
-        self.cursor = self.conn.cursor()
-
-    def fetch_all_activities(self):
-        self.cursor.execute("SELECT * FROM sessionactivities")
-        return self.cursor.fetchall()
-
-    def insert_activity(self, user_id, session_id, app_name, time_spent):
-        sql = """
-        INSERT INTO sessionactivities (user_id, session_id, app_name, time_spent) 
-        VALUES (%s, %s, %s, %s)
-        """
-        values = (user_id, session_id, app_name, time_spent)
-        self.cursor.execute(sql, values)
-        self.conn.commit()
-
-    def close(self):
-        self.cursor.close()
-        self.conn.close()
 
 class Activity:
-    def __init__(self, name, time_entries=[]):
+    def __init__(self, name, time_entries):
         self.name = name
         self.time_entries = time_entries
 
     def serialize(self):
         return {
-            'name': self.name,
-            'time_entries': self.make_time_entires_to_json()
+            'name' : self.name,
+            'time_entries' : self.make_time_entires_to_json()
         }
     
     def make_time_entires_to_json(self):
@@ -100,6 +75,7 @@ class Activity:
         for time in self.time_entries:
             time_list.append(time.serialize())
         return time_list
+
 
 class TimeEntry:
     def __init__(self, start_time, end_time, hours, minutes, seconds):
