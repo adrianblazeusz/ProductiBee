@@ -4,46 +4,32 @@
             "name": "",
             "time_entries": [
                 {
-                    "end_time": "2023-08-23 21:37:23",
+                    "end_time": "2023-08-26 18:01:43",
                     "hours": 0,
                     "minutes": 0,
                     "seconds": 0,
-                    "start_time": "2023-08-23 21:37:23"
+                    "start_time": "2023-08-26 18:01:43"
                 },
                 {
-                    "end_time": "2023-08-23 21:37:26",
+                    "end_time": "2023-08-26 18:01:51",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 3,
+                    "start_time": "2023-08-26 18:01:48"
+                },
+                {
+                    "end_time": "2023-08-26 18:02:04",
                     "hours": 0,
                     "minutes": 0,
                     "seconds": 1,
-                    "start_time": "2023-08-23 21:37:25"
+                    "start_time": "2023-08-26 18:02:03"
                 },
                 {
-                    "end_time": "2023-08-23 21:37:28",
+                    "end_time": "2023-08-26 18:02:07",
                     "hours": 0,
                     "minutes": 0,
                     "seconds": 1,
-                    "start_time": "2023-08-23 21:37:27"
-                },
-                {
-                    "end_time": "2023-08-23 21:37:37",
-                    "hours": 0,
-                    "minutes": 0,
-                    "seconds": 1,
-                    "start_time": "2023-08-23 21:37:36"
-                },
-                {
-                    "end_time": "2023-08-23 21:37:50",
-                    "hours": 0,
-                    "minutes": 0,
-                    "seconds": 1,
-                    "start_time": "2023-08-23 21:37:49"
-                },
-                {
-                    "end_time": "2023-08-23 21:38:04",
-                    "hours": 0,
-                    "minutes": 0,
-                    "seconds": 1,
-                    "start_time": "2023-08-23 21:38:03"
+                    "start_time": "2023-08-26 18:02:06"
                 }
             ]
         },
@@ -51,30 +37,44 @@
             "name": "ProductiBee",
             "time_entries": [
                 {
-                    "end_time": "2023-08-23 21:37:25",
+                    "end_time": "2023-08-26 18:01:45",
                     "hours": 0,
                     "minutes": 0,
                     "seconds": 1,
-                    "start_time": "2023-08-23 21:37:23"
+                    "start_time": "2023-08-26 18:01:43"
+                },
+                {
+                    "end_time": "2023-08-26 18:01:48",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 2,
+                    "start_time": "2023-08-26 18:01:46"
+                },
+                {
+                    "end_time": "2023-08-26 18:02:06",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 2,
+                    "start_time": "2023-08-26 18:02:04"
+                },
+                {
+                    "end_time": "2023-08-26 18:02:12",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 4,
+                    "start_time": "2023-08-26 18:02:07"
                 }
             ]
         },
         {
-            "name": "C:\\Users\\asus\\Desktop\\ProductiBee\\venv\\Scripts\\python.exe",
+            "name": "Visual Studio Code [Administrator]",
             "time_entries": [
                 {
-                    "end_time": "2023-08-23 21:37:27",
+                    "end_time": "2023-08-26 18:01:46",
                     "hours": 0,
                     "minutes": 0,
                     "seconds": 1,
-                    "start_time": "2023-08-23 21:37:26"
-                },
-                {
-                    "end_time": "2023-08-23 21:37:38",
-                    "hours": 0,
-                    "minutes": 0,
-                    "seconds": 1,
-                    "start_time": "2023-08-23 21:37:37"
+                    "start_time": "2023-08-26 18:01:45"
                 }
             ]
         },
@@ -82,56 +82,44 @@
             "name": "Opera",
             "time_entries": [
                 {
-                    "end_time": "2023-08-23 21:37:36",
+                    "end_time": "2023-08-26 18:01:55",
                     "hours": 0,
                     "minutes": 0,
-                    "seconds": 7,
-                    "start_time": "2023-08-23 21:37:28"
+                    "seconds": 4,
+                    "start_time": "2023-08-26 18:01:51"
                 },
                 {
-                    "end_time": "2023-08-23 21:37:51",
+                    "end_time": "2023-08-26 18:01:56",
                     "hours": 0,
                     "minutes": 0,
                     "seconds": 1,
-                    "start_time": "2023-08-23 21:37:50"
+                    "start_time": "2023-08-26 18:01:55"
                 },
                 {
-                    "end_time": "2023-08-23 21:38:03",
+                    "end_time": "2023-08-26 18:01:59",
                     "hours": 0,
                     "minutes": 0,
-                    "seconds": 8,
-                    "start_time": "2023-08-23 21:37:54"
+                    "seconds": 3,
+                    "start_time": "2023-08-26 18:01:56"
+                },
+                {
+                    "end_time": "2023-08-26 18:02:03",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 3,
+                    "start_time": "2023-08-26 18:01:59"
                 }
             ]
         },
         {
-            "name": "Visual Studio Code",
+            "name": "/usr/bin/bash --login -i",
             "time_entries": [
                 {
-                    "end_time": "2023-08-23 21:37:39",
+                    "end_time": "2023-08-26 18:02:13",
                     "hours": 0,
                     "minutes": 0,
                     "seconds": 1,
-                    "start_time": "2023-08-23 21:37:38"
-                },
-                {
-                    "end_time": "2023-08-23 21:37:49",
-                    "hours": 0,
-                    "minutes": 0,
-                    "seconds": 9,
-                    "start_time": "2023-08-23 21:37:39"
-                }
-            ]
-        },
-        {
-            "name": "YouTube \u2013 Opera",
-            "time_entries": [
-                {
-                    "end_time": "2023-08-23 21:37:54",
-                    "hours": 0,
-                    "minutes": 0,
-                    "seconds": 2,
-                    "start_time": "2023-08-23 21:37:51"
+                    "start_time": "2023-08-26 18:02:12"
                 }
             ]
         }

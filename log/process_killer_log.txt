@@ -663,3 +663,5 @@ hotoshop.exe
 [2023-08-24 23:21:54] Blocking stopped
 [2023-08-25 00:24:43] Blocking has started
 [2023-08-25 00:25:44] Blocking stopped
+[2023-08-26 18:01:43] Blocking has started
+[2023-08-26 18:01:48] Successfully blocked Photoshop.exe
