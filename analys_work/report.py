@@ -1,8 +1,12 @@
 import json
 from datetime import timedelta
 import os
+import mysql.connector
+
 
 class Report:
+    def __init__(self):
+        self.id_timera = None
      
     def __init__(self, json_filename=None):
             self.json_directory = "analys_work/json"
@@ -45,6 +49,27 @@ class Report:
         for activity, time in activity_times.items():
             total_time_str = str(time)
             print("end", f"{activity}: {total_time_str}{separator}")
+
+            
+    def insert_into_database(self, id_timera, app_name, time):
+        config = {
+            'user': 'root',
+            'password': '',
+            'host': 'localhost',
+            'database': 'productibeeadvanced',
+            'raise_on_warnings': True
+        }
+        
+
+        cnx = mysql.connector.connect(**config)
+        cursor = cnx.cursor()
+
+
+        add_data = ("INSERT INTO YOUR_TABLE_NAME "
+                    "(id_timera, app_name, time) "
+                    "VALUES (%s, %s, %s)")
+        data = (id_timera, app_name, time)
+        cursor.execute(add_data, data)
 
 if __name__ == "__main__":
     repo = Report()

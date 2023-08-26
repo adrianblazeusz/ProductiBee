@@ -1,13 +1,12 @@
 #this code was based on https://github.com/KalleHallden/AutoTimer
-
-
+import datetime
 import json
 from dateutil import parser
-
 
 class AcitivyList:
     def __init__(self, activities):
         self.activities = activities
+        self.id = self.generate_unique_id()
     
     def initialize_me(self):
         activity_list = AcitivyList([])
@@ -17,6 +16,10 @@ class AcitivyList:
                 activities = self.get_activities_from_json(data)
             )
         return activity_list
+    
+    def generate_unique_id(self):
+        current_time = datetime.datetime.now()
+        return current_time.strftime('%y-%m-%d-%H-%M')
     
     def get_activities_from_json(self, data):
         return_list = []
@@ -48,6 +51,7 @@ class AcitivyList:
     
     def serialize(self):
         return {
+            'id_timera' : self.id,
             'activities' : self.activities_to_json()
         }
     
@@ -55,9 +59,7 @@ class AcitivyList:
         activities_ = []
         for activity in self.activities:
             activities_.append(activity.serialize())
-        
         return activities_
-
 
 class Activity:
     def __init__(self, name, time_entries):
@@ -75,7 +77,6 @@ class Activity:
         for time in self.time_entries:
             time_list.append(time.serialize())
         return time_list
-
 
 class TimeEntry:
     def __init__(self, start_time, end_time, hours, minutes, seconds):
