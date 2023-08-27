@@ -364,10 +364,9 @@ class App(customtkinter.CTk):
                 self.stop_timer_event()
 
                 # Generate and display the report
-                activity_times = self.repo.report()
-                self.display_report(activity_times)  
-                for app_name, time in activity_times.items():
-                    self.repo.insert_into_database(self.repo.id_timera, app_name, time)
+                id_timera, activity_times_dict = self.repo.report()
+                self.display_report(activity_times_dict)
+                self.repo.insert_into_database(id_timera, activity_times_dict)
 
             self.json_m.set_active(False)
             self.json_m.save_state()
