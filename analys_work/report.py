@@ -1,34 +1,24 @@
 import json
 from datetime import timedelta
-import os
 import mysql.connector
 
-
 class Report:
-    def __init__(self):
-        self.id_timera = None
      
-    def __init__(self, json_filename=None):
-            self.json_directory = "analys_work/json"
-            self.json_filename = os.path.join(self.json_directory, 'activities.json')
-            self.activity_times = {}
+    def __init__(self, json_filename="analys_work/json/activities.json"):
+        self.json_filename = json_filename
 
     def load_data(self):
         with open(self.json_filename, 'r') as json_file:
-            self.data = json.load(json_file)
+            return json.load(json_file)
 
     def report(self):
-        self.load_data()  # Load the latest data from the JSON file
+        data = self.load_data()
         activity_times = {}
-
-        for activity in self.data['activities']:
+        for activity in data['activities']:
             activity_name = activity['name']
-
-            if activity_name == "" or "\\" in activity_name or activity_name == "ProductiBee":
+            if activity_name in ["", "ProductiBee"] or "\\\\" in activity_name:
                 continue
-
             total_time = timedelta()
-
             for entry in activity['time_entries']:
                 time_entry = timedelta(
                     hours=entry['hours'],
@@ -36,22 +26,12 @@ class Report:
                     seconds=entry['seconds']
                 )
                 total_time += time_entry
-
             if total_time.total_seconds() >= 3:
                 activity_times[activity_name] = total_time
+        id_timera = data.get('id_timera', None)
+        return id_timera, activity_times
 
-        return activity_times
-    
-    def display_report(self, activity_times):
-        separator = "\n-----------------------------------------------\n"
-
-
-        for activity, time in activity_times.items():
-            total_time_str = str(time)
-            print("end", f"{activity}: {total_time_str}{separator}")
-
-            
-    def insert_into_database(self, id_timera, app_name, time):
+    def insert_into_database(self, id_timera, activity_times):
         config = {
             'user': 'root',
             'password': '',
@@ -59,21 +39,26 @@ class Report:
             'database': 'productibeeadvanced',
             'raise_on_warnings': True
         }
-        
 
-        cnx = mysql.connector.connect(**config)
-        cursor = cnx.cursor()
+        try:
+            with mysql.connector.connect(**config) as cnx:
+                cursor = cnx.cursor()
 
+                for app_name, time_duration in activity_times.items():
+                    # Convert time duration to total seconds
+                    total_seconds = time_duration.total_seconds()
 
-        add_data = ("INSERT INTO YOUR_TABLE_NAME "
-                    "(id_timera, app_name, time) "
-                    "VALUES (%s, %s, %s)")
-        data = (id_timera, app_name, time)
-        cursor.execute(add_data, data)
+                    add_data = ("INSERT INTO sessionactivities "
+                                "(id_timera, app_name, time) "
+                                "VALUES (%s, %s, %s)")
+                    data = (id_timera, app_name, total_seconds)
+                    cursor.execute(add_data, data)
 
-if __name__ == "__main__":
-    repo = Report()
-    activity_times = repo.report()
-    print(activity_times)
-    disp = repo.display_report(activity_times)
-    print(disp)
+                # Commit the transaction
+                cnx.commit()
+
+        except mysql.connector.Error as err:
+            print(f"Error: {err}")
+            return False
+
+        return True
