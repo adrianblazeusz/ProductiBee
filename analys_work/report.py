@@ -2,7 +2,10 @@ import json
 from datetime import timedelta
 import mysql.connector
 
-class Report:
+class Report:"""
+class create for convering .json in to report for app
+"""
+
      
     def __init__(self, json_filename="analys_work/json/activities.json"):
         self.json_filename = json_filename
