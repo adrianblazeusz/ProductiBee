@@ -18,8 +18,11 @@ class JSONManager:
             }
 
     def save_state(self):
-        with open(self.state_file, "w") as f:
-            json.dump(self.state, f)
+        try:
+            with open(self.state_file, "w") as f:
+                json.dump(self.state, f)
+        except Exception as e:
+            print(f"Error saving state: {e}")
 
     def set_active(self, active):
         self.state["active"] = active
